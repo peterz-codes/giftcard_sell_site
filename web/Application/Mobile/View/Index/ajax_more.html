@@ -1,0 +1,20 @@
+
+<volist name="Article_list" id="vo" >
+    <li class="mui-table-view-cell ">
+        <a class="mui-navigate-right" data-url="{$vo.id}" >
+            <div class="mui-media-body">
+                {$vo.name}
+                <p>{$vo.add_time|time_format}</p>
+            </div>
+        </a>
+    </li>
+</volist>
+<input type="hidden" value="{$page}" class="load_page">
+<input type="hidden" value="{$max_page}" class="load_page_max">
+<script>
+    $('#content li a').on('tap',function () {
+        var article_id = $(this).attr('data-url');
+        console.log(article_id);
+        window.location.href='<?php echo U("Mobile/Index/detail");?>?article_id='+article_id;
+    });
+</script>

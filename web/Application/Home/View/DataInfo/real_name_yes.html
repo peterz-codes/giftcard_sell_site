@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title - www.ohbbs.cn 欧皇源码论坛 </title>
+    <link rel="stylesheet" href="__HOME__/css/indet_pc.css?v=<?php echo time() //测试阶段, 防止缓存, 正式发布时请去掉 ?>">
+    <link rel="stylesheet" href="__HOME__/css/base.css?v=<?php echo time() //测试阶段, 防止缓存, 正式发布时请去掉 ?>">
+</head>
+<body>
+<div class="indet">
+    <div class="indet-waring">
+        <i><img src="__HOME__/images/icon_waring.png" alt=""></i>
+        <if condition="$user_info.is_permission eq 1 ">
+        <h1>您已经通过实名身份认证</h1>
+            <elseif condition="$user_info.is_permission eq 2 "/>
+            <h1>您实名身份认证正在审核中</h1>
+        <else />
+        <h1>您还未进行实名身份认证，请填写以下信息进行认证。</h1>
+        </if>
+        <p>实名认证：是由百分百收卡网提供的臆想身份识别服务，只有实名认证之后才可进行提现操作。</p>
+    </div>
+    <div class="indet-box">
+        <div class="indet-put">
+            <div class="input-group cf">
+                <div class="input-name fl">
+                    <label class="input-name"><span class="c-org">*</span>真实姓名：</label>
+                </div>
+                <div class="input-right name-input fl">
+                    <input type="text"  placeholder="请输入真实姓名"  name="real_name" id="real_name" value="{$user_info.name}" disabled>
+                    <!--<span>请输入与身份证一致的姓名</span>-->
+                </div>
+            </div>
+            <div class="input-group cf">
+                <div class="input-name fl">
+                    <label class="input-name"><span class="c-org">*</span>身份证号码：</label>
+                </div>
+                <div class="input-right id-input fl">
+                    <input type="text" placeholder="请输入身份证号" name="Id_card" id="Id_card" value="{$user_info.id_card}" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="indet-up cf">
+            <div class="indet-title cf">
+                <div class="input-name fl">
+                    <p class="input-name"><span class="c-org">*</span>证件图片：</p>
+                </div>
+                <div class="input-right id-input fl">
+                    <p>照片支持jpg、gif、bmp、png格式，图片最大不超过5M</p>
+                </div>
+            </div>
+            <div class="up cf">
+                <div class="up-left up-bor fl">
+                    <div class="up-title">
+                        <h1>身份证人像面照</h1>
+                        <p>需要能看清姓名、身份证号码等信息。</p>
+                    </div>
+                    <div class="up-box cf">
+                        <div class="img-left fl">
+                            <div class="up-img">
+                            
+                                  <img src="{$user_info.id_card_phone_upon}" alt="暂无图片"  id="img_1" style="width:100%;height: 100%; " onerror="javascript:this.src='__HOME__/images/publish_rentout_icon_uploadpic.png';"/>
+                            </div>
+                            <!--<button class="up-btn" id="btnUpload">上传图片</button>-->
+                        </div>
+                          <input type="hidden" value="{$user_info.id_card_phone_upon}" name="id_card_phone_upon" id="img1" />
+                        <div class="img-right fr">
+                            <div class="exam-img" id="exam-img1">
+                                <img src="__HOME__/images/identity-front.png" alt=""  >
+                            </div>
+                            <p>示例</p>
+                            <div class="exam-bomb" id="exam-bomb1">
+                                <img src="__HOME__/images/idcard0.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="up-left fl">
+                    <div class="up-title">
+                        <h1>身份证国徽面照</h1>
+                        <p>需要看清签发机关、有效期限等信息</p>
+                    </div>
+                    <div class="up-box cf">
+                        <div class="img-left fl">
+                            <div class="up-img">
+                                <img src="{$user_info.id_card_phone_down}" alt="暂无图片"  id="img_2" style="width:100%;height: 100%; " onerror="javascript:this.src='__HOME__/images/publish_rentout_icon_uploadpic.png';"/>
+                            </div>
+                            <!--<button class="up-btn" id="btnUpload2">上传图片</button>-->
+                        </div>
+                        <input type="hidden" value="{$user_info.id_card_phone_down}" name="id_card_phone_down" id="img2" />
+                        <div class="img-right fr">
+                            <div class="exam-img" id="exam-img2">
+                                <img src="__HOME__/images/identity-back.png" alt=""  onerror="javascript:this.src='__HOME__/images/publish_rentout_icon_uploadpic.png';">
+                            </div>
+                            <p>示例</p>
+                            <div class="exam-bomb" id="exam-bomb2">
+                                <img src="__HOME__/images/idcard1.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="indet-up cf">
+            <div class="indet-title cf">
+                <div class="input-name fl">
+                    <p class="input-name"><span class="c-org">*</span>头部照片：</p>
+                </div>
+                <div class="input-right id-input fl">
+                    <p>照片支持jpg、gif、bmp、png格式，图片最大不超过5M</p>
+                </div>
+            </div>
+            <div class="up cf">
+                <div class="up-left up-bor fl">
+                    <div class="up-title">
+                        <h1>手持身份证头部照</h1>
+                    </div>
+                    <div class="up-box cf">
+                        <div class="img-left fl">
+                            <div class="up-img">
+                                  <img src="{$user_info.id_card_phone_hold}" alt="暂无图片"  id="img_3" style="width:100%;height: 100%; " onerror="javascript:this.src='/Application/Home/Static/images/publish_rentout_icon_uploadpic.png';"/>
+                            </div>
+                            <!--<button class="up-btn" id="btnUpload3">上传图片</button>-->
+                        </div>
+                        <input type="hidden" value="{$user_info.id_card_phone_hold}" name="id_card_phone_hold" id="img3" />
+                        <div class="img-right fr">
+                            <div class="exam-img" id="exam-img3">
+                                <img src="__HOME__/images/identity-hand.png" alt="">
+                            </div>
+                            <p>示例</p>
+                            <div class="exam-bomb" id="exam-bomb3">
+                                <img src="__HOME__/images/idcard2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="up-left fl">
+                    <div class="up-text">
+                        <p>1.照片内所持身份证必须在有效期内，没有作假痕迹；</p>
+                        <p>2.照片内所持身份证正面，信息清晰课件，无遮挡；</p>
+                        <p>3.照片内持证人无关清晰可见，且五官必须与身份证上照片一致；</p>
+                        <p>4.还必须与实名认证的各项身份信息一致，包括真实姓名、身份证号等</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!--<div class="btn-list">-->
+         <!--<div class="notice">请上传清晰的身份证正反面照片及手持身份证头部照,并确保认证姓名和提现帐号姓名一致否则提现不能到账</div>-->
+            <!--<div class="list-inbox cf">-->
+                <!--<button class="up-btnn" id="submit" type="submit" style="margin: 24px 80px 0px 180px;">确定提交</button>-->
+            <!--</div>-->
+        <!--</div>-->
+</div>
+
+<!-- Initialize Swiper -->
+
+<script src="__HOME__/js/jquery-3.1.1.min.js"></script>
+<script src="__PUBLIC__/toastr/toastr.js"></script>
+<script type="text/javascript" charset="utf-8" src="__HOME__/js/ajaxupload.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#exam-img1").mouseover(function(){
+            $("#exam-bomb1").fadeIn("slow");
+        });
+        $("#exam-img1").mouseleave(function(){
+            $("#exam-bomb1").hide();
+        });
+
+        $("#exam-img2").mouseover(function(){
+            $("#exam-bomb2").fadeIn("slow");
+        });
+        $("#exam-img2").mouseleave(function(){
+            $("#exam-bomb2").hide();
+        });
+
+        $("#exam-img3").mouseover(function(){
+            $("#exam-bomb3").fadeIn("slow");
+        });
+        $("#exam-img3").mouseleave(function(){
+            $("#exam-bomb3").hide();
+        });
+    });
+    parent.GetIframeStatus();
+</script>
+<script>
+//  ajaxUpload('#btnUpload', "#img1", 'User', 1);
+// ajaxUpload('#btnUpload2', "#img2", 'User', 2);
+// ajaxUpload('#btnUpload3', "#img3", 'User', 3);
+    // $('.IDcard-img-positive').on('click',function () {
+    //     ajaxUpload('#btnUpload', "#img1", 'User', 1);
+    // });
+    // $('.IDcard-img-negative').on('click',function () {
+    //     ajaxUpload('#btnUpload2', "#img2", 'User', 2);
+       
+    // });
+
+
+
+    $('#submit').click(function () {
+        var real_name = $('#real_name').val();
+        var Id_card = $('#Id_card').val();
+        var id_card_phone_upon = $('#img1').val();
+        var id_card_phone_down = $('#img2').val();
+        var id_card_phone_hold = $('#img3').val();
+
+        if(real_name == ''){
+            alert('请填写姓名！');
+            return false;
+        }
+        if(Id_card == ''){
+            alert("请输入你的身份证号码！");
+            return false;
+        }else{
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+            if(reg.test(Id_card) === false){
+                alert("身份证输入不合法！");
+                return false;
+            }
+        }
+
+        if(id_card_phone_upon == ''){
+            alert('请输上传身份证正面照片！');
+            return false;
+        }
+        if(id_card_phone_down == ''){
+            alert('请输上传身份证反面照片！');
+            return false;
+        }
+        if(id_card_phone_hold == ''){
+            alert('请输上传手持身份证照片！');
+            return false;
+        }
+
+        $.ajax({
+            type:"post",
+            data:{real_name:real_name,id_card:Id_card,id_card_phone_upon:id_card_phone_upon,id_card_phone_down:id_card_phone_down,id_card_phone_hold:id_card_phone_hold},
+            url:"{:U('Home/DataInfo/authentication')}",
+            success:function(data){
+                if(data.status == -1){
+                    alert(data.info);
+                    return false;
+                }else{
+                    alert(data.info);
+                    var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                    parent.layer.close(index);
+                    parent.location.reload(); // 父页面刷新
+                    window.location.reload();
+                }
+            }
+        })
+    });
+    <!--上传-->
+    function ajaxUpload(btnUpload, inputImg, savePath, item){
+        var UPLOAD_IMG_URL = "{:U('Public/uploadImg')}"; // 默认上传图片地址
+        var filename = ""; // 旧文件的文件名
+        var oldImg = $(inputImg).val();
+        if($.trim(oldImg) != "" && oldImg.indexOf('/') != -1){
+            var arr = oldImg.split('/');
+            var file = arr[arr.length - 1];
+            filename = file.split('.')[0];
+        }
+        if(!savePath) savePath = "";  // 要存放的路径
+        new AjaxUpload($(btnUpload), {
+            action: UPLOAD_IMG_URL,
+            name: 'photo',   //这相当于<input type = "file" name = "photo"/>
+            data:{},  //附加参数值
+            dataType : 'text',
+            onSubmit : function(file, ext){
+                if(!(ext && /^(jpg|png|gif|jpeg)$/.test(ext.toLowerCase()))){
+                    toastr.error('图片格式不支持, 请上传jpg, png, gif, jpeg格式图片');
+                    return false;
+                }
+                this.setData({'oldImg':filename, 'savePath':savePath});
+                this.disable();
+            },
+            onComplete: function(file, response){
+                json = $.parseJSON($(response).text());
+                if(json['status'] == true || json['status'] == 1 || json['status'].toString() == '1'){
+                    $("#img_" + item).attr('src', json['src'] + "?" + Math.random()).show();
+                    $("#img" + item).val(json['src']);
+                }else{
+                    toastr.error(json['msg'])
+                }
+                this.enable();
+            }
+        });
+    }
+ parent.parent.$('.user-sub-nav-floor').removeClass("nav-select");
+ parent.parent.$('.floor-phone').addClass("nav-select");
+ // parent.parent. $("#iframe-page-content").attr("src", p_address);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" href="__HOME__/css/account_center.css">
+</block>
+<block name="body">
+    <div class="outbox">
+        <div class="inbox">
+            <div class="type-list cf">
+                <a class="type-item fl on">卖卡22记录</a>
+            </div>
+            <div class="column">
+                <div class="col-item cf">
+                    <div class="img-box fl">
+                        <img src="__HOME__/images/accoicon1.png" alt="">
+                    </div>
+                    <div class="info fl">
+                        <h5>账户余额 <span>{$user_info['balance']}元</span></h5>
+                        <h6>使用支付宝体现</h6>
+                    </div>
+                    <a class="btn-link undone fr sqtx-btn">申请提现</a>
+                </div>
+                <div class="col-item cf">
+                    <div class="img-box fl">
+                        <img src="__HOME__/images/accoicon2.png" alt="">
+                    </div>
+                    <div class="info fl">
+                        <h5>提现记录</h5>
+                        <h6>查看历史提现记录</h6>
+                    </div>
+                    <a class="btn-link undone fr">立即查看</a>
+                </div>
+            </div>
+            <div class="column">
+                <div class="col-item cf">
+                    <div class="img-box fl">
+                        <img src="__HOME__/images/accoicon3.png" alt="">
+                    </div>
+                    <div class="info fl">
+                        <h5>手机号</h5>
+                        <h6>已使用132******123注册</h6>
+                    </div>
+                    <a class="btn-link undone wjmm-btn  fr">修改密码</a>
+                </div>
+                <div class="col-item cf">
+                    <div class="img-box fl">
+                        <img src="__HOME__/images/accoicon4.png" alt="">
+                    </div>
+                    <div class="info fl">
+                        <h5>支付密码</h5>
+                        <h6>暂未设置</h6>
+                    </div>
+                    <a class="btn-link undone zfmm-btn fr">设置密码</a>
+                </div>
+                <div class="col-item cf">
+                    <div class="img-box fl">
+                        <img src="__HOME__/images/accoicon5.png" alt="">
+                    </div>
+                    <div class="info fl">
+                        <h5>实名认证</h5>
+                        <h6>暂未实名认证</h6>
+                    </div>
+                    <a class="btn-link undone fr smrz-btn">立即认证</a>
+                </div>
+                <div class="col-item cf">
+                    <div class="img-box fl">
+                        <img src="__HOME__/images/accoicon6.png" alt="">
+                    </div>
+                    <div class="info fl">
+                        <h5>邮箱</h5>
+                        <h6>未绑定邮箱</h6>
+                    </div>
+                    <a class="btn-link undone fr">去绑定</a>
+                </div>
+                <div class="col-item cf">
+                    <div class="img-box fl">
+                        <img src="./images/accoicon7.png" alt="">
+                    </div>
+                    <div class="info fl">
+                        <h5>微信</h5>
+                        <h6>已使用微信号02057qq.com绑定</h6>
+                    </div>
+                    <span class="btn-link done fr">已绑定</span>
+                </div>
+                <div class="col-item cf">
+                    <div class="img-box fl">
+                        <img src="__HOME__/images/accoicon8.png" alt="">
+                    </div>
+                    <div class="info fl">
+                        <h5>QQ号</h5>
+                        <h6>已使用QQ123****453绑定</h6>
+                    </div>
+                    <a class="btn-link done fr">已绑定</a>
+                </div>
+            </div>
+            <div class="column">
+                <div class="col-item cf">
+                    <div class="img-box fl">
+                        <img src="__HOME__/images/accoicon9.png" alt="">
+                    </div>
+                    <div class="info fl">
+                        <h5>地址</h5>
+                        <h6>山东省 青岛市 胶州市 福州南路东侧首尔小镇 ***小区 (张三 收)      13853914058</h6>
+                    </div>
+                    <a class="btn-link undone tjdz-btn fr">添加地址</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--实名认证-->
+    <div class="bkdrop smrz">
+        <div class="form-box">
+            <div class="title">实名认证</div>
+            <form class="inp-group">
+                <div class="inp-row cf">
+                    <label class="fl">姓名</label>
+                    <input type="text" placeholder="请输入真实姓名">
+                </div>
+                <div class="inp-row cf">
+                    <label class="fl">身份证号</label>
+                    <input type="text" placeholder="请输入身份证号">
+                </div>
+                <div class="inp-row">
+                    <button class="upload">+</button>
+                    <p>请上传清晰的身份证正面照片</p>
+                </div>
+                <div class="inp-row">
+                    <button class="upload">+</button>
+                    <p>请上传清晰的身份证反面照片</p>
+                </div>
+            </form>
+            <div class="btn-list">
+                <div class="list-inbox cf">
+                    <button class="confirm sel-btn fl">确定</button>
+                    <button class="close sel-btn fl">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--设置支付密码-->
+    <div class="bkdrop zfmm">
+        <div class="form-box">
+            <div class="title">设置支付密码</div>
+            <form class="inp-group">
+                <div class="inbox">
+                    <div class="inp-row cf">
+                        <input type="text" placeholder="请输入手机号">
+                    </div>
+                    <div class="inp-row cf">
+                        <input class="getcode fl" type="text" placeholder="请输入验证码">
+                        <span class="fl">已发送三十秒</span>
+                    </div>
+                    <div class="inp-row cf">
+                        <input type="text" placeholder="请输入新密码">
+                    </div>
+                    <div class="inp-row cf">
+                        <input type="text" placeholder="请再次输入新密码">
+                    </div>
+                </div>
+            </form>
+            <div class="btn-list">
+                <div class="list-inbox cf">
+                    <button class="confirm sel-btn fl">确定</button>
+                    <button class="close sel-btn fl">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--提现申请-->
+    <div class="bkdrop sqtx">
+        <div class="form-box">
+            <div class="title">申请提现</div>
+            <form class="inp-group">
+                <div class="inbox">
+                    <div class="inp-row cf">
+                        <input type="text" value="{$default_alipay}" placeholder="请输入支付宝帐号">
+                    </div>
+
+                    <div class="inp-row cf">
+                        <input type="text" placeholder="提现金额">
+                    </div>
+
+                </div>
+            </form>
+            <div class="btn-list">
+                <div class="list-inbox cf">
+                    <button class="confirm sel-btn fl">确定</button>
+                    <button class="close sel-btn fl">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--忘记密码 密码-->
+    <div class="bkdrop wjmm">
+        <div class="form-box">
+            <div class="title">忘记密码</div>
+            <form class="inp-group">
+                <div class="inbox">
+                    <div class="inp-row cf">
+                        <input type="text" placeholder="请输入手机号">
+                    </div>
+                    <div class="inp-row cf">
+                        <input class="getcode fl" type="text" placeholder="请输入验证码">
+                        <span class="fl">已发送三十秒</span>
+                    </div>
+                    <div class="inp-row cf">
+                        <input type="text" placeholder="请输入新密码">
+                    </div>
+                    <div class="inp-row cf">
+                        <input type="text" placeholder="请再次输入新密码">
+                    </div>
+                </div>
+            </form>
+            <div class="btn-list">
+                <div class="list-inbox cf">
+                    <button class="confirm sel-btn fl">确定</button>
+                    <button class="close sel-btn fl">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--添加地址-->
+    <div class="bkdrop tjdz">
+        <div class="form-box">
+            <div class="title">添加地址</div>
+            <form class="inp-group">
+                <div class="inp-row cf">
+                    <label class="fl">收货人姓名</label>
+                    <input type="text" placeholder="请输入真实姓名">
+                </div>
+                <div class="inp-row cf">
+                    <label class="fl">所在地址</label>
+                    <div class="info fl cf">
+                        <div class="fl sel-box">
+                            <select id="s_province" name="s_province"></select>  
+                            <span></span>
+                        </div>
+                        <p class="fl">省</p>
+                        <div class="fl sel-box">
+                            <select id="s_city" name="s_city" ></select>  
+                            <span></span>
+                        </div>
+                        <p class="fl">市</p>
+                        <div class="fl sel-box">
+                            <select id="s_county" name="s_county"></select>
+                            <span></span>
+                        </div>
+                        <p class="fl">区</p>
+                        <div id="show"></div>
+
+                    </div>
+                </div>
+                <div class="inp-row cf">
+                    <label class="fl">详细地址</label>
+                    <input type="text" >
+                </div>
+                <div class="inp-row cf">
+                    <label class="fl">联系电话</label>
+                    <input type="text">
+                </div>
+            </form>
+            <div class="btn-list">
+                <div class="list-inbox cf">
+                    <button class="confirm sel-btn fl">确定</button>
+                    <button class="close sel-btn fl">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__HOME__/js/jquery-3.1.1.min.js"></script>
+    <script>
+//        实名认证
+        $(".smrz-btn").click(function () {
+            $(".smrz").show()
+        })
+        $(".sel-btn").click(function () {
+            $(".bkdrop").hide()
+        })
+
+$(".sqtx-btn").click(function () {
+    $(".sqtx").show()
+})
+//        设置支付密码
+        $(".zfmm-btn").click(function () {
+            $(".zfmm").show()
+        })
+        $(".sel-btn").click(function () {
+            $(".bkdrop").hide()
+        })
+//        忘记密码
+        $(".wjmm-btn").click(function () {
+            $(".wjmm").show()
+        })
+        $(".sel-btn").click(function () {
+            $(".bkdrop").hide()
+        })
+        //        添加地址
+        $(".tjdz-btn").click(function () {
+            $(".tjdz").show()
+        })
+        $(".sel-btn").click(function () {
+            $(".bkdrop").hide()
+        })
+    </script>
+    <script class="resources library" src="./js/area.js" type="text/javascript"></script>
+    <script type="text/javascript">_init_area();</script>
+    <script type="text/javascript">
+
+        var Gid  = document.getElementById ;
+
+        var showArea = function(){
+
+            Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" +
+
+                Gid('s_city').value + " - 县/区" +
+
+                Gid('s_county').value + "</h3>"
+
+        }
+
+        Gid('s_county').setAttribute('onchange','showArea()');
+
+    </script>
+</block>
+<block name="script">
+    <script>
+
+    </script>
+</block>

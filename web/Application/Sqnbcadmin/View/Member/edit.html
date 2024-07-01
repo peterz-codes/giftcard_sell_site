@@ -1,0 +1,174 @@
+<extend name="Public/base"/>
+<block name="body">
+	<div class="tw-layout">
+		<div class="tw-list-hd">
+			{:isset($info['id'])?'编辑':'新增'}用户
+		</div>
+		<form action="{:U()}" method="post" class="ajaxForm">
+			<div class="tw-list-wrap tw-edit-wrap">
+	            <table class="wf-form-table">
+	                <colgroup>
+	                    <col width="15%">
+	                    <col width="35%">
+	                    <col width="15%">
+	                    <col width="35%">
+	                </colgroup>
+	                <tbody>
+	        			<tr>
+	                        <th><em>*</em>用户名:</th>
+	                        <td>
+	                            <input type="text" class="text input-5x" name="username" value="{$info['username']}" placeholder="4-20位字母或数字, 首字符必须为字母" id="username"
+		                            <if condition="$info.id gt 0">
+		                            	disabled="disabled" readonly="true"
+		                            </if> >
+	                        </td>
+	                        <th><em>*</em>用户昵称:</th>
+	                        <td>
+	                            <input type="text" class="text input-5x" name="usernick" value="{$info['usernick']}" placeholder="用户昵称">
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <th><em>*</em>手机号:</th>
+	                        <td>
+	                            <input type="text" class="text input-5x" name="phone" value="{$info['phone']}" placeholder="11位手机号码, 可用于登录">
+	                        </td>
+	                        <th>电子邮箱:</th>
+	                        <td>
+	                            <input type="text" class="text input-5x" name="email" value="{$info['email']}" placeholder="用户电子邮箱">
+	                        </td>
+	                    </tr>
+						<empty name="info" >
+							<tr>
+								<th>
+									<if condition="$info['id'] ELT 0"><em>*</em></if>登录密码:
+								</th>
+								<td>
+									<input type="password" class="text input-5x" name="password" value=""
+										placeholder = "<if condition='$info.id ELT 0' >用户登录密码, 4位及以上<else />如果不修改, 请留空(4位以上字符)</if>">
+								</td>
+								<th>
+									<if condition="$info['id'] ELT 0"><em>*</em></if>确认登录密码:
+								</th>
+								<td>
+									<input type="password" class="text input-5x" name="re_password" value="" placeholder="再次输入登录密码">
+								</td>
+							</tr>
+						</empty>
+	                    <tr>
+		        			<th>性别:</th>
+	                        <td>
+		                        <label class="wf-form-label-rc">
+	                            	<input type="radio" value="1" name='sex' checked="checked" id="isMan" > 男
+	                            </label>
+	                            <label class="wf-form-label-rc">
+		                            <input type="radio" value="2" name='sex' id="isWomen" > 女
+	                            </label>
+	                            <if condition="$info['sex'] eq 2">
+	                            	<script>
+	                            		$('#isWomen').attr('checked', 'checked');
+	                            	</script>
+	                            </if>
+	                        </td>
+                            <th>生日:</th>
+                            <td>
+                                <input type="text" id="birthday" class="text input-3x laydate-icon" name="birthday"  onclick="laydate({format: 'YYYY-MM-DD', istime:false, festival: true})" value="{$info['birthday']|time_format=###,'Y-m-d'}" placeholder="请选择生日">
+                            </td>
+						</tr>
+						<tr>
+
+							<th>地址:</th>
+							<td>
+								<input type="text" id="address" class="text input-5x" name="address" value="{$info['address']}" placeholder="" >
+							</td>
+
+		        			<th>是否启用:</th>
+	                        <td>
+	                        	<label class="wf-form-label-rc">
+	                            	<input type="radio" value="1" name='status' checked="checked" id="disabledTrue"> 启用
+	                            </label>
+	                            <label class="wf-form-label-rc">
+		                            <input type="radio" value="0" name='status' id="disbledFalse"> 禁用
+	                            </label>
+	                            <if condition="$info['status'] eq 0">
+	                            	<script>
+	                            		$('#disbledFalse').attr('checked', 'checked');
+	                            	</script>
+	                            </if>
+	                        </td>
+	                     </tr>
+	                    <tr>
+		        			<th>用户头像:</th>
+	                        <td colspan="3">
+		                        <div>
+									<img src="{$info.avatar_thumb}" style="height:129px; width:129px;" id="img_"/>
+								</div>
+				                <input type="hidden" value="{$info.avatar_thumb}" name="avatar_thumb" id="img"/>
+								<input class="btn btn-default btn-xs" type="button" value="上传" id="btnUpload" />
+								<input class="btn btn-danger btn-xs" type="button" value="删除" onclick="delFile($('#img').val(), '')" id="btn_delete_" />
+								<if condition="$info.avatar_thumb eq ''">
+									<script>
+										$("#img_, #btn_delete_").hide();
+									</script>
+								</if>
+								<span class="check-tips">（用户头像, 请上传大于400*400的正方形图片）</span>
+	                        </td>
+	                    </tr>
+	                </tbody>
+	            </table>
+	        </div>
+	        <div class="tw-tool-bar-bot">
+				<input type="hidden" name="id" value="{$info['id']}" >
+                <button type="submit" class="tw-act-btn-confirm"  >提交</button>
+                <button type="button" onclick="history.back()" class="tw-act-btn-cancel">返回</button>
+            </div>
+        </form>
+	</div>
+</block>
+
+<block name="script">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ajaxupload.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__COMMON__/js/imgupload.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/hex_sha1.js"></script>
+	<script>
+		var _TARGET_URL='{:U("Admin/Member/userList")}';
+
+		$(function(){
+			ajaxUpload('#btnUpload', '#img', 'Member', '');
+
+			// 修改页面初始化选中的国家
+			var code = $('#country_code').val();
+
+			if(code != 0){
+				$("#country").val(code);
+			}
+
+        })
+
+		$('#country').change(function(){
+			var checkValue=$("#country").val();
+		});
+
+
+		function validate(){
+        	var password = $('input[name="password"]');
+        	var re_password = $('input[name="re_password"]');
+
+        	if ($.trim(password.val()) != '' || $.trim(re_password.val()) != '') {
+	        	if (password.val().length < 4 || password.val().length > 40) {
+	                toastr.error('密码长度4-20位');
+	                password.focus();
+	                return false;
+	            }
+	            if (password.val() != re_password.val()) {
+	            	toastr.error('两次登录密码不相同');
+	            	password.focus();
+	            	return false;
+	            }
+        	}
+			
+        }
+
+
+
+    </script>
+</block>

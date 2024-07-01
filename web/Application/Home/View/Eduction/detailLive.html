@@ -1,0 +1,38 @@
+
+<volist name="Eduction_list" id="vo">
+    <div class="section-model-title">
+        <input type="hidden" id="d_type" value="{$d_type}">
+        <h3>{$vo.name}</h3>
+        <p>来源：{$vo.source} {$vo.add_time|time_format}</p>
+    </div>
+    <div class="section-model-content">
+        <p>{$vo.content|htmlspecialchars_decode}</p>
+        <video width="100%" controls  >
+            <source src="{$vo.attach_path}" type="video/mp4">
+        </video>
+    </div>
+    <div class="section-model-jump col-xs-12">
+        <if condition="$upon_id neq ''">
+            <a href="javascript:;" class="section-model-jump-pre" data-val="{$upon_id}">上一篇：{$upon_name}</a>
+        </if>
+        <if condition="$next_id neq ''">
+            <a href="javascript:;" class="section-model-jump-nex" data-val="{$next_id}">下一篇：{$next_name}</a>
+        </if>
+    </div>
+</volist>
+<script>
+    $(function () {
+        var height = $('#d_details').height();
+        var section_height = (height - 51);
+        $('.section-aside-content').css('height',section_height+"px");
+        var type = $('#d_type').val();
+        $('.section-model-jump-pre').click(function () {
+            var id = $(this).attr('data-val');
+            detail(id,type);
+        });
+        $('.section-model-jump-nex').click(function () {
+            var id = $(this).attr('data-val');
+            detail(id,type);
+        });
+    });
+</script>

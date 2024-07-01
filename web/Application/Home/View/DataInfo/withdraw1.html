@@ -1,0 +1,220 @@
+<extend name="Base/user_no"/>
+<block name="style">
+	<meta name="keywords" content="京东E卡 京东钢蹦 中国石化加油充值卡 中国石油加油充值卡 移动电信联通话费充值卡亚马逊礼品卡回收
+">
+	<meta name="description" content="爱卡网是一家提供电商超市、加油、旅游等礼品充值购物卡回收，收购，买卖的交易平台，我们努力做好礼品购物卡买卖的交易服务。">
+	<link rel="stylesheet" type="text/css" href="__HOME__/css/base1.css"/>
+	<link rel="stylesheet" type="text/css" href="__HOME__/css/withdraw.css"/>
+	<style type="text/css">
+		body{
+			background: #fff;
+		}
+	</style>
+</block>
+<block name="content">
+	<div class="withdraw">
+		<!-- 选择提现至支付宝/银行卡 -->
+		<div class="withdraw-way">
+			<div class="withdraw-zfb left withdraw-bg">
+				<input type="hidden" value="1" class="type">
+				<span class="withdraw-box">
+						<i class="icon-zfb_c icon-svg"></i>
+					</span>
+				<span class="withdraw-zfb-font">支付宝</span>
+			</div>
+			<div class="withdraw-zfb ">
+				<input type="hidden" value="1" class="type">
+				<span class="withdraw-box">
+						<i class="icon-yhk_h icon-svg"></i>
+					</span>
+				<span class="withdraw-zfb-font">银行卡</span>
+			</div>
+		</div>
+		<!-- 添加支付宝/银行卡账号 -->
+		<if condition="($user_info['is_permission'] eq 0) || ($user_info['is_permission'] eq 2)">
+
+
+			<div  class="withdraw-way attest-no-active" >
+				<div class="withdraw-account withdraw-no-active">
+					<span class="account-left">支付宝账号:</span>
+					<div class="account-right show_alert_model" data-type="no-permission">
+						<div class="account-right-add">+</div>
+						<div class="account-right-font ">添加支付宝账号</div>
+					</div>
+				</div>
+
+				<div class="withdraw-account withdraw-active" >
+					<span class="account-left">银行卡账号:</span>
+					<div class="account-right show_alert_model" data-type="no-permission">
+						<div class="account-right-add">+</div>
+						<div class="account-right-font">添加银行卡账号</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<a href="{:U('User/data',array('type'=>2))}" target="_parent"><div class="withdraw-btn">前往实名认证</div></a>
+			<div class="withdraw-font">您还没有进行实名认证，无法添加支付宝</div>
+
+			<else/>
+			<!-- 已实名认证-->
+			<div class="withdraw-way attest-active" style="display:block">
+
+				<div class="withdraw-attest zfb-active withdraw-account cf" >
+					<span class="withdraw-attest-left fl">支付宝账号：</span>
+					<div class="withdraw-floor fl">
+						<volist name="zfinfo" id="vo">
+							<if condition="$from_action eq 2">
+							<a href="{:U('User/meApply',array('bank_type'=>1,'account_id'=>$vo['id']))}" target="_parent" >
+							</if>
+							<div class="withdraw-attest-right cf">
+								<img class="fl" src="__HOME__/images/zfb_c.png">
+								<input class="fr" type="text" value="{$vo['cardnum']}" />
+							</div>
+							<if condition="$from_action eq 2">
+							</a>
+							</if>
+						</volist>
+						<div class="attest-right show_alert_model" data-type="alipay">
+							<div class="account-right-add">+</div>
+							<div class="account-right-font">添加支付宝账号</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="withdraw-attest yhk-active withdraw-account" >
+					<span class="withdraw-attest-left fl">银行卡账号：</span>
+					<div class="withdraw-floor fl">
+						<volist name="wxinfo" id="v">
+							<if condition="$from_action eq 2">
+							<a href="{:U('User/meApply',array('bank_type'=>2,'account_id'=>$v['id']))}" target="_parent">
+							</if>
+							<div class="withdraw-attest-right cf">
+								<img class="fl" src="__HOME__/images/yhk_c.png">
+								<input class="fr" type="text" value="{$v['cardnum']}" />
+							</div>
+							<if condition="$from_action eq 2">
+							</a>
+							</if>
+						</volist>
+						<div class="attest-right show_alert_model" data-type="wechat">
+							<div class="account-right-add">+</div>
+							<div class="account-right-font">添加银行卡账号</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</if>
+	</div>
+
+</block>
+<block name="script">
+	<script src="__HOME__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+        $('.show_alert_model').on('click', function() {
+            window.parent.showModel($(this).data('type'));
+        })
+		if({$bank_type}==2){
+            $(".withdraw-zfb").removeClass("withdraw-bg");
+            $(".withdraw-zfb").eq(1).addClass("withdraw-bg");
+            $('.withdraw-account').css('display','none');
+            $('.withdraw-account').eq(1).css('display','block');
+		}
+        $(".withdraw-zfb").on('click', function() {
+            //alert($(this).index());
+            $(".withdraw-zfb").removeClass("withdraw-bg");
+            $(this).addClass("withdraw-bg");
+            var index =$('.withdraw-zfb').index(this);
+            $('.withdraw-account').css('display','none');
+            $('.withdraw-account').eq(index).css('display','block');
+        });
+        /*银行卡*/
+        // $('#editbankcardnum').click(function(){
+
+        var parent_obj= parent.parent;
+        /*支付宝*/
+        parent_obj.$("body .editalipay").on('click', function(){
+            alipay = parent_obj.$('#alipay').val();
+            alipay_name = parent_obj.$('#alipay_name').val();
+            if(alipay == ''){
+                console.log(bankcardnum);
+                alert('支付宝账号不能为空');
+                return false;
+            }
+            if(alipay_name == ''){
+                alert('真实姓名不能为空');
+                return false;
+            }
+            if(!alipay || !alipay_name){
+                alert('请正确填写支付宝信息');
+                return false;
+            }else {
+                $.ajax({
+                    type: 'post',
+                    data: {'cardnum':alipay,'name':alipay_name,type:1},
+                    url: "{:U('Home/User/addAccountNumber')}",
+                    success: function (data) {
+                        if(data.status==1){
+                            parent_obj.$(".editalipay").parent().hide();
+                            parent_obj.$('#fullbg').hide();
+                            window.location.reload();
+
+                        }else{
+                            console.log(data);
+                            alert(data.info);
+                        }
+                    }
+                });
+            }
+        })
+        /*银行卡*/
+        parent_obj.$(".editbankcardnum").on('click', function() {
+            bankname = parent_obj.$('#bankname').val();
+            bankcardnum = parent_obj.$('#tjbankcardnum').val();
+            bankphone = parent_obj.$('#bankphone').val();
+            username = parent_obj.$('#bkusername').val();
+            if(bankcardnum == ''){
+                console.log(bankcardnum);
+                alert('银行卡卡号不能为空');
+                return false;
+            }
+            if(bankphone == ''){
+                alert('银行预留手机号不能为空');
+                return false;
+            }
+            if(!bankname || !username){
+                alert('请正确填写银行卡信息');
+                return false;
+            }else {
+                $.ajax({
+                    type: 'post',
+                    data: {'phone': bankphone,'cardnum':bankcardnum,'opening_bank':bankname,'name':username,type:2},
+                    url: "{:U('Home/User/addAccountNumber')}",
+                    success: function (data) {
+                        if(data.status==1){
+                            parent_obj.$(".editbankcardnum").parent().hide();
+                            parent_obj.$('#fullbg').hide();
+                            window.location.href = "{:U('/Home/DataInfo/withdraw',array('bank_type'=>2))}";
+
+
+                        }else{
+                            console.log(data);
+                            alert(data.info);
+                        }
+                    }
+                });
+            }
+        })
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			console.log("提现账号")
+			parent.GetIframeStatus();
+			parent.parent.GetIframeStatus();
+		})
+	</script>
+
+</block>

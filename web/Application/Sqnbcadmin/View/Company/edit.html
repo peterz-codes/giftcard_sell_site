@@ -1,0 +1,84 @@
+<extend name="Public/base"/>
+
+<block name="body">
+
+	<div class="tw-layout">
+		<div class="tw-list-hd">
+			{:isset($info['id'])?'编辑':'新增'}公司
+		</div>
+		<div class="tw-list-wrap tw-edit-wrap">
+			<form action="__ACTION__" method="post" class="form-horizontal ajaxForm">
+		        <div class="form-item">
+		            <label class="item-label">公司名称<span class="check-tips"><b>*</b>（请输入公司名称）</span></label>
+		            <div class="controls">
+		                <input type="text" class="text input-large" name="name" value="{$info.name|default=''}">
+		            </div>
+		        </div>
+		        <div class="form-item">
+		            <label class="item-label">公司所在省市县（区）<span class="check-tips"><b>*</b></span></label>
+		            <div class="controls">
+		            	<select name="province_id" style="width:120px;" id="province" ></select>
+                        <select name="city_id" style="width:120px;" id="city"></select>
+						<select name="country_id" style="width:120px;" id="country"></select>
+		            </div>
+		        </div>
+                <div class="form-item">
+                    <label class="item-label">公司地址<span class="check-tips"><b>*</b>（用于展示公司的具体地址）</span></label>
+                    <div class="controls">
+                        <input type="text" id="address" class="text input-large" name="address" value="{$info.address|default=''}" placeholder="请输入地址">
+                    </div>
+                </div>
+				<div class="form-item">
+					<label class="item-label">联系方式<span class="check-tips"><b>*</b>（输入联系方式）</span></label>
+					<div class="controls">
+						<input type="text" class="text input-large" name="tel" value="{$info.tel}">
+					</div>
+				</div>
+				<div class="form-item">
+					<label class="item-label">官方QQ<span class="check-tips"><b>*</b>（输入官方QQ）</span></label>
+					<div class="controls">
+						<input type="text" class="text input-large" name="qq" value="{$info.qq}">
+					</div>
+				</div>
+				<div class="form-item">
+					<label class="item-label">邮箱<span class="check-tips"><b>*</b>（输入邮箱）</span></label>
+					<div class="controls">
+						<input type="text" class="text input-large" name="email" value="{$info.email}">
+					</div>
+				</div>
+				<div class="form-item">
+					<label class="item-label">公司介绍<span class="check-tips"><b>*</b>（输入公司介绍）</span></label>
+					<div class="controls">
+						<textarea name="content" id="UE">{$info.content|htmlspecialchars_decode}</textarea><br/>
+					</div>
+				</div>
+	            <div class="tw-tool-bar-bot">
+	            	<input type="hidden" name="id" value="{$info.id}">
+	                <button type="submit" class="tw-act-btn-confirm">提交</button>
+	                <button type="button" onclick="goback();" class="tw-act-btn-cancel">返回</button>
+	            </div>
+		    </form>
+		</div>
+	</div>
+<input type="hidden" id="data-url" data-url="{:U('Core/Region/getDataByParentId')}">
+</block>
+
+<block name="script">
+	<script type="text/javascript" src="__JS__/selectcity.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript">
+
+		_TARGET_URL="{:U('Admin/Company/index')}";
+		UE.getEditor('UE',{
+			autoHeightEnabled: false,
+			initialFrameWidth: '700',
+			initialFrameHeight: 350
+		});
+    	//下面定义的操作是为了编辑页面中，及时显示省市县的操作，要配合select.js文件
+	    var isPCCEdit={:isset($info['id'])?1:0};
+	    var province="{$info.province_id}";
+	    var city="{$info.city_id}";
+	    var country="{$info.country_id}";
+    </script>
+</block>

@@ -1,0 +1,41 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/sitesdetail.css" />
+</block>
+<block name="body">
+<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+    <!--侧滑菜单部分-->
+    <include file="Index:left" />
+    <!--主界面部分-->
+    <div class="mui-inner-wrap">
+        <header class="mui-bar mui-bar-nav">
+            <a class="mui-action-back mui-pull-left mui-icon mui-icon-arrowleft"></a>
+            <h1 class="mui-title">网点详情</h1>
+            <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+        </header>
+        <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+            <div class="mui-scroll" id="move-togger">
+
+                <volist name="list" id="vo">
+	            <div class="content-detail">
+	            	<h4>{$vo['name']}</h4>
+	            	<p class="address">
+                        {$vo['address']}
+	            	</p>
+                    <p> {$vo['tel']} <if condition="$vo['phone'] neq ''">/ </if> {$vo['phone']}</p>
+	            </div>
+                </volist>
+
+        	</div>
+        <!-- off-canvas backdrop -->
+        <div class="mui-off-canvas-backdrop"></div>
+    </div>
+</div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        mui('body').on('tap', 'a', function () { document.location.href = this.href; });
+        mui('#offCanvasSideScroll').scroll();
+        mui('#offCanvasContentScroll').scroll();
+    </script>
+</block>

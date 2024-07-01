@@ -1,0 +1,80 @@
+<extend name="Public/base" />
+
+<block name="body">
+
+	<div class="tw-layout">
+	<!-- 标题框 -->
+		<div class="tw-list-hd">
+			用户回收站
+		</div>
+		<div class="tw-list-top">
+			<div class="tw-tool-bar">
+	    		<a class="tw-tool-btn-del" onclick="javascript:restore('chkbId')">
+	                <i class="tw-icon-minus-circle"></i> 批量还原
+	            </a>
+			</div>
+			<form action="__ACTION__" method="get" id='frmSearch'>
+				<div class="tw-search-bar">
+					<div class="search-form fr cf">
+			            <div class="sleft">
+			                <input type="text" name="keywords" class="search-input" value="{:I('keywords', '')}" placeholder="搜索关键字">
+			                <a type="submit" class="sch-btn" onclick="$('#frmSearch').submit();"><i class="btn-search"></i></a>
+			            </div>
+			        </div>
+				</div>
+			</form>
+		</div>
+		<div class="tw-list-wrap">
+            <table class="tw-table tw-table-list tw-table-fixed">
+                <thead>
+                    <tr>
+                        <th width="10" class="row-selected">
+                            <input class="checkbox check-all" type="checkbox">
+                        </th>
+						<th width="50">ID</th>
+						<th width="15%">用户名</th>
+						<th width="15%">用户昵称</th>
+						<th width="10%">手机号</th>
+						<th width="10%">邮箱</th>
+						<th width="10%">性别</th>
+						<th width="15%">用户登录方式</th>
+						<th width="250">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <notempty name="list" >
+						<volist name="list" id="v" >
+							<tr>
+								<td><input class="ids row-selected" type="checkbox" name="chkbId" value="{$v.id}"></td>
+								<td>{$v.id} </td>
+								<td class="text-left">{$v.username}</td>
+								<td class="text-left">{$v.usernick}</td>
+								<td class="text-left">{$v.phone}</td>
+								<td>{$v['email']}</td>
+								<td>{:show_sex($v['sex'])}</td>
+								<td>{:show_login_type($v['login_type'])}</td>
+								<td>
+									<a class="tw-tool-btn-view" href="{:U('Member/edit?id='.$v['id'])}">
+										<i class="tw-icon-desktop"></i> 修改
+									</a>
+						            <a class="tw-tool-btn-add" onclick="javascript:restore({$v['id']})">
+						                <i class="tw-icon-plus-circle"></i> 还原
+						            </a>
+					           </td>
+							</tr>
+						</volist>
+					<else/>
+						<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+					</notempty>
+        		</tbody>
+            </table>
+			<div class="page">{$page['page']}</div>
+	    </div>
+	</div>
+</block>
+
+<block name="script">
+	<script type="text/javascript">
+	</script>
+ 
+</block>

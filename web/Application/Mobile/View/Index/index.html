@@ -1,0 +1,187 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/index.css" />
+</block>
+<block name="body">
+    <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+        <!--侧滑菜单部分-->
+        <include file="Index:left" />
+        <!--主界面部分-->
+        <div class="mui-inner-wrap">
+            <header class="mui-bar mui-bar-nav">
+                <img src="__MOBILE__/images/logo.png" />
+                <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+            </header>
+            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+                <div class="mui-scroll" id="move-togger">
+                    <a href="{:U('Mobile/Card/cardCenter')}"><div class="banner">
+                    <button class="con-btn">立即交易</button>
+                    </div></a>
+                    <div class=" notice">
+                        <div class="left-img">
+                            <img src="__MOBILE__/images/notice.jpg" alt="">
+                        </div>
+                        <div class="right-notice">
+                            <span>{$list['add_time']|time_format=###,'Y-m-d'}</span> &nbsp;<span>|</span>&nbsp;
+                            <a href="{:U('Mobile/Help/announcement')}"><span class="title">{$list['name']}：</span></a>
+                            <span class="content">{$list['content']|htmlspecialchars_decode|strip_tags|msubstr=0,30,'utf-8',true}</span>
+                            <a class="more" href="{:U('Mobile/Help/announcement')}">查看更多>></a>
+                        </div>
+                    </div>
+                    <div class="card-list list">
+                     <volist name="cardtype_info" id="vo" offset="0" length='3'>
+                        <div class="item">
+                            <a href="{:U('Mobile/Card/cardCenter?typeid='.$vo['id'])}">
+                            <div class="img-box">
+
+                                <img src="{$vo.wapphoto_path}" alt="">
+
+                            </div>
+                            <span>{$vo.name}</span>
+                            </a>
+                        </div>
+                        </volist>
+                        
+                    </div>
+                    <div class="card-list list">
+                     <volist name="cardtype_info" id="vo" offset="3" length='3'>
+                        <div class="item">
+                            <a href="{:U('Mobile/Card/cardCenter?typeid='.$vo['id'])}">
+                            <div class="img-box">
+
+                                <img src="{$vo.wapphoto_path}" alt="">
+
+                            </div>
+                            <span>{$vo.name}</span>
+                            </a>
+                        </div>
+                        </volist>
+                        
+                    </div>
+                    <div class="step-box">
+                        <div class="title-box">
+                            <div class="line"></div>
+                            <div class="title">极速兑换只需4步数&nbsp;&nbsp;&nbsp;1分钟完成结算</div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="step-list list">
+                            <div class="item">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/stepimg1.png" alt="">
+                                </div>
+                                <span>注册会员</span>
+                            </div>
+                            <div class="item">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/stepimg2.png" alt="">
+                                </div>
+                                <span>提交卡密</span>
+                            </div>
+                            <div class="item">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/stepimg3.png" alt="">
+                                </div>
+                                <span>审核通过</span>
+                            </div>
+                            <div class="item">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/stepimg4.png" alt="">
+                                </div>
+                                <span>结算打款</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-box recycle">
+                        <h3>线下礼品卡回收列表</h3>
+                        <ul class="logo-list cf">
+                            <li class="logo-item fl">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/logoimg1.jpg" alt="">
+                                </div>
+                            </li>
+                            <li class="logo-item fl">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/logoimg2.jpg" alt="">
+                                </div>
+                            </li>
+                            <li class="logo-item fl">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/logoimg3.jpg" alt="">
+                                </div>
+                            </li>
+                            <li class="logo-item fl">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/logoimg4.jpg" alt="">
+                                </div>
+                            </li>
+                            <li class="logo-item fl">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/logoimg5.jpg" alt="">
+                                </div>
+                            </li>
+                            <li class="logo-item fl">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/logoimg6.jpg" alt="">
+                                </div>
+                            </li>
+                            <li class="logo-item fl">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/logoimg7.jpg" alt="">
+                                </div>
+                            </li>
+                            <li class="logo-item fl">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/logoimg8.jpg" alt="">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-box partner">
+                       <!--  <h3>合作伙伴</h3> -->
+                        <ul class="logo-list cf">
+                       <!--      <volist name="partner_list"  id="list">
+                                <li class="logo-item fl">
+                                    <div class="img-box">
+                                        <img src="{$list.photo_path}" alt="">
+                                    </div>
+                                </li>
+                            </volist> -->
+                        </ul>
+                    </div>
+                    <div class="foot-nav">
+                     <if  condition="$Think.session.user_auth eq ''">
+                        <div class="foot-nav-bpx">
+                            <a href="{:U('Mobile/User/register')}">注册</a>
+                            <a href="{:U('Mobile/User/login')}">登录</a>
+                        </div>
+                        </if>
+                    </div>
+                    <div class="copyright">
+                        Copyright © 2004-2017 www.shoukb.com 爱卡网 版权所有
+                    </div>
+                </div>
+            </div>
+            <!-- off-canvas backdrop -->
+            <div class="mui-off-canvas-backdrop"></div>
+        </div>
+    </div>
+</block>    
+<block name="script">
+	<script type="text/javascript">
+        mui('body').on('tap', 'a', function () { document.location.href = this.href; });
+        mui('#offCanvasSideScroll').scroll();
+        mui('#offCanvasContentScroll').scroll();
+        $(function(){
+            var string = window.location.hash;//获得当前页面的url
+            console.log(string);
+            console.log('11231');
+             var string1 = string.split('=');
+            console.log(string1);
+            var string3 = string1[1];
+            var string2 = string3.split('&');
+            var access_token = string2[0];
+            window.location.href="{:U('Mobile/User/qq_login')}"+"?access_token="+access_token;
+        })
+    </script>
+</block>	
+

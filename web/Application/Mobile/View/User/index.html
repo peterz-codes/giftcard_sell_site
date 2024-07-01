@@ -1,0 +1,157 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/account_data.css" />
+</block>
+<block name="body">
+    <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+        <!--侧滑菜单部分-->
+        <include file="Index:left" />
+        <!--主界面部分-->
+        <div class="mui-inner-wrap">
+            <header class="mui-bar mui-bar-nav">
+                <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"  href="javascript:history.back(-1)"></a>
+                <h1 class="mui-title">账户资料</h1>
+                <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+            </header>
+            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+                <div class="mui-scroll" id="move-togger">
+                    <div class="tabview cf">
+                        <div class="l-box fl">
+                            <p>账户余额</p>
+                            <p class="num">{$user_info.balance}</p>
+                            <p class="tx">提现处理中，金额(元)：{$money|default="0"}</p>
+                        </div>
+                        <div class="r-box fr">
+                            <a id="withdrawals">提现</a>
+                            <a id="withdrawalshistory" href="#">提现记录</a>
+                        </div>
+                    </div>
+                    <div class="menu-list">
+                        <a  id = "repassword"  class="menu-item">
+                            <div class="r-box cf">
+                                <span>登录密码</span>
+                                <p>修改密码</p>
+                            </div>
+                            <span class="mui-icon mui-icon-arrowright fr"></span>
+                        </a>
+                        <a id="change_pay_password"   class="menu-item">
+                            <div class="r-box cf">
+                                <span>支付密码</span>
+                                <p>修改支付密码</p>
+                            </div>
+                            <span class="mui-icon mui-icon-arrowright fr"></span>
+                        </a>
+                        <a id="real_name"  class="menu-item">
+                            <div class="r-box cf">
+                                <span>实名认证</span>
+                                <if condition="$user_info.is_permission eq 1">
+                                    <p>已认证</p>
+                                </if>
+                                <if condition="$user_info.is_permission neq 1">
+                                    <p>暂未认证</p>
+                                </if>
+                            </div>
+                            <span class="mui-icon mui-icon-arrowright fr"></span>
+                        </a>
+                         <if condition="$user_info.qq_openid eq ''">
+                           <a  id="qq" href="https://graph.qq.com/oauth2.0/authorize?client_id=101483760&amp;response_type=token&amp;scope=all&amp;redirect_uri=http://www.shoukb.com/" class="menu-item">
+                            <else />
+                         <a href="#" id="qq" class="menu-item">
+                         </if>
+                        
+                            <div class="r-box cf">
+                                <span>qq绑定</span>
+                                <p>{$user_info.qq_usernick|default="未绑定"}</p>
+                            </div>
+                            <span class="mui-icon mui-icon-arrowright fr"></span>
+                        </a>
+                         <if condition="$user_info.wx_unionid eq ''">
+                          <a id="weixin" href="" class="menu-item">
+                            <else />
+                         <a id="weixin" class="menu-item">
+                         </if>
+                       
+                            <div class="r-box cf">
+                                <span>微信绑定</span>
+                                <p>{$user_info.wx_usernick|default="未绑定"}</p>
+                            </div>
+                            <span class="mui-icon mui-icon-arrowright fr"></span>
+                        </a>
+
+                        <if condition="$user_info.phone eq ''">
+                            <a id="phone" class="menu-item">
+                        <else />
+                            <a id="phone" class="menu-item">
+                        </if>
+                            <div class="r-box cf">
+                                <span>手机绑定</span>
+                                <p>{$user_info.phone|default="未绑定"}</p>
+                            </div>
+                            <span class="mui-icon mui-icon-arrowright fr"></span>
+                        </a>
+                        <a id="email" class="menu-item">
+                            <div class="r-box cf">
+                                <span>邮箱绑定</span>
+                                <p>{$user_info.email|default="未绑定"}</p>
+                            </div>
+                            <span class="mui-icon mui-icon-arrowright fr"></span>
+                        </a>
+                        <a  id="address" class="menu-item">
+                            <div class="r-box cf">
+                                <span>地址</span>
+                                <p>{$region_list[$default_address['province']]['region_name']} {$region_list[$default_address['city']]['region_name']} {$region_list[$default_address['district']]['region_name']} {$default_address.address} &nbsp;&nbsp;&nbsp;&nbsp;  <span style="color: #3f51b5;display: inline">收货人： {$default_address.consignee}  电话：{$default_address.mobile}</span> </p>
+                            </div>
+                            <span class="mui-icon mui-icon-arrowright fr"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- off-canvas backdrop -->
+            <div class="mui-off-canvas-backdrop"></div>
+        </div>
+    </div>
+</block>    
+<block name="script">
+	<script type="text/javascript">
+        mui('#offCanvasSideScroll').scroll();
+        mui('#offCanvasContentScroll').scroll();
+        
+        $('#address').on('tap',function () {
+            window.location.href = "{:U('Mobile/User/address_list')}";
+        });
+
+        $('#email').on('tap',function () {
+            window.location.href = "{:U('Mobile/User/email')}";
+        });
+        $('#phone').on('tap',function () {
+            window.location.href = "{:U('Mobile/User/phone')}";
+        });
+        $('#qq').on('tap',function () {
+            window.location.href = "https://graph.qq.com/oauth2.0/authorize?client_id=101483760&amp;response_type=token&amp;scope=all&amp;redirect_uri=http://www.shoukb.com/";
+        });
+
+      $('#weixin').on('tap',function () {
+            window.location.href = "https://open.weixin.qq.com/connect/qrconnect?appid=http://www.shoukb.com/Home/Index/webchatLogin&redirect_uri=http://www.shoukb.com/Home/Index/webchatLogin&response_type=code&scope=snsapi_login&state=#wechat_redirect";
+        });
+
+        $('#real_name').on('tap',function () {
+            window.location.href = "{:U('Mobile/User/real_name')}";
+        });
+
+        $('#change_pay_password').on('tap',function () {
+            window.location.href = "{:U('Mobile/User/change_pay_password')}";
+        });
+
+        $('#withdrawals').on('tap',function () {
+            window.location.href = "{:U('Mobile/User/withdrawals')}";
+        });
+        $('#withdrawalshistory').on('tap',function () {
+            window.location.href = "{:U('Mobile/User/withdrawalshistory')}";
+        });
+        $('#repassword').on('tap',function () {
+            window.location.href = "{:U('Mobile/User/repassword')}";
+        });
+
+    </script>
+</block>	
+

@@ -1,0 +1,160 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <style>
+        .textarea_hide textarea {
+            padding: 5px;
+            min-width: 480px;
+            min-height: 245px;
+            max-height: 245px;
+            margin: 5px 0 5px 5px;
+        }
+        .textarea_hide button {
+            width: 150px;
+            margin-left: 175px;
+            background: #CA2E2F;
+            color: #ffffff;
+            border: solid 1px #CA2E2F;
+            height: 30px;
+        }
+        .textarea_hide {
+            width: 500px;
+        }
+    </style>
+    <!-- S=头部设置 -->
+    <div class="tw-layout">        
+        <!-- S=信息管理 -->
+        <if condition="$type eq 2">
+        <div class="tw-list-hd"> 未审核列表</div>
+        <else/>
+        <div class="tw-list-hd"> 已审核列表</div>
+        </if>
+        <!-- E=信息管理 -->        
+        <!-- S=导航设置 -->
+        <div class="tw-list-top">
+            <!-- S=添加删除 -->
+            <div class="tw-tool-bar">
+            </div>
+            <!-- E=添加删除 -->
+            <!-- S=高级搜索 -->                        
+            <form action="__ACTION__" method="get" id='frmSearch'>
+                <div class="tw-search-bar">
+                    <div class="search-form fr cf">
+                        <div class="sleft">
+                            <input type="text" name="keywords" class="search-input" value="{:I('keywords','')}" placeholder="搜索关键字">
+                            <a type="submit" class="sch-btn" onclick="$('#frmSearch').submit();"><i class="btn-search"></i></a>
+                        </div>
+                    </div>            
+                </div>
+	        </form>
+            <!-- E=高级搜索 -->
+        </div>
+        <!-- E=导航设置 -->
+    </div>
+    <!-- E=头部设置 -->
+    <!-- S=详情显示 -->	
+    <div class="tw-list-wrap">
+        <!-- S=表单 -->
+        <form class="ids">
+            <table class="tw-table tw-table-list tw-table-fixed">
+                <thead>
+                    <tr>
+                        
+                        <th width="3">ID</th>
+                        <th width="10">姓名</th>
+                        <th width="30">身份证号</th>
+                        <th width="70">身份证正面</th>
+
+                        <th width="70">身份证反面</th>
+                        <th width="70">手持身份证</th>
+                        <if condition="$type eq 1">
+                        <th width="10">是否实名</th>
+                        </if>
+                        <if condition="$type eq 2">
+                        <th width="30">操作</th>
+                        </if>
+                    </tr>
+                </thead>
+                <!-- S=详细信息 -->	
+                <tbody>
+                    <notempty name="data">
+                      
+                        <volist name="data" id="vo">
+                            <tr>
+                              
+                                <td>{$vo.id}</td>
+                                <td class="text-center">{$vo.name}</td>
+                                <td class="text-center">{$vo.id_card}</td>
+
+                                <td class="text-center"><a href="{$vo.id_card_phone_upon}" target="_blank"><img src="{$vo.id_card_phone_upon}" style="max-width: 122px;"/></a></td>
+                                <td class="text-center"><a href="{$vo.id_card_phone_down}" target="_blank"><img src="{$vo.id_card_phone_down}" style="max-width: 122px;"/></a></td>
+                                <td class="text-center"><a href="{$vo.id_card_phone_hold}" target="_blank"><img src="{$vo.id_card_phone_hold}"  style="max-width: 122px;"/></a></td>
+                                <if condition="$type eq 1">
+                                <td><if condition="$vo.is_permission eq 1 ">实名<else />非实名</if></td>
+                                </if>
+
+                                <if condition="$type eq 2">
+                                <td><if condition="$vo.is_permission eq 1 ">
+                                 <!--<a class="tw-tool-btn-del" href="{:U('nopermission?id='.$vo['id'])}"><i class="tw-icon-minus-circle"></i> 不通过</a>-->
+                                    <a onclick="Remarks({$vo.id})"><i class="tw-icon-minus-circle" ></i> 不通过</a>
+                                    <else />
+                                <a class="tw-tool-btn-edit" href="{:U('permission?id='.$vo['id'])}"><i class="tw-icon-pencil"></i> 通过 </a>
+                                    <!--<a class="tw-tool-btn-del" href="{:U('nopermission?id='.$vo['id'])}"><i class="tw-icon-minus-circle"></i> 不通过</a>-->
+                                    <a onclick="Remarks({$vo.id})"><i class="tw-icon-minus-circle" ></i> 不通过</a>
+                                    </if>
+                                </td>
+                                </if>
+                            </tr>
+                        </volist>
+                        <else/>
+                        <if condition="$type eq 1">
+                            <td colspan="7" class="text-center"> aOh! 暂时还没有内容! </td>
+                            <eles/>
+                            <td colspan="7" class="text-center"> aOh! 暂时还没有内容! </td>
+                        </if>
+                    </notempty>
+                </tbody>
+                <!-- E=详细信息 -->
+            </table>
+        </form>
+        <!-- E=表单 -->
+        <div class="page">{$page}</div>
+         </div>
+    </div>
+    <!-- E=详情显示 -->	
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        function Remarks(e) {
+
+                layer.open({
+                    title:'修改备注',
+                    type: 1,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 1, //不显示关闭按钮
+                    anim: 2,
+                    area: ['500', '350px'], //宽高
+                    shadeClose: true, //开启遮罩关闭
+                    content: "<div class=\"textarea_hide\">\n" +
+                        "\t\t<form id='form_s'>\n" +
+                        "\t\t<textarea maxlength='500' name='remarks' placeholder=\"未填写备注\"></textarea>" +
+                        "<input type='hidden' name='id' value='"+e+"'>\n" +
+                        "\t\t\t<button type='button' onclick='submit_mod()'>保存</button>\n" +
+                        "\t\t</form>\n" +
+                        "\t</div>"
+                });
+
+        }
+        function submit_mod(e) {
+            //alert('sdfsdfsaf');
+            $.post("/index.php/SqnbcAdmin/User/nopermission",$("#form_s").serialize(),function (date) {
+                alert(date['info']);
+                if(date['status']==1){
+                    window.location.reload();
+                }
+            });
+            return false;
+        }
+    </script>
+</block>

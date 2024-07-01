@@ -1,0 +1,103 @@
+<extend name="Base/base"/>
+<block name="title">
+    <title>百分百收卡网_礼品卡兑换_一家专注二手礼品卡回收的网站 - www.ohbbs.cn 欧皇源码论坛 </title>
+</block>
+<block name="style">
+    <link rel="stylesheet" href="__HOME__/css/offline.css">
+</block>
+<block name="body">
+    
+    <!--banner-->
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=76891828&site=qq&menu=yes" class="banner" target="_blank"></a>
+    <!--步骤-->
+    <div class="outbox fff">
+        <div class="titlebox cf">
+            <div class="boder fl"></div>
+            <h3 class="title fl">线下交易流程</h3>
+            <div class="boder fl"></div>
+        </div>
+        <ul class="inbox cf">
+           <li class="step-item fl">
+               <div class="img-box">
+                   <img src="__HOME__/images/offlineicon1.png" alt="">
+               </div>
+               <span>联系客服专员</span>
+           </li>
+            <li class="step-item fl">
+                <div class="img-box">
+                    <img src="__HOME__/images/offlineicon2.png" alt="">
+                </div>
+                <span>线下见面交易</span>
+            </li>
+            <li class="step-item fl">
+                <div class="img-box">
+                    <img src="__HOME__/images/offlineicon3.png" alt="">
+                </div>
+                <span>获得交易资金</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="outbox ">
+        <div class="name-box">
+            <h4>线下礼品卡回收网点</h4>
+        </div>
+        <div class="inbox-content">
+
+            <volist name="levelInfo1" id="vo">
+            <div class="row-area">
+                <span class="area">{$vo['name']}</span>
+            </div>
+            <div><volist name="levelInfo2" id="v">
+                <if condition="$v['parent_id'] eq $vo['id']">
+                <dl>
+
+                            <dt>{$v['name']}</dt>
+                            <dd>
+                                <volist name="levelInfo3" id="h">
+                                    <if condition="$h['parent_id'] eq $v['id']">
+                                        <li onclick="" class="city" data_url="{:U('Home/Card/network',array('cityid'=>$h['id']))}">{$h['name']}</li>
+                                    </if>
+                                 </volist>
+                            </dd>
+
+                </dl></if>
+            </volist>
+            </div>
+
+            </volist>
+        </div>
+    </div>
+    <div class="outbox f5f5">
+        <div class="name-box">
+            <h4>线下礼品卡回收列表</h4>
+        </div>
+        <ul class="card-list cf inbox">
+          <volist name="cardinfo" id="vo">
+            <li class="card-item fl"><img src="{$vo.photo_path}" alt=""></li>
+          </volist>
+
+        </ul>
+        <div class="hint-info">温馨提示：如回收列表里面没有您想要出售的卡，可以联系在线客服咨询</div>
+        <a class="btn" href="http://wpa.qq.com/msgrd?v=3&uin=76891828&site=qq&menu=yes" target="_blank">立即咨询</a>
+    </div>
+</block>
+<block name="script">
+    <script>
+        $('.city').on('click', function () {
+            url=$(this).attr("data_url");
+
+            layer.open({
+                type: 2,
+                title: false,
+                area: ['680px', '670px'],
+
+                shade: 0.8,
+                shadeClose: true, //close
+                content: url,
+
+            });
+        });
+
+    </script>
+</block>

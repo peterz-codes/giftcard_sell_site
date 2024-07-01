@@ -1,0 +1,116 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/trader.css" />
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/toastr.css" />
+</block>
+<block name="body">
+    <header class="mui-bar mui-bar-nav header">
+        <h1 class="mui-title">{$title}</h1>
+    </header>
+    <div class="search">
+        <input type="text" class="mui-input-clear search-input"   placeholder="">
+        <img class="search-eduction"  src="__MOBILE__/images/speach.png" />
+    </div>
+    <section  id="pullrefresh" class="section-content mui-content mui-scroll-wrapper">
+        <div  class="mui-scroll">
+            <ul id="content" class="mui-table-view list trader-list  mui-table-view-chevron">
+                <volist name="Article_list" id="vo" >
+                    <li class="mui-table-view-cell ">
+                            <a href="javascript:void(0)" class="mui-navigate-right" data-url="{$vo.id}"  >
+                            <div class="mui-media-body">
+                                {$vo.name}
+                                <p>{$vo.add_time|time_format}</p>
+                            </div>
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </section>
+    <input type="hidden" value="{$type}" id="type">
+    <input type="hidden" value="{$max_page}" id="max_page_index">
+</block>
+<block name="script">
+    <script src="__MOBILE__/js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__MOBILE__/js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+        mui.init({
+            pullRefresh: {
+                container: '#pullrefresh',
+                down: {
+                    callback: pulldownRefresh
+                },
+                up: {
+                    contentrefresh: '正在加载...',
+                    callback: pullupRefresh
+                }
+            }
+        });
+
+
+        $(function () {
+            $('#nav-notice').addClass('mui-active');
+            var type = $('#type').val();
+            ajaxList(1,type)
+        });
+        /**
+         * 下拉刷新具体业务实现
+         */
+        function pulldownRefresh() {
+            setTimeout(function() {
+                var page = $('.load_page').last().val();
+                var type = $('#type').val();
+                var max_page = $('.load_page_max').val();
+                if(page <= max_page){
+                    ajaxList(page,type);
+                }
+                mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+            }, 1500);
+        }
+
+        /**
+         * 上拉加载具体业务实现
+         */
+        function pullupRefresh() {
+            setTimeout(function() {
+                var page = $('.load_page').last().val();
+                var type = $('#type').val();
+                var max_page = $('.load_page_max').val();
+                mui('#pullrefresh').pullRefresh().endPullupToRefresh((max_page > page));
+                if(page <= max_page){
+                    ajaxList(page,type);
+                }
+            }, 1500);
+        }
+
+        function ajaxList(page,type){
+            $.ajax({
+                type:"post",
+                data:{page:page,type:type},
+                url:"{:U('Mobile/Index/ajax_more')}",
+                success:function(data){
+                    if(data.status == -1){
+                        alert(data.msg);
+                    }else{
+                        $("#content").append(data);
+                    }
+                }
+            })
+        }
+
+        $('.search-eduction').click(function () {
+            var search_content = $('.mui-input-clear').val();
+            var type = $('#type').val();
+            $.ajax({
+                type:"post",
+                data:{search_content:search_content,type:type},
+                url:"{:U('Mobile/Index/search')}",
+                success:function(data){
+                    $("#content").html('');
+                    $("#content").append(data);
+                }
+            })
+        });
+	</script>
+</block>	
+

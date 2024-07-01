@@ -1,0 +1,126 @@
+.sellCardDetails {
+	min-height: 1080px;
+	background: #fff;
+	border: 1px solid rgba(220, 227, 230, 1);
+	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.06);
+	margin: 20px 20px 31px 20px;
+	padding-bottom: 31px;
+	padding-left: 63px;
+}
+
+.record-title {
+	margin-top: 52px;
+}
+
+.record-title-font {
+	font-size: 20px;
+	color: #555F6D;
+	margin-right: 8px;
+}
+
+.record-title-text {
+	display: inline;
+	font-size: 14px;
+	color: #999;
+}
+
+.title-br{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.details-back{
+	width: 137px;
+	height: 40px;
+	background: #F3F3F3;
+	font-size: 20px;
+	color: #555F6D;
+	text-align: center;
+	line-height: 40px;
+	border: 1px solid #DCE3E6;
+	border-radius: 4px;
+	margin-top: 21px;
+}
+
+.details-process{
+	margin-top: 35px;
+	height: 100px;
+}
+
+.details-step{
+	display: inline-block;
+	width: 254px;
+	height: 100px;
+	text-align: center;
+	padding-top: 20px;
+	position: relative;
+}
+
+.detaies-step-circle{
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #27BAFF;
+	box-shadow:0px 3px 6px rgba(0,153,255,0.17);
+	/*margin-left: 150px;*/
+	margin: 0 auto;
+}
+
+.detaies-step-font{
+	font-size: 16px;
+	color: #27BAFF;
+	margin-top: 8px;
+}
+
+.detaies-step-time{
+	font-size: 12px;
+	color: #999;
+	margin-top: 4px;
+}
+
+.detaies-step-line{
+	width: 100%;
+	height: 6px;
+	background: #27BAFF;
+	position: absolute;
+	top: 27px;
+	left: 0;
+}
+
+.details-point{
+	width: 1020px;
+	height: 60px;
+	margin-top: 18px;
+	border: 1px solid #DCE3E6;
+	background: #F2FBFF;
+	padding-left: 20px;
+	line-height: 60px;
+	font-size: 16px;
+	color: #27BAFF;
+}
+
+.details-point span{
+	color: #CE1C00;
+}
+
+table{
+	margin-top: 21px;
+	width: 1020px;
+	border: 1px solid #DCE3E6;
+	text-align: center;
+}
+
+tr{
+	height: 60px;
+}
+
+td{
+	width: 160px;
+	font-size: 14px;
+	color: #999;
+}
+
+th{
+	width: 160px;
+	color: #333;
+}

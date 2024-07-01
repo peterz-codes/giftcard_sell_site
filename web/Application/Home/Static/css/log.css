@@ -1,0 +1,48 @@
+.log{
+	min-height: 1080px;
+	background: #fff;
+	border: 1px solid rgba(220, 227, 230, 1);
+	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.06);
+	margin: 20px 20px 31px 20px;
+	padding-bottom: 31px;
+}
+
+.record-title {
+	margin-top: 52px;
+	margin-left: 63px;
+}
+
+.record-title-font {
+	font-size: 20px;
+	color: #555F6D;
+	margin-right: 8px;
+}
+
+.log-table{
+	
+}
+
+table{
+	width: 1020px;
+	margin: 37px auto 0;
+	border: 1px solid #DCE3E6;
+	text-align: center;
+}
+
+tr{
+	height: 60px;
+}
+
+th{
+	color: #333;
+}
+
+td{
+	color: #999;
+}
+.color_red{
+	color:red;
+}
+.color_green{
+	color:#2CC13B;
+}

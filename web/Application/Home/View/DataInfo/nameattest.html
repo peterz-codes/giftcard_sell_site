@@ -1,0 +1,36 @@
+<extend name="Base/user_no"/>
+<block name="style">
+	<meta name="keywords" content="京东E卡 京东钢蹦 中国石化加油充值卡 中国石油加油充值卡 移动电信联通话费充值卡亚马逊礼品卡回收
+">
+	<meta name="description" content="爱卡网是一家提供电商超市、加油、旅游等礼品充值购物卡回收，收购，买卖的交易平台，我们努力做好礼品购物卡买卖的交易服务。">
+	<link rel="stylesheet" type="text/css" href="__HOME__/css/email.css"/>
+	<link rel="stylesheet" type="text/css" href="__HOME__/css/base1.css"/>
+	<link rel="stylesheet" type="text/css" href="__HOME__/css/phone.css"/>
+</block>
+<block name="content">
+		<!-- 未进行手机绑定 -->
+		<div class="nameAttest nameAttest-active">
+			<div class="email-bind cf">
+				<img class="email-bind-left fl" src="__HOME__/images/shouj_h.png" >
+				<div class="email-bind-right fl">
+					<div class="email-bind-right-color">您还未绑定手机！</div>
+					<div class="email-bind-right-text">实名认证前必须先进行手机绑定</div>
+					<div class="email-bind-right-text">如有问题，请联系客服咨询</div>
+					<div class="email-bind-right-btn">进行手机绑定</div>
+				</div>
+			</div>
+		</div>
+		<!-- 已经绑定手机 -->
+		<div class="nameAttest nameAttest-no-active">
+			
+		</div>
+</block>
+<block name="script">
+	<script src="__HOME__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			parent.GetIframeStatus();
+		})
+	</script>
+</block>
+

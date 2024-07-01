@@ -1,0 +1,22 @@
+<ul class="mui-table-view list trader-list">
+    <volist name="Article_list" id="vo" >
+        <li class="mui-table-view-cell ">
+            <a class="mui-navigate-right" data-url="{$vo.id}">
+                <div class="mui-media-body">
+                    {$vo.name}
+                    <p>{$vo.add_time|time_format}</p>
+                </div>
+            </a>
+        </li>
+    </volist>
+</ul>
+<input type="hidden" value="{$page}" class="load_page">
+<input type="hidden" value="{$max_page}" class="load_page_max">
+<input type="hidden" value="{$result_count}" class="search_count">
+<script>
+
+    $('.trader-list li a').click(function () {
+        var article_id = $(this).attr('data-url');
+        window.location.href='<?php echo U("Mobile/Index/detail");?>?article_id='+article_id;
+    });
+</script>

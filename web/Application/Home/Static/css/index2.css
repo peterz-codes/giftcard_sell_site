@@ -1,0 +1,112 @@
+.container1 .swiper-pagination-bullet{
+    width: 100px;
+    height: 2px;
+    border-radius: 5px;
+    background: #085b7a;
+}
+.container1 .swiper-pagination-bullet-active{
+    background: #fff;
+}
+.container1.swiper-container-horizontal>.swiper-pagination-bullets,.container1.swiper-pagination-custom,.container1.swiper-pagination-fraction{
+    bottom: 200px;
+}
+.sect1{
+    padding: 40px 0;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    transform: translate(-50%,50%);
+    z-index: 9;
+    height: 360px;
+    font-weight: bold;
+}
+.title_top {
+    line-height: 45px;
+}
+.title_top span{
+    font-size: 30px;
+    margin: 0 20px;
+}
+.exchange{
+    text-align: center;
+    font-size: 18px;
+    margin-top: 60px;
+}
+.exchange .li img{
+    width: 110px;
+    margin-bottom: 20px;
+}
+.exchange .li {
+    width: 19%;
+}
+.interval{
+    line-height: 90px;
+}
+.cardCalss{
+    padding-top: 220px;
+    background: #f5f6fa;
+    padding-bottom: 70px;
+}
+.sect2{
+    padding: 20px 0;
+    margin-top: 30px;
+}
+.sect2 li{
+    text-align: center;
+    border-right: 1px solid #eee;
+    margin: 20px 0;
+}
+.sect2 img{
+    width: 110px;
+}
+.sect2 .name{
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.sect2 button{
+    background: linear-gradient(to right, #feb5bb , #ffd3d7); /* 标准的语法 */
+    color: #ff5766;
+    width: 140px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 16px;
+}
+.sect2 button:hover{
+    background: #ff5766;
+    color: #fff;
+}
+.wecan .title_top{
+    margin:  40px 0;
+}
+.mz-row{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.mz-col-33{
+    position: relative;
+    float: left;
+    width: 33.3333%;
+}
+.list .posta{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 35px;
+}
+.list .title{
+    color: #fff;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 45px;
+}
+.list .center{
+    font-size: 16px;
+    margin-top: 150px;
+    padding: 20px;
+    color: #999;
+}
+

@@ -1,0 +1,196 @@
+body{
+	min-width: 1080px;
+}
+
+.withdraw{
+	height: 100%;
+	background: #fff;
+	padding: 30px;
+}
+
+.withdraw-floor{
+	min-height: 190px;
+	margin-left: 19px;
+	width: 450px;
+
+}
+
+.withdraw-way{
+	margin-top: 30px;
+	margin-left: 77px;
+}
+.del_account{
+	display:block;
+	height:55px;
+	line-height:55px;
+	color:red;
+	margin-bottom: 19px;
+}
+
+.withdraw-zfb{
+	display: inline-block;
+	width: 207px;
+	height: 55px;
+	text-align: center;
+	line-height: 55px;
+	border: 1px solid #DCE3E6;
+	border-radius: 4px;
+	margin-right: 19px;
+	font-size: 16px;
+	color: #333333;
+}
+
+.left{
+	margin-left: 104px;
+}
+
+.withdraw-bg{
+	background: url(../images/pay_wdz.png);
+	background-size: 100% 100%;
+}
+
+.withdraw-bg i, .withdraw-bg span{
+	color: #CE1C00;
+}
+
+.withdraw-account{
+	position: relative;
+	height: 114px;
+	margin-top: 27px;
+}
+
+.account-left{
+	position: absolute;
+	top: 15px;
+	left: 0;
+	display: inline-block;
+	width: 85px;
+	font-size: 14px;
+	color: #333;
+}
+
+.account-right{
+	position: absolute;
+	top: 0;
+	left: 104px;
+	display: inline-block;
+	width: 379px;
+	height: 114px;
+	border: 1px dashed #DCE3E6;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.account-right-add{
+	font-size: 26px;
+	color: #999;
+	margin-top: 26px;
+}
+
+.account-right-font{
+	font-size: 16px;
+	color: #333;
+}
+
+.withdraw-active{
+	display: none;
+}
+
+.withdraw-no-active{
+	display: block;
+}
+
+.withdraw-attest{
+	/*position: relative;*/
+	height: 55px;
+	margin-top: 22px;
+}
+
+.withdraw-attest-left{
+	/*position: absolute;*/
+	/*top: 0;*/
+	/*left: 0;*/
+	display: inline-block;
+	width: 85px;
+	height: 55px;
+	line-height: 55px;
+	font-size: 14px;
+	color: #333;
+}
+
+.withdraw-attest-right{
+	/*position: absolute;*/
+	/*top: 0;*/
+	/*left: 104px;*/
+	display: inline-block;
+	width: 380px;
+	height: 55px;
+	border: 1px solid #DCE3E6;
+	border-radius: 4px;
+	margin-bottom: 19px;
+	margin-right:20px;
+}
+
+
+.withdraw-attest-right img{
+	display: inline-block;
+	width: 19px;
+	height: 19px;
+	margin-top: 18px;
+	margin-left: 18px;
+}
+
+.withdraw-attest-right input{
+	height: 53px;
+	border: none;
+	background: #fff;
+	text-align: right;
+	margin-right: 13px;
+}
+
+.attest-right{
+	/*position: absolute;*/
+	/*top: 74px;*/
+	/*left: 104px;*/
+	display: inline-block;
+	width: 379px;
+	height: 114px;
+	border: 1px dashed #DCE3E6;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.attest-active{
+	display: none;
+}
+
+.attest-no-active{
+	display: block;
+}
+
+.zfb-active{
+	display: block;
+}
+.yhk-active{
+	display: none;
+}
+
+.withdraw-btn{
+	width: 207px;
+	height: 50px;
+	background: #27BAFF;
+	border-radius: 4px;
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+	line-height: 50px;
+	margin-left: 104px;
+	margin-top: 53px;
+}
+
+.withdraw-font{
+	font-size: 14px;
+	color: #333;
+	margin-left: 104px;
+	margin-top: 11px;
+}

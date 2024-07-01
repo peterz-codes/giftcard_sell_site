@@ -1,0 +1,182 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+        <div class="tw-list-hd">
+            {:isset($info['id'])?'编辑':'新增'}贷款信息
+        </div>
+        <div class="tw-list-wrap tw-edit-wrap">
+            <form action="__SELF__" method="post" class="form-horizontal ajaxForm">
+                <div class="form-item">
+                    <label class="item-label">贷款名称<span class="check-tips"><b>*</b>（输入贷款名称）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="name" value="{$info.name}">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">贷款分类<span class="check-tips"><b>*</b>（选择贷款分类）</span></label>
+                    <div class="controls">
+                        <select name="type_id">
+                            <volist name="LoanType" id="vo">
+                                <option value="{$vo.id}"
+                                <if condition="$vo.id eq $info['type_id'] ">
+                                    selected="selected"
+                                </if>
+                                >{$vo.name}</option>
+                            </volist>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">pc链接地址<span class="check-tips"><b>*</b>（输入链接地址）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="link" value="{$info.link}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">wap链接地址<span class="check-tips"><b>*</b>（输入链接地址）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="link" value="{$info.m_link}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">贷款额度<span class="check-tips"><b>*</b>（单位:元）</span></label>
+                    <div class="controls">
+                        金额: <input type="text" class="text input-small" name="amount_start" value="{$info.amount_start}">
+                        <span>--</span>
+                        <input type="text" class="text input-small" name="amount_end" value="{$info.amount_end}">
+
+                    </div>
+                </div>
+
+                <div class="form-item">
+
+                    <label class="item-label">贷款利率<span class="check-tips"><b>*</b>（百分比）</span></label>
+
+                    <div class="controls">
+                        <input type="text" class="text input-small" name="rate" value="{$info.rate}">%
+                        <select name="rate_type">
+                            <option {$info['rate_type']=='日利率'?'selected':''} value="日利率">日利率</option>
+                            <option {$info['rate_type']=='月利率'?'selected':''} value="月利率">月利率</option>
+                            <option {$info['rate_type']=='年利率'?'selected':''} value="年利率">年利率</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">借款期限<span class="check-tips"><b>*</b>（单位:月）</span></label>
+                    <div class="controls">
+                        期限: <input type="text" class="text input-small" name="term_loan_start" value="{$info.term_loan_start}">
+                        <span>--</span>
+                        <input type="text" class="text input-small" name="term_loan_end" value="{$info.term_loan_end}">
+                        <select name="term_loan_w">
+                            <option {$info['term_loan_w']=='日'?'selected':''} value="日" >日</option>
+                            <option {$info['term_loan_w']=='月'?'selected':''}  value="月">月</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">审批周期<span class="check-tips"><b>*</b>（单位:工作日）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-small" name="approval_cycle" value="{$info.approval_cycle}">
+
+                    <select name="approval_cycle_w">
+                        <option {$info['approval_cycle_w']=='日'?'selected':''} value="日" >日</option>
+                        <option {$info['approval_cycle_w']=='小时'?'selected':''}  value="小时">小时</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">标签</span></label>
+                    <div class="controls">
+                        <input type="text" class="text" name="tag" value="{$info.tag}">
+                    </div>
+
+                </div>
+                <div class="form-item">
+                    <label class="item-label">上传图片<span class="check-tips">（用于上传图片 请上传大于200*100的图片）</span></label>
+                    <div class="controls">
+                        <div>
+                            <img src="{$info.photo_path}" style="height:129px; width:129px;" id="img_"/>
+                        </div>
+                        <input type="hidden" value="{$info.photo_path}" name="photo_path" id="img" />
+                        <input class="btn btn-default btn-xs" type="button" value="上传" id="btnUpload"/>
+                        <input class="btn btn-danger btn-xs" type="button" value="删除" onclick="delFile($('#img').val(), '')" id="btn_delete_" />
+                        <if condition="$info.photo_path eq ''">
+                            <script>
+                                $("#img_, #btn_delete_").hide();
+                            </script>
+                        </if>
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">申请条件<span class="check-tips"><b>*</b>（输入申请条件）</span></label>
+                    <div class="controls">
+                        <textarea name="application_conditions" id="UE" >{$info.application_conditions|htmlspecialchars_decode}</textarea><br/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">所需材料<span class="check-tips"><b>*</b>（输入所需材料）</span></label>
+                    <div class="controls">
+                        <textarea name="materials" id="UE2" >{$info.materials|htmlspecialchars_decode}</textarea><br/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">还款方式<span class="check-tips"><b>*</b>（输入还款方式）</span></label>
+                    <div class="controls">
+                        <textarea name="repayment_method" id="UE3">{$info.repayment_method}</textarea><br/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">详细说明<span class="check-tips"><b>*</b>（输入详细说明）</span></label>
+                    <div class="controls">
+                        <textarea name="content" id="UE4" >{$info.content|htmlspecialchars_decode}</textarea><br/>
+                    </div>
+                </div>
+
+                <div class="tw-tool-bar-bot">
+                    <button type="submit" class="tw-act-btn-confirm">提交</button>
+                    <button type="button" onclick="goback()" class="tw-act-btn-cancel">返回</button>
+                </div>
+                <input type="hidden" name="id" value="{$info.id|default=''}"/>
+            </form>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ajaxupload.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__COMMON__/js/imgupload.js"></script>
+    <script>
+        _TARGET_URL="{:U('Admin/Loan/index')}";
+        UE.getEditor('UE',{
+            autoHeightEnabled: false,
+            initialFrameWidth: '700',
+            initialFrameHeight: 350
+        });
+        UE.getEditor('UE2',{
+            autoHeightEnabled: false,
+            initialFrameWidth: '700',
+            initialFrameHeight: 350
+        });
+        UE.getEditor('UE3',{
+            autoHeightEnabled: false,
+            initialFrameWidth: '700',
+            initialFrameHeight: 350
+        });
+        UE.getEditor('UE4',{
+            autoHeightEnabled: false,
+            initialFrameWidth: '700',
+            initialFrameHeight: 350
+        });
+
+        $(function(){
+            ajaxUpload('#btnUpload', $("#img"), 'Loan', '');
+        })
+    </script>
+</block>

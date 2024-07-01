@@ -1,0 +1,63 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/address_list.css" />
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/address.css" />
+</block>
+<block name="body">
+    <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+        <!--侧滑菜单部分-->
+        <include file="Index:left" />
+        <!--主界面部分-->
+        <div class="mui-inner-wrap">
+            <header class="mui-bar mui-bar-nav">
+                <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"  href="javascript:history.back(-1)"></a>
+                <h1 class="mui-title">地址管理</h1>
+                <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+            </header>
+            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+                <div class="mui-scroll" id="move-togger">
+                    <div id="tbh5v0">
+                        <volist name="lists" id="list">
+                            <div class="address_add   <if condition="$list[is_default] eq 1"> Default</if>">
+                                <if condition="$list[is_default] eq 1">
+                                    <h2><img src="__MOBILE__/images/right.png"></h2>
+                                </if>
+                                <dl>
+                                    <dt><span>{$list.consignee}</span><em>电话:{$list.mobile}</em></dt>
+                                    <dd>{$region_list[$list['province']]['region_name']}，{$region_list[$list['city']]['region_name']}，{$region_list[$list['district']]['region_name']}，{$list.address}</dd>
+                                </dl>
+                                <a id="edit" data-value ="{:U('/Mobile/User/edit_address',array('id'=>$list[address_id]))}">
+                                    <img id="amend" src="__MOBILE__/images/amend.png"/>
+                                </a>
+                            </div>
+                        </volist>
+                    </div>
+            </div>
+            <div class="list_footer">
+                <a data-value ="{:U('/Mobile/User/add_address')}" id="add_address">添加新地址</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="mui-off-canvas-backdrop"></div>
+
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script>
+        mui('#offCanvasSideScroll').scroll();
+        mui('#offCanvasContentScroll').scroll();
+
+        $('#edit').on('tap',function () {
+            var url_edit = $(this).attr('data-value');
+            window.location.href = url_edit;
+        });
+
+        $('#add_address').on('tap',function () {
+            var url_add = $(this).attr('data-value');
+            window.location.href = url_add;
+        });
+    </script>
+</block>
+

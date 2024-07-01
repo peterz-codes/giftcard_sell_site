@@ -1,0 +1,87 @@
+body{
+	min-width: 1080px;
+}
+
+.phone{
+	height: 100%;
+	background: #fff;
+	padding: 30px;
+}
+
+.phone-active{
+	display: none;
+}
+
+.phone-no-active{
+	display: block;
+}
+
+.phone-set{
+	margin-left: 77px;
+	margin-top: 30px;
+	font-size: 14px;
+	color: #333;
+}
+
+.phone-point{
+	color: #CE1C00;
+}
+
+.phone-set-font{
+	display: inline-block;
+	width: 90px;
+	margin-right: 20px;
+}
+
+.phone-set-phone input{
+	display: inline-block;
+	width: 379px;
+	height: 47px;
+	border: 1px solid #DCE3E6;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.phone-set-msg{
+	margin-top: 25px;
+}
+
+.phone-set-msg input{
+	display: inline-block;
+	width: 207px;
+	height: 47px;
+	border: 1px solid #DCE3E6;
+	border-radius: 4px;
+	background: #fff;
+	margin-right: 15px;
+}
+
+.phone-msg{
+	display: inline-block;
+	width: 158px;
+	height: 47px;
+	text-align: center;
+	line-height: 47px;
+	background: #F3F3F3;
+	border: 1px solid #DCE3E6;
+	border-radius: 4px;
+	color: #999;
+}
+
+.phone-set-text{
+	margin-top: 15px;
+	margin-left: 126px;
+}
+
+.phone-set-btn{
+	width: 207px;
+	height: 50px;
+	background: #27BAFF;
+	text-align: center;
+	line-height: 50px;
+	font-size: 16px;
+	color: #fff;
+	border-radius: 4px;
+	margin-top: 47px;
+	margin-left: 203px;
+}

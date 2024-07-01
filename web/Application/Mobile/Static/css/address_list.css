@@ -1,0 +1,123 @@
+/*地址管理user_address_listlbi*/
+.address_add{ width:100%; overflow:hidden; background:#FFF; border-bottom:1px solid #CCC; position:relative; color:#666;}
+.address_add h2{ width:25px; height:25px; position:absolute; left:5px; top:50%; margin-top:-12px;}
+.address_add h2 img{ display:block; width:25px; height:25px;}
+
+.address_add dl{ width:77%; float:left; overflow:hidden; padding-left:10px; margin-left:30px}
+.address_add dl dt{ width:100%; height:35px;}
+.address_add dl dt span{ display:block; float:left; font-size:14px; line-height:35px; font-weight:bold; width:88px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap}
+.address_add dl dt em{ display:block; float:right; font-size:14px; line-height:35px; font-style:normal; margin-right:20px}
+.address_add dl dd{font-size:12px; line-height:150%;}
+.Default{ background:#5e6b85; color:#FFF}
+
+.addressmone{ width:100%; overflow:hidden; background:#fff}
+.addressmone ul{ width:95%; overflow:hidden; margin:auto}
+.addressmone ul li{ width:100%; overflow:hidden; border-bottom:1px solid #CCC;}
+.addressmone ul li span{ display:block; float:left; width:30%; font-size:14px; line-height:45px; color:#666;}
+.addressmone ul li input{ display:block; float:left; width:60%; background:none; border:0px; font-size:16px; color:#333; line-height:45px;}
+.addressmone ul li select{
+    display:block; float:left;background:none; height:45px; border:0px; font-size:16px; color:#333;
+    line-height:45px; padding-right:10px;-webkit-appearance: none; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1;
+    border-radius: 0; -webkit-rtl-ordering: logical; -webkit-user-select: text;
+    width: 35%;
+}
+
+#amend{ position:absolute; width:20px; height:20px; top:28px; right:10px}
+
+.address_save{ display:block; margin:auto; padding-left:15px; padding-right:15px; background:#F60; font-size:16px; height:30px; line-height:30px; text-align:center; color:#FFF; border:0px; margin-top:10px; margin-bottom:10px;}
+.submit_btn{ width:80%; height:30px; margin-top:10px; margin-bottom:10px;}
+
+.address_save1{ display:block; float:left; padding-left:15px; padding-right:15px; background:#F60; font-size:16px; height:30px; line-height:30px; text-align:center; color:#FFF; border:0px; margin-top:10px; margin-bottom:10px;}
+
+.address_save2{ display:block; float:right; padding-left:15px; padding-right:15px; background:#666; font-size:16px; height:30px; line-height:30px; text-align:center; color:#FFF; border:0px; margin-top:10px; margin-bottom:10px;}
+
+.dotm_btn{ width:100%; height:50px; background:#fff;position:fixed; margin-top:10px; text-align:center;min-width: 320px; max-width: 640px; }
+.dotm_btn2{ display:block; float:left; width:30%; height:20px;line-height:20px;margin-left:3%; background-position:0px 0px; padding-top:25px;font-size:12px; background:url(../images/all.png) no-repeat;background-size: auto 300px; text-align:left; text-indent:3px }
+.dotm_btn1{ display:block; float:left; width:30%; height:40px; background:#FF3300; font-size:14px; line-height:40px; color:#FFF; border:0; margin-top:5px;border-radius:3px; margin-left:3%; font-family:"微软雅黑"}
+.dotm_btn3{ display:block; float:left; width:30%; height:40px; background:#3723da; line-height:40px; color:#FFF; border:0;margin-top:5px;border-radius:3px;margin-left:3% }
+.beett{ display:inline; float:inherit; width:60%; margin-left:inherit; padding:0 20px; }
+.dotm_btn1 {
+    display: block;
+    float: left;
+    width: 30%;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    color: rgb(255, 255, 255);
+    margin-top: 5px;
+    margin-left: 3%;
+    font-family: 微软雅黑;
+    background: rgb(255, 51, 0);
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 3px;
+    background:#FF3300;
+}
+.dotm_btn1{
+    background:#3723da !important;
+    border: 0 !important;
+}
+.dotm_btn1_1{ display:block; width:90%; height:40px; background:#FF3300; font-size:14px; line-height:40px; color:#FFF; border:0; margin:auto; margin-top:5px;border-radius:3px; font-family:"微软雅黑"}
+
+.mui-bar-nav {
+    background: #3723da !important;
+    padding: 0 12px !important;
+}
+.mui-bar .mui-icon{
+    color:#fff;
+}
+.address_add dl dd{
+    margin-left: 0px;
+}
+.mui-title{
+    color:#fff;
+}
+
+.gotop {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 45px;
+    right: 8px;
+    background-color: rgba(243,241,241,0.5);
+    border: 1px solid #CCC;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+a:link {
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.list_footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    line-height: 36px;
+    border-radius: 4px;
+    padding: 0;
+    font-size: 11px;
+    color: #fff;
+    text-align: center;
+    background: #221396;
+    z-index: 8;
+}
+
+#tbh5v0{
+    position: relative;
+}
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    height: 45px;
+}
+a{
+    color:#fff !important;
+}

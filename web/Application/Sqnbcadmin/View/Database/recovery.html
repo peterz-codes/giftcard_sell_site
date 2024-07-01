@@ -1,0 +1,137 @@
+<extend name="Public/base"/>
+
+<block name="body">
+  <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+    <!-- S=头部设置 -->
+    <div class="tw-layout">        
+        <!-- S=信息管理 -->
+        <div class="tw-list-hd"> 列表</div>
+        <!-- E=信息管理 -->        
+        <!-- S=导航设置 -->
+        <div class="tw-list-top">
+            <!-- S=添加删除 -->
+            <div class="tw-tool-bar">
+                <a class="tw-tool-btn-add" href="{:U('edit')}">
+                    <i class="tw-icon-plus-circle"></i> 添加
+                </a>
+            </div>
+            <!-- E=添加删除 -->
+            <!-- S=高级搜索 -->                        
+            <form action="__ACTION__" method="get" id='frmSearch'>
+                <div class="tw-search-bar">
+                    <div class="search-form fr cf">
+                        <div class="sleft">
+                            <input type="text" name="title" class="search-input" value="{:I('title')}" placeholder="请输入名称">
+                            <a type="submit" class="sch-btn" onclick="$('#frmSearch').submit();"><i class="btn-search"></i></a>
+                        </div>
+                    </div>            
+                </div>
+        </form>          
+            <!-- E=高级搜索 -->
+        </div>
+        <!-- E=导航设置 -->
+    </div>
+    <!-- E=头部设置 -->
+    <!-- S=详情显示 --> 
+    <div class="tw-list-wrap">
+        <!-- S=表单 -->
+        <form class="ids"  id="export-form" method="post" action="{:U('export')}">
+            <table class="tw-table tw-table-list tw-table-fixed">
+                <thead>
+                    <tr>
+                                <th width="100">备份名称</th>
+                                <th width="100">卷数</th>
+                                <th width="100">压缩</th>
+                                <th width="100">数据大小</th>
+                                <th width="100">备份时间</th>
+                                <th width="100">状态</th>
+                                <th width="100">操作</th>
+                    </tr>
+                </thead>
+                <!-- S=详细信息 --> 
+                <tbody>
+                    <notempty name="list">
+                      
+                            <volist name="list" id="data">
+                            <tr>
+                                 <td>{$data.time|date='Ymd-His',###}</td>
+                                    <td>{$data.part}</td>
+                                    <td>{$data.compress}</td>
+                                    <td>{$data.size|format_bytes}</td>
+                                    <td>{$key}</td>
+                                    <td>-</td>
+                                    <td class="action">
+                                        <a class="db-import" href="{:U('import?time='.$data['time'])}">还原</a>&nbsp;
+                                        <a class="ajax-get confirm" href="{:U('del?time='.$data['time'])}">删除</a>
+                                    </td>
+                            </tr>
+                        </volist>
+                        <else/>
+                            <td colspan="4" class="text-center"> aOh! 暂时还没有内容! </td>
+                    </notempty>
+                </tbody>
+                <!-- E=详细信息 -->
+            </table>
+        </form>
+      
+            <div class="cf">
+                            <a class="btn btn-info" href="{:U('Database/backup')}">数据备份</a>
+                        </div>
+         </div>
+    </div>
+    <!-- E=详情显示 --> 
+</block>
+<script src="__PUBLIC__/bootbox.js"></script>
+<block name="script">
+    <script type="text/javascript">
+        $(function () {
+            $('.header-nav-first').css("border-bottom", "3px solid #A72126");
+            $('.header-nav-first a').css("color", "#A72126");
+        });
+    </script>
+    <script type="text/javascript">
+    $(".db-import").click(function () {
+        var self = this, status = ".";
+        $.get(self.href, success, "json");
+        window.onbeforeunload = function () {
+            return "正在还原数据库，请不要关闭！"
+        }
+        return false;
+
+        function success(data) {
+            if (data.status) {
+                if (data.gz) {
+                    data.info += status;
+                    if (status.length === 5) {
+                        status = ".";
+                    } else {
+                        status += ".";
+                    }
+                }
+                $(self).parent().prev().text(data.info);
+                if (data.part) {
+                    $.get(self.href,
+                            {"part": data.part, "start": data.start},
+                            success,
+                            "json"
+                    );
+                } else {
+                    window.onbeforeunload = function () {
+                        return null;
+                    }
+                }
+            } else {
+                alert(data.info, 'alert-error');
+            }
+        }
+    });
+</script>
+  
+</block>
+
+

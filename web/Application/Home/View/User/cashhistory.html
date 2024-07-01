@@ -1,0 +1,56 @@
+
+    <extend name="Base/base"/>
+    <block name="style">
+        <link rel="stylesheet" href="__HOME__/css/user_center.css">
+
+    </block>
+    <block name="body">
+    <div class="outbox">
+        <div class="inbox">
+            <div class="type-list cf">
+                <a class="type-item fl on">提现记录</a>
+                <a class="type-item fl" href="{:U('Home/User/index')}">返回账户中心</a>
+            </div>
+            <div class="hint-info">如遇提现失败，请联系电话客服或者在线客服了解详情！客服电话：0591-86396886</div>
+            <div class="table-box">
+                <div class="cf view-box">
+                    <div class="view-item fl nth1">账户余额</div>
+                    <div class="view-item fl nth2">时间</div>
+                    <div class="view-item fl nth3">提现账户</div>
+                    <div class="view-item fl nth4">提现金额</div>
+                    <div class="view-item fl nth5">状态</div>
+                    <div class="view-item fl nth6">处理时间</div>
+                </div>
+                <volist name="payinfo" id="vo">
+                <div class="cf view-box">
+                    <div class="view-item fl nth1">¥{$vo.balance}</div>
+                    <div class="view-item fl nth2">{$vo.add_time|date='Y-m-d H:i:s',###}</div>
+                    <div class="view-item fl nth3">{$vo.alipaycount}</div>
+                    <div class="view-item fl nth4">¥{$vo.pay_cash}</div>
+                    <div class="view-item fl nth5"> <if condition="$vo.flag eq 1">  未审核<elseif  condition="$vo.static eq 1" />已到账 <else/>申请无效</if></div>
+                    <div class="view-item fl nth6"><if condition="$vo.flag_time neq ''">{$vo.flag_time|date='Y-m-d H:i:s',###}<else /> 等待审核</if></div>
+                </div>
+                </volist>
+
+                <div class="cf view-box">
+                    <div class="view-item fl nth1"></div>
+                    <div class="view-item fl nth2"></div>
+                    <div class="view-item fl nth3"></div>
+                    <div class="view-item fl nth4"></div>
+                    <div class="view-item fl nth5"></div>
+                    <div class="view-item fl nth6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </block>
+    <block name="script">
+        <script>
+            $(".type-item").click(function () {
+                $(".type-item").removeClass("on");
+                $(this).addClass("on");
+            })
+        </script>
+    </block>

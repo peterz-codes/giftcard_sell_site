@@ -1,0 +1,27 @@
+
+<volist name="article_type_list" id="vo" >
+    <li class="mui-table-view-cell ">
+        <a class="mui-navigate-right" data-url="{$vo.id}">
+            <div class="mui-media-body">
+                {$vo.name}
+                <p>{$vo.add_time|time_format}</p>
+            </div>
+        </a>
+    </li>
+</volist>
+<input type="hidden" value="{$page}" class="load_page">
+<input type="hidden" value="{$max_page}" class="load_page_max">
+<input type="hidden" value="{$phone}" id="phone">
+<script>
+    $('#content li a').on('tap',function () {
+        var eduction_id = $(this).attr('data-url');
+        var phone = $('#phone').val();
+        if(phone == ''){
+            alert('请先登录！');
+            window.location.href="{:U('Mobile/User/login')}";
+        }else{
+            window.location.href='<?php echo U("Mobile/Eduction/detail");?>?eduction_id='+eduction_id;
+        }
+
+    });
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>首页 - www.ohbbs.cn 欧皇源码论坛 </title>
+    <link rel="stylesheet" href="__HOME__/css/initialize.css">
+    <link rel="stylesheet" href="__HOME__/css/network.css">
+</head>
+<body>
+   
+    <div class="bkdrop">
+        <div class="form-box">
+            <div class="title">网点详情</div>
+            <div class="inp-group">
+
+                    <volist name="list" id="vo">
+                        <div class="content-detail">
+                            <h4>{$vo['name']}</h4>
+                            <p class="address">
+                                {$vo['address']}
+                            </p>
+                            <p> {$vo['tel']} <if condition="$vo['phone'] neq ''">/ </if> {$vo['phone']}</p>
+                        </div>
+                    </volist>
+
+
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="__HOME__/js/jquery-3.1.1.min.js"></script>
+</html>

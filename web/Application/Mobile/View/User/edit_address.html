@@ -1,0 +1,178 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/address_list.css" />
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/address.css" />
+</block>
+<block name="body">
+    <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+        <!--侧滑菜单部分-->
+        <include file="Index:left" />
+        <!--主界面部分-->
+        <div class="mui-inner-wrap">
+            <header class="mui-bar mui-bar-nav">
+                <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"  href="javascript:history.back(-1)"></a>
+                <h1 class="mui-title">编辑地址</h1>
+                <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+            </header>
+            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+                <div class="mui-scroll" id="move-togger">
+                    <div id="tbh5v0">
+                        <div class="addressmone">
+                            <!--<form  method="post" >-->
+                                <ul>
+                                    <li>
+                                        <span>收货人姓名</span>
+                                        <input name="consignee" id="consignee" type="text" value="{$address.consignee}" maxlength="12" placeholder="收货人姓名"/>
+                                    </li>
+                                    <li>
+                                        <span>地区</span>
+                                        <input name='country' value='1' type="hidden">
+                                        <select class="province_select"  name="province" id="province" onChange="get_city(this)">
+                                            <option value="0">请选择</option>
+                                            <volist name="province" id="p">
+                                                <option <if condition="$address['province'] eq $p['id']">selected</if>  value="{$p.id}">{$p.region_name}</option>
+                                            </volist>
+                                        </select>
+                                        <select name="city" id="city" onChange="get_area(this)">
+                                            <option  value="0">请选择</option>
+                                            <volist name="city" id="p">
+                                                <option <if condition="$address['city'] eq $p['id']">selected</if>  value="{$p.id}">{$p.region_name}</option>
+                                            </volist>
+                                        </select>
+                                        <select name="district" id="district" onChange="get_twon(this)">
+                                            <option  value="0">请选择</option>
+                                            <volist name="district" id="p">
+                                                <option <if condition="$address['district'] eq $p['id']">selected</if>  value="{$p.id}">{$p.region_name}</option>
+                                            </volist>
+                                        </select>
+                                        <select class="di-bl fl seauii" name="twon" id="twon" <if condition="$address['twon'] gt 0 ">style="display:block;"<else/>style="display:none;"</if>>
+                                        <volist name="twon" id="p">
+                                            <option <if condition="$address['twon'] eq $p['id']">selected</if>  value="{$p.id}">{$p.region_name}</option>
+                                        </volist>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <span>详细地址</span> <input type="text"  name="address" id="address" placeholder="详细地址" maxlength="100" value="{$address.address}"/>
+                                    </li>
+                                    <li>
+                                        <span>手机</span>
+                                        <input type="text" name="mobile" value="{$address.mobile}" onpaste="this.value=this.value.replace(/[^\d-]/g,'')" onKeyUp="this.value=this.value.replace(/[^\d-]/g,'')" maxlength="15" placeholder="手机号码"/>
+                                    </li>
+                                    <li>
+                                        <span>邮政编码</span>
+                                        <input type="text" name="zipcode" value="{$address.zipcode}" onpaste="this.value=this.value.replace(/[^\d]/g,'')" onKeyUp="this.value=this.value.replace(/[^\d]/g,'')" maxlength="10"  placeholder="邮政编码"/>
+                                    </li>
+                                </ul>
+                                <div style=" height:50px"></div>
+                                <div class="dotm_btn">
+                                        <a  data-val="{:U('/Mobile/User/del_address')}" id="delete"  class="dotm_btn2" style="color:#666;">删除</a>
+                                        <a data-val="{:U('/Mobile/User/set_default')}" id="set_default" class="dotm_btn3" style=" color:#FFF;font-size:14px;">设置为默认地址</a>
+                                        <input type="button" value="保存" class="dotm_btn1" id="submit" onclick="checkForm();" />
+                                </div>
+                                <input type="hidden" name="id" id="id" value="{$address.address_id}" />
+                            <!--</form>-->
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    <div class="mui-off-canvas-backdrop"></div>
+
+    </div>
+    </div>
+</block>
+<block name="script">
+    <script src="__MOBILE__/js/global.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        mui('#offCanvasSideScroll').scroll();
+        mui('#offCanvasContentScroll').scroll();
+        function checkForm(){
+            var consignee = $('input[name="consignee"]').val();
+            var province = $('select[name="province"]').find('option:selected').val();
+            var city = $('select[name="city"]').find('option:selected').val();
+            var district = $('select[name="district"]').find('option:selected').val();
+            var address = $('input[name="address"]').val();
+            var mobile = $('input[name="mobile"]').val();
+            var error = '';
+            if(consignee == ''){
+                error += '收货人不能为空 <br/>';
+            }
+            if(province==0){
+                error += '请选择省份 <br/>';
+            }
+            if(city==0){
+                error += '请选择城市 <br/>';
+            }
+            if(district==0){
+                error += '请选择区域 <br/>';
+            }
+            if(address == ''){
+                error += '请填写地址 <br/>';
+            }
+            if(!checkMobile(mobile)){
+                error += '手机号码格式有误 <br/>';
+            }
+            if(error){
+                layer.open({content:error,time:2});
+                return false;
+            }
+            var address_id = $('#id').val();
+            var url = "{:U('Mobile/User/save_address')}";
+            $.ajax({
+                type:'post',
+                url: url,
+                data:{ id: address_id ,consignee:consignee,province:province,city:city,district:district,address:address,mobile:mobile},
+                success:function(data){
+                    if(data.status != 1){
+                        mui.toast(data.info);
+                        return false ;
+                    }else{
+                        mui.toast(data.info);
+                        window.location.href="{:U('Mobile/User/address_list')}";
+                    }
+                }
+            });
+        }
+
+        $('#set_default').on('tap',function () {
+            var set_default = $(this).attr('data-val');
+            var address_id = $('#id').val();
+            $.ajax({
+                type:'post',
+                url: set_default,
+                data:{ id: address_id },
+                success:function(data){
+                    if(data.status != 1){
+                        mui.toast(data.info);
+                        return false ;
+                    }else{
+                        mui.toast(data.info);
+                        window.location.href="{:U('Mobile/User/address_list')}";
+                    }
+                }
+            });
+        });
+
+        $('#delete').on('tap',function () {
+            var address_id = $('#id').val();
+            var delete_url = $(this).attr('data-val');
+            $.ajax({
+                type:'post',
+                url: delete_url,
+                data:{ id: address_id },
+                success:function(data){
+                    if(data.status != 1){
+                        mui.toast(data.info);
+                        return false ;
+                    }else{
+                        mui.toast(data.info);
+                        window.location.href="{:U('Mobile/User/address_list')}";
+                    }
+                }
+            });
+        });
+    </script>
+</block>
+

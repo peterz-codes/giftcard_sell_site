@@ -1,0 +1,73 @@
+<div class="header">
+    <div class="header-center">
+        <div class="fl logo">
+            <img src="__HOME__/images/logo.png" alt="">
+        </div>
+        <ul class="nav fr cf">
+            <li class="nav-item fl">
+                <a href="{:U('Home/Index/index')}">首页</a>
+            </li>
+            <li class="nav-item fl">
+                <a href="{:U('Home/Card/cardcenter')}">卡券回收</a>
+            </li>
+         <!--    <li class="nav-item fl">
+                <a href="{:U('Home/Card/offline')}">线下交易</a>
+            </li>
+            <li class="nav-item fl">
+                <a href="{:U('Home/Card/conversion')}">积分兑换</a>
+            </li> -->
+            <li class="nav-item fl">
+                <a href="{:U('Home/Card/recycle')}">企业回收</a>
+            </li>
+            <li class="nav-item fl">
+                <a href="{:U('Home/About/Index')}">关于我们</a>
+            </li>
+            <li class="nav-item fl">
+                <a href="{:U('Home/Help/Index')}">帮助中心</a>
+            </li>
+            <if condition="is_login()">
+                <li class="nav-item fl">
+                    <a href="{:U('Home/User/index')}">个人中心</a>
+                    <div class="sub-list">
+                        <i class="sub-sj"></i>
+                        <a href="{:U('Home/User/index')}" class="sub-item">
+                            <img src="__HOME__/images/subicon1.png" alt="">
+                            <span>账户中心</span>
+                        </a>
+
+                        <a href="{:U('Home/Card/sellrecord')}" class="sub-item">
+                            <img src="__HOME__/images/subicon3.png" alt="">
+                            <span>卖卡记录</span>
+                        </a>
+                        <a href="{:U('Home/Public/logout')}" class="sub-item">
+                            <img src="__HOME__/images/subicon2.png" alt="">
+                            <span>退出登录</span>
+                        </a>
+                    </div>
+                </li>
+            <else/>
+                <li class="nav-item fl">
+                    <div class="cf login-box">
+                        <a href="#" class="fl loginbox" id="loginbox">登录</a>
+                        <a href="#" class="fl" id="register">注册</a>
+                    </div>
+                    <div class="sub-list">
+                        <i class="sub-sj"></i>
+                        <a href="#" class="sub-item loginbox">
+                            <img src="__HOME__/images/subicon4.png" alt="">
+                            <span>账号登录</span>
+                        </a>
+                        <a  href="https://graph.qq.com/oauth2.0/authorize?client_id=101483760&amp;response_type=token&amp;scope=all&amp;redirect_uri=http://www.shoukb.com/index.php/Home/Index/ajaxUrl"  class="sub-item">
+                            <img src="__HOME__/images/subicon5.png" alt="">
+                            <span>QQ登录</span>
+                        </a>
+                        <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxa4bded57179bd4dd&redirect_uri=http://www.shoukb.com/Home/Index/webchatLogin&response_type=code&scope=snsapi_login&state=#wechat_redirect" title="微信登录"  class="sub-item">
+                            <img src="__HOME__/images/subicon6.png" alt="">
+                            <span>微信登录</span>
+                        </a>
+                    </div>
+                </li>
+            </if>
+        </ul>
+    </div>
+</div>

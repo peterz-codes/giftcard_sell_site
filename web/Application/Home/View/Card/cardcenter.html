@@ -1,0 +1,446 @@
+<extend name="Base/base"/>
+<block name="title">
+    <title>百分百收卡网_礼品卡兑换_一家专注二手礼品卡回收的网站 - www.ohbbs.cn 欧皇源码论坛 </title>
+</block>
+<block name="style">
+    <link rel="stylesheet" href="__HOME__/css/card_center2.css">
+    <style type="text/css">
+    .text-red {
+    color: #d6494b !important;
+}
+    </style>
+</block>
+<block name="body">
+
+    <!--步骤-->
+    <div class="main">
+        <div class="column cf">
+            <div class="fl name">选择卡类</div>
+            <div class="card-type cf fl">
+                <volist name="cardtype_info" id="vo">
+                    <a href="{:U('Home/Card/cardcenter?typeid='.$vo['id'])}" style="color: #fff">
+                        <div class="type-item fl"> {$vo.name}
+                            <if condition="$typeid eq ''">
+                                <eq name='key' value="0"> <img class="sel" src="__HOME__/images/sel.png" alt="">
+                                </eq>
+                                <else />
+                                <eq name="vo['id']" value="$typeid"> <img class="sel" src="__HOME__/images/sel.png" alt=""></eq>
+                            </if>
+                        </div>
+                    </a>
+                </volist>
+
+            </div>
+            <div class="fr r-box">
+               <if condition="$invoice eq '1'">
+                <img src="__HOME__/images/piao.png" alt="">
+                <span>如您的企业有票务需求，请</span><a href="http://wpa.qq.com/msgrd?v=3&uin=76891828&site=qq&menu=yes" target="_blank">点击咨询</a>
+                </if>
+            </div>
+        </div>
+        <div class="column cf">
+            <div class="fl name">选择卡种</div>
+            <div class="card-kind box-width cf fl">
+                <volist name="cardinfo" id="vo">
+                    <eq name='key' value="0">
+                    <div class="kind-item  item fl cf on" val="{$vo.id}">
+                            <img class="fl" src="{$vo.photo_path}" alt="" >
+                            <span class="fr">{$vo.name}</span>
+                           <img class="sel" src="__HOME__/images/sel.png" alt="">
+                    </div>
+
+                        <else/>
+                        <div class="kind-item  item fl cf " val="{$vo.id}">
+                            <img class="fl" src="{$vo.photo_path}" alt="" >
+                            <span class="fr">{$vo.name}</span>
+
+                        </div>
+                    </eq>
+
+                </volist>
+            </div>
+        </div>
+        <div class="column cf">
+            <div class="fl name">选择面额</div>
+            <div class="card-money box-width cf fl">
+
+                <volist name="result_list" id="vo">
+                <div class="money-item  item fl" val="{$vo.id}" onclick="pselect({$vo['price']});">￥{$vo.price}/￥{$vo.sale_price}（回收价）</div>
+               </volist>
+
+                <div class="money-item item fl zdy" val="zdy"><span id="zdy">自定义</span>（回收折扣{$sale_proportion}折）</div>
+            </div>
+        </div>
+        <div class="column cf">
+            <div class="fl name">提交方式</div>
+            <div class="card-way box-width cf fl">
+                <div class="way-item item fl on" id="choose-batch">批量提交<img class="sel" src="__HOME__/images/sel.png" alt=""></div>
+                <div class="way-item item fl" id="choose-single">单张提交</div>
+                <div class="way-item item fl" id="choose-offline">线下回收</div>
+            </div>
+            <div style="padding-left: 100px;color: #D35400" id="introduce">{$introduce}</div>
+        </div>
+
+        <div id="offline" class="column cf" style="display: none;">
+            <div class="tell-way cf fr">
+                <p>您可通过我们的客服电话：0591-86396886  联系客服当面交易</p>
+                <p>详情请咨询线下交易QQ：82330137（周一至周六 9：30-19：30）</p>
+               <a  href="http://wpa.qq.com/msgrd?v=3&uin=82330137&site=qq&menu=yes" target="_blank"> <button class="btn">立即咨询</button></a>
+            </div>
+        </div>
+
+        <div id="recycle-sumbit"   class="column cf">
+         <div class="column cf">
+            <div class="fl name">卡号/密码</div>
+            <div class="card-num cf fl" id="choose_batch" style="position: relative;">
+                <textarea class="form-controls" id="cardlist" placeholder="卡号和卡密之间用“空格键”隔开，每张卡占用一行用“回车（Enter键）”隔开" onkeydown="cardnum(this,event)" onblur="cardnum(this,'blur')"></textarea>
+                <div class="textarea-tips">
+                    <div class="mask-black"></div> 
+                    <ul class="textarea-tips-list" id="card-tips">
+                        <li class="textarea-attention">
+                            <i class="iconfont iconfont-tips"></i> 
+                            <if condition="$onlypass eq 1">
+                              <p class="text-red nocode" style="display: block;">
+                           
+                            <else />
+                           <p class="text-red nocode" style="display: none;">
+                            </if>
+                            卡号与卡密之间请用<strong class="text-orange">“空格”</strong>隔开，<br>每张卡占用一行用 <strong class="text-orange">“回车(Enter键)”</strong> 隔开，例：</p>
+                            <if condition="$onlypass eq 0">
+                            <p class="text-red hide onlypass" style="display: block;">
+                            <else />
+                            <p class="text-red hide onlypass" style="display: none;">
+                            </if>
+                            此卡种无需卡号，只需填写卡密，<br>每张一行用<strong class="text-orange">“回车(Enter键)”</strong>隔开！</p>
+                            <p class="h5 text-gray" id="cardlizi">{$cardexample}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-num cf fl" id="choose_single" style="display: none;background: none">
+               
+                <if condition="$onlypass eq 1">
+                 <div style="width: 40%;margin-right: 30px" class="fl">
+                    <input class="form-control" id="single_card" name="cardpsw[]" type="text" placeholder="请输入卡号" reg="^[A-Za-z0-9_-]{4,30}$">
+                </div>
+                <div style="width: 40%" class="fl single_password">
+                <else />
+                 <div style="width: 40%;margin-right: 30px" class="fl">
+                    <input class="form-control" id="single_card" name="cardpsw[]" type="text" placeholder="请输入卡密" reg="^[A-Za-z0-9_-]{4,30}$">
+                </div>
+                <div style="width: 40%;display: none; " class="fl single_password" >
+                </if>
+                    <input class="form-control" id="single_password" name="cardpsw[]" type="text" placeholder="请输入卡密" reg="^[A-Za-z0-9_-]{4,30}$" >
+                </div>
+            </div>
+            </div>
+          
+        </div>
+            <div class="column cf" id="zhengli">
+
+         
+        <div class="help-block" style="margin-left: 100px"><a class="btn btn-sm btn-primary cardlist-neaten" id="cardlist-neaten" href="javascript:;" style="display: inline-block;    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;user-select: none;
+    color: #018ebb;
+    border: 2px solid transparent;
+    background-color: #e8f0f3;
+    border-radius: 3px;
+    -webkit-transition: .3s;
+    transition: .3s;height: 30px;
+    line-height: 30px;
+    padding: 0 20px;
+    font-size: 13px;    color: #fff;
+    border-color: #ff6466;
+    background-color: #ff6466;margin-right: 15px">整理卡号/密码</a><span class="inline-block pl20">已经输入 <strong id="cardnum" class="text-red">0</strong> 张面值 <strong class="text-red"><strong id="cardmz">0</strong>元</strong> 的卡，每次最多可提交100张 </span></div>
+        </div> 
+        <div class="column cf">
+            <div class="fl name">加急处理</div>
+            <div class="card-urgent box-width cf fl">
+                <div class="urgent-item item  fl">加急处理（9：00-18:00） <img class="sel" src="__HOME__/images/sel.png" alt="" style="display: none"></div>
+                <div class=" item  fl jsfee" style="text-align: left;color: red;border: none;display: none">(手续费3%) </div>
+                <input type="hidden" name="express" id="express" value="0">
+            </div>
+        </div>
+        <div class="column protocol cf">
+            <span class="sel-box fl">
+                <img src="__HOME__/images/pitch.png" alt="">
+            </span>
+            <div class="fl">
+                已阅读并接受<a href="{:U('Home/Help/Index?id=10')}">[爱卡网卡券转让协议]</a>
+            </div>
+        </div>
+        <div class="column btn-box">
+            <button class="btn" id="recoverycard">立即兑换</button>
+        </div>
+    </div>
+
+    <div class="bgdrop">
+        <div class="zdy-box">
+            <div class="title">
+                请输入面值
+                <span class="close">X</span>
+            </div>
+            <input type="text" placeholder="100" id="custom">
+            <button class="con-btn">确定</button>
+        </div>
+    </div>
+        <input type="hidden" name="cardid" id="cardid" value="{$cardid}">
+    <input type="hidden" name="type" id="type" value="1">
+        <input type="hidden" name="cardpriceid" id="cardpriceid" value="{$cardpriceid}">
+    </div>
+<script src="__HOME__/js/jquery-3.1.1.min.js"></script>
+<script>
+    var str = '<img class="sel" src="__HOME__/images/sel.png" alt="">'
+    $(".type-item").click(function () {
+        $(".type-item .sel").remove();
+        $(this).append(str)
+    })
+    $(".kind-item").click(function () {
+        $(".kind-item").removeClass('on');
+        $(this).addClass('on');
+        $id = $(this).attr("val");
+        $('#cardid').val($id);
+        $.ajax({
+            type: 'post',
+            data: {'id': $id},
+            url: "{:U('Home/Card/cardprices')}",
+            success: function (data) {
+                if(data.status==1){
+                    var proOption = '';
+                    for( var i=0;i<data['data'].length;i++){
+                        proOption += '<div class="money-item item fl" onclick="pselect(' + data['data'][i].price +');" val="'+ data['data'][i].id  +'">￥'+ data['data'][i].price +'/￥' + data['data'][i].sale_price + '（回收价）</div>';
+
+                    }
+                    proOption += '<div class="money-item item fl zdy" val="zdy">自定义（回收折扣'+  data['info']['sale_proportion'] +'折）</div>';
+
+                    $('#introduce').empty();
+                    $('#introduce').append(data['info']['introduce']);
+                    if(data['info']['openpassword'] == 1){
+                        $('.onlypass').css('display','none');
+                        $('.nocode').css('display','block'); 
+                        $('.single_password').css('display','block'); 
+                       $('#single_card').attr('placeholder','请输入卡号');                   
+                    }else{
+                        $('.onlypass').css('display','block'); 
+                        $('.nocode').css('display','none'); 
+                        $('.single_password').css('display','none'); 
+                       $('#single_card').attr('placeholder','请输入卡密');               
+                    }
+                    $('#cardlizi').empty();
+                    $('#cardlizi').append(data['info']['cardexample']);
+                    $('.card-money').empty();
+                    $('.card-money').append(proOption);
+                    $(".money-item").click(function () {
+                        $(".money-item").removeClass('on');
+                        $(this).addClass('on');
+                        $peiceid = $(this).attr("val");
+                        $('#cardpriceid').val($peiceid);
+
+                        $(".money-item .sel").remove();
+                        $(this).append(str)
+                    });
+                    $(".zdy").click(function () {
+                        $(".bgdrop").show()
+                    });
+
+                }else{
+                    console.log(data);
+                }
+
+
+            }
+        });
+
+
+                $(".kind-item .sel").remove();
+        $(this).append(str)
+    })
+    $(".money-item").click(function () {
+        $(".money-item").removeClass('on');
+        $(this).addClass('on');
+        $priceid = $(this).attr("val");
+        $('#cardpriceid').val($priceid);
+        $(".money-item .sel").remove();
+        $(this).append(str);
+
+    })
+
+    $(".way-item").click(function () {
+        $(".way-item").removeClass('on');
+        $(this).addClass('on');
+        $(".way-item .sel").remove();
+        $(this).append(str);
+
+        var _this = $(this);
+            if (_this.attr('id') == "choose-batch" ) {
+            $('#offline').hide();
+            $('#choose_single').hide();
+            $('#recycle-sumbit').show();
+            $('#zhengli').show();
+            $('#choose_batch').show();
+            $('#type').val(1);
+        //    $('#single_card').attr('placeholder','请输入卡号');
+            $('#cardlist').focus();
+        } else if (_this.attr('id') == "choose-single" ) {
+            $('#offline').hide();
+            $('#choose_batch').hide();
+            $('#recycle-sumbit').show();
+            $('#choose_single').show();
+            $('#zhengli').hide();
+            $('#type').val(2);
+        } else if (_this.attr('id') == "choose-offline" ) {
+            $('#recycle-sumbit').hide();
+            $('#zhengli').hide();
+            $('#offline').show();
+        }
+    })
+    $(".urgent-item").click(function () {
+        $(".urgent-item .sel").toggle();
+        if($(this).hasClass('on')){
+            $(this).removeClass("on");
+            $('.jsfee').hide();
+            $('#express').val('0');
+        }else {
+            $('.jsfee').show();
+            $(this).addClass("on");
+            $('#express').val('1');
+        }
+    })
+    $(".zdy").click(function () {
+        $(".bgdrop").show()
+    })
+    $(".close").click(function () {
+        $(".bgdrop").hide()
+    })
+    $(".con-btn").click(function () {
+        $(".bgdrop").hide();
+        $custom = $('#custom').val();
+        $('#zdy').html($custom);
+         $('#cardmz').text($custom);
+    })
+
+    $("#recoverycard").click(function () {
+        $priceid = $('#cardpriceid').val();
+        $cardid = $('#cardid').val();
+        $submissionid = $("#type").val();
+        $custom = $('#custom').val();
+        $express = $('#express').val();
+        if(!$('.money-item').hasClass('on')){alert("请选择卡片金额");return false;}
+        if($submissionid == 2){
+            $cardkey = $("#single_card").val();
+            $cardkey = $cardkey+" "+$("#single_password").val();
+            console.log( $cardkey);
+
+        }else if($submissionid == 1){
+            $cardkey = $(".form-controls").val();
+         
+
+        }
+      console.log( $cardkey);
+      /*     var r = /\s+/g;
+            $cardkey = $cardkey.replace(r, ' ');
+
+  console.log( $cardkey);
+*/
+        console.log($submissionid);
+        $.ajax({
+            type: 'post',
+            data: {'submission': $submissionid,'cardkey':$cardkey,'cardid':$cardid,'priceid':$priceid,'custom':$custom,'express':$express},
+            url: "{:U('Home/Card/recoverycard')}",
+            success: function (data) {
+                if(data.status==1){
+                    alert('提交成功，请勿重复提交');
+                    console.log(data);
+                 window.location.href = "{:U('Home/User/index')}";
+
+                }else if(data.status==3){
+                    layer.open({
+                        type: 2,
+                        title: false,
+                        area: ['680px', '450px'],
+
+                        shade: 0.8,
+                        shadeClose: true, //close
+                        content: ['{:U("Home/Public/loginbox?type=2")}', 'no'],
+
+                    });
+
+                    console.log(data);
+                }else{
+                     alert(data.info);
+                }
+
+
+            }
+        });
+
+
+    });
+
+
+//整理卡片功能
+    function uptijiao(cardList) {
+    var strList_Tmp = '';
+    var array = new Array(cardList.length);
+    for (var i = 0; i < cardList.length; i++) {
+        if (cardList[i]) {
+            var cardInfo = (cardList[i]
+                .replace(/卡号[：|:]/g, '')
+                .replace(/密码[：|:]/g, '')
+                .replace(/卡密[：|:]/g, '')
+                .replace(/[\u4e00-\u9fa5]+/g, '')
+                .replace(/\s+/g, ' ')
+                .replace(/(^\s*)|(\s*$)|;|；/g, "")
+                .replace(/,/g, '*')
+                .replace(/[ ]/g, '*')
+                .replace(/，/g, '*')
+                .replace(/\t/g, '*')
+                .replace(/[|]/g, '*'))
+                .split('*');
+            if (cardInfo[0] != "") {
+                array[i] = cardInfo[0];
+            }
+            if (cardInfo[1] == undefined) {
+                strList_Tmp += cardInfo[0] + "\n";
+            } else {
+                strList_Tmp += cardInfo[0] + " " + cardInfo[1] + "\n";
+            }
+        }
+    }
+    return strList_Tmp.replace(/(^\s*)|(\s*$)/g, "");
+};
+
+
+$("#cardlist-neaten").click(function (){
+    var neaten = $("#cardlist").val().split('\n');
+    $("#cardlist").val(uptijiao(neaten));
+});
+
+function cardnum(obj, e) {
+    var strs = $(obj).val();
+    if (e == 'blur') {
+        strs = strs.replace("\r\n", "\n");
+        strs = strs.split("\n");
+        $("#cardnum").text(strs.length);
+    } else {
+        var keycode = e.keyCode;
+        strs = strs.replace("\r\n", "\n");
+        if (keycode == 13 || keycode == 86) {
+            strs = strs.split("\n");
+            $("#cardnum").text(strs.length);
+        }
+    }
+};
+
+function pselect(price) {
+        $('#cardmz').text(price);
+}
+</script>
+</block>
+<block name="script">
+    <script>
+
+    </script>
+</block>

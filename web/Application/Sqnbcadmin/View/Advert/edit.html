@@ -1,0 +1,94 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+    	<div class="tw-list-hd">
+            {:isset($advertInfo['id'])?'编辑':'新增'}
+        </div>
+
+	    <div class="tw-list-wrap tw-edit-wrap">
+            <form action="__SELF__" method="post" class="form-horizontal ajaxForm">
+                <div class="form-item">
+                    <label class="item-label">标题名称<span class="check-tips"><b>*</b>（输入标题名称）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="name" value="{$advertInfo.name}">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">英文标题名称<span class="check-tips">（此标题如果不输入那么显示的是中文标题,友情链接需要输入，用不到标题的地方都不需要输入）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="ename" value="{$advertInfo.ename}">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">标题类型<span class="check-tips"><b>*</b>（用于选择标题或者图片显示在那个位置）</span></label>
+                    <div class="controls">
+                        <select name="type_id">
+                            <volist name="advertLocationData" id="vo" >
+                                <option value ="{$vo.id}" <if condition="$advertInfo.type_id eq $vo['id']">selected="selected"</if>>{$vo.name} {$vo.img_size}</option>
+                            </volist>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">链接地址<span class="check-tips">（输入链接地址）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="link" value="{$advertInfo.link}">
+                    </div>
+                </div>
+            
+                <div class="form-item">
+                    <label class="item-label">上传图片<span class="check-tips">（用于显示在前段所选位置的图片，友情链接位置可以不用上传）</span></label>
+                    <div class="controls">
+                        <div>
+                            <img src="{$advertInfo.photo_path}" style="width:300px;" id="img_"/>
+                        </div>
+                        <input type="hidden" value="{$advertInfo.photo_path}" name="photo_path" id="img" />
+                            <input class="btn btn-default btn-xs" type="button" value="上传" id="btnUpload"/>
+                            <input class="btn btn-danger btn-xs" type="button" value="删除" onclick="delFile($('#img').val(), '')" id="btn_delete_" />
+                            <if condition="$advertInfo.photo_path eq ''">
+                                <script>
+                                    $("#img_, #btn_delete_").hide();
+                                </script>
+                            </if>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">排序<span class="check-tips"><b>*</b>（输入排序大小）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="sort" value="{$advertInfo.sort}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">是否显示<span class="check-tips"><b>*</b></span></label>
+                    <div class="controls">
+                        <if condition="$advertInfo.display eq 1">
+                            <label class="radio"><input type="radio" value="0" name="display" >是</label>
+                            <label class="radio"><input type="radio" value="1" name="display" checked="checked" >否</label>
+                        <else  />
+                            <label class="radio"><input type="radio" value="0" name="display" checked="checked" >是</label>
+                            <label class="radio"><input type="radio" value="1" name="display" >否</label>
+                        </if>
+                    </div>
+                </div>
+                 <div class="tw-tool-bar-bot">
+                    <button type="submit" class="tw-act-btn-confirm">提交</button>
+                    <button type="button" onclick="goback()" class="tw-act-btn-cancel">返回</button>
+                </div>
+                    <input type="hidden" name="id" value="{$advertInfo.id|default=''}"/>
+                </form>
+	    </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ajaxupload.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__COMMON__/js/imgupload.js"></script>
+    <script>
+        $(function(){
+            ajaxUpload('#btnUpload', $("#img"), 'Advert', '');
+        })
+    </script>
+</block>

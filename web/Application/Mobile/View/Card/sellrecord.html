@@ -1,0 +1,74 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/sell_record.css" />
+
+</block>
+<block name="body">
+    <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+        <!--侧滑菜单部分-->
+        <include file="Index:left" />
+        <!--主界面部分-->
+
+
+    <div class="mui-inner-wrap">
+        <header class="mui-bar mui-bar-nav">
+            <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
+            <h1 class="mui-title">卖卡记录</h1>
+            <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+        </header>
+        <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+
+            <div class="mui-scrollb" >
+                <volist name="ordersninfo" id="vo" key="key">
+                <div class="order-info">
+                   <div class="inbox">
+                       <p>单号：{$vo['order_sn']}</p>
+                       <p>时间：{$vo['add_time']|date='Y-m-d',###}</p>
+                   </div>
+                </div>
+                <div class="card-list">
+                    <volist name="vo.data" id="f" key="k">
+                    <div class="card-info">
+                        <div class="nth1">
+                            <p>{$f['name']}</p>
+                            <p>卡号：{$f.cardkey}</p>
+                            <p>密码：{$f.password}</p>
+                        </div>
+                        <div class="nth2">
+                            ¥{$f.saleprice}
+                        </div>
+                        <div class="nth3">
+                            <if condition="$f.flag eq 1">  未审核<elseif  condition="$f.static eq 1" />交易成功 <else/>此卡无效</if>
+                        </div>
+                    </div>
+                    </volist>
+
+                </div>
+                <div class="info">
+
+                    <if condition="$vo['data'][0]['flag'] eq 2">
+                        <p>此次交易共{$vo.count}张卡，交易成功： <span>{$vo.sucesscount}</span> 张，失败{$vo.falsecount} 张，</p>
+                        <p>您共获得：<span>¥{$vo.moneycount}</span>元</p>
+                        <else />
+                        <p>此次交易共{$vo.count}张卡，交易等待审核，交易成功后款项会自动打入您的账户余额中，你可以在个人中心查看 。</p>
+
+                    </if>
+                </div>
+                </volist>
+            </div>
+
+        </div>
+        <!-- off-canvas backdrop -->
+        <div class="mui-off-canvas-backdrop"></div>
+    </div>
+</div>
+<script src="__MOBILE__/js/mui.min.js"></script>
+<script>
+    mui.init();
+    //主界面和侧滑菜单界面均支持区域滚动；
+    mui('#offCanvasSideScroll').scroll();
+    mui('#offCanvasContentScroll').scroll();
+
+
+</script>
+</block>

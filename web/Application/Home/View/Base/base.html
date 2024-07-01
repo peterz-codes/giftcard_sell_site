@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <block name="title"></block>
+    <meta name="keywords" content="{:C('KEYWORDS')}">
+    <meta name="description" content="{:C('DESCRIPTION')}">
+     
+    <link rel="stylesheet" type="text/css" href="__HOME__/css/base.css"/>
+    <link rel="stylesheet" href="__HOME__/css/style2.css">
+    <!--<link rel="stylesheet" type="text/css" href="__HOME__/css/index.css"/>-->
+    <block name="style"></block>
+    <style type="text/css">
+        body{
+            min-width: 1200px;
+        }
+    </style>
+    <script>
+        // var _hmt = _hmt || [];
+        // (function() {
+        //     var hm = document.createElement("script");
+        //     hm.src = "https://hm.baidu.com/hm.js?1d59f51ca1e06504857c1dbf0b8ba09c";
+        //     var s = document.getElementsByTagName("script")[0];
+        //     s.parentNode.insertBefore(hm, s);
+        // })();
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="head_z"></div>
+        <div class="head_f">
+            <div class="layout clear">
+                <div class="logo fl">
+                    <a href="/">
+                    <img src="__HOME__/images/logo2.png" alt="">
+                    </a>
+                </div>
+                <ul class="head_list fl">
+                    <li class="active">
+                    <a href="/">
+                        首页
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('card/sellcard')}">
+                            寄售中心
+                        </a>
+                    </li>
+                    <li><a href="{:U('Card/recycle')}">企业回收</a></li>
+                </ul>
+                <if condition="is_login()">
+                <div class="user-right fr cf">
+                    <div class="user-right-name fl cf" >
+                        <a href="{:U('User/index')}"><img class="user-avatar fl" src="__HOME__/images/default.png">
+                        <span class="user-font fl">{$userInfo['username']}</span>
+                        <img class="user-jiantou fl" src="__HOME__/images/xiangx@2x.png">
+                        </a>
+                        <div class="login-drop">
+                            <img class="dropDown-top" src="__HOME__/images/top.png" >
+                            <div class="dropDown-content">
+                                <a href="{:U('User/index')}">
+                                    <div class="dropDown-floor cf">
+                                        <!--<img class=" fl" src="__HOME__/images/subicon1.png" >-->
+                                        <span class="fl" style="margin-left: 47px; ">账户中心</span>
+                                    </div>
+                                </a>
+                                <!--<div class="line"></div>-->
+                                <!--<a href="{:U('User/sellCardRecord')}" target="_top">-->
+                                    <!--<div class="dropDown-floor cf">-->
+                                        <!--<img class=" fl" src="__HOME__/images/subicon3.png" >-->
+                                        <!--<span class="fl">卖卡记录</span>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <div class="line"></div>
+                                <!--<a href="{:U('Home/Public/logout')}">-->
+                                    <div class="dropDown-floor">
+                                        <!--<img class=" fl" src="__HOME__/images/subicon2.png" >-->
+                                        <span class="fl loginout" style="margin-left: 47px; ">退出登录</span>
+                                    </div>
+                                <!--</a>-->
+                            </div>
+                            <img class="dropDown-bto" src="__HOME__/images/bot.png" >
+                        </div>
+                    </div>
+
+                    <!--<div class=" content-right-box fr cf">-->
+                        <!--<img class="help-pic fl" src="__HOME__/images/bangz@2x.png">-->
+                        <!--<span class="user-help-font fr">帮助中心</span>-->
+                    <!--</div>-->
+                    <div class="user-right-help fr cf">
+                        <img class="help-pic fl" src="__HOME__/images/bangz@2x.png">
+                        <span class="user-help-font fr" style="cursor: pointer">帮助中心</span>
+
+                        <div class="dropDown-help help-login">
+                            <img class="dropDown-top" src="__HOME__/images/top.png" >
+                            <div class="help-content">
+                                <div class="help-title cf">
+                                    <a href="{:U('Help/Index')}"> <span class="fl ">帮助中心</span></a>
+                                    <div class="help-line fl"></div>
+                                    <a href="{:U('Help/Index',array('id'=>13))}">  <span class="fr">卖卡流程</span></a>
+                                </div>
+                                <div class="line"></div>
+                                <div class="help-box">
+                                    <div class="help-box-serve">或直接拨打客服热线</div>
+                                    <div class="help-box-num">8373185</div>
+                                    <div class="help-box-date">周一至周日 8:00-24:00</div>
+                                </div>
+                                <div class="line"></div>
+                                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin={:C('QQ')}&amp;site=qq&amp;menu=yes"><div class="help-box-bot">联系在线客服</div></a>
+                            </div>
+                            <img class="dropDown-bto" src="__HOME__/images/bot.png" >
+                        </div>
+                    </div>
+
+                </div>
+                <else/>
+                <div class="fr login_box">
+                    <button class="btn_login loginbox">登录
+                        <div class="login_way shadow" style="display:none" >
+                            <ul>
+                                <li>
+                                   <a >
+                                          <img  src="__HOME__/images/shoujihao.png" >
+                                        <span>账号密码</span>
+                                   </a>
+                                </li>
+                                <li>  <a  href="https://graph.qq.com/oauth2.0/authorize?client_id=101578620&amp;response_type=token&amp;scope=all&amp;redirect_uri=http://www.shoukb.com/Home/Login/qq">
+                                         <img src="__HOME__/images/qq.png" >
+                                        <span>qq登录</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wx6353058509cb4eda&redirect_uri=http://www.shoukb.com/Home/Index/webchatLogin&response_type=code&scope=snsapi_login&state=#wechat_redirect">
+                                        <img  src="__HOME__/images/weixin.png" >
+                                        <span>微信登录</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </button>
+                    <a  class="singup">
+                        <button class="btn_login" id="register">注册</button>
+                    </a>
+                </div>
+                </if>
+            </div>
+        </div>
+    </header>
+
+    <block name="content"></block>
+
+    
+ <footer>
+        <p style="color:#ffffff">COPYRIGHT © 2019 www.shoukb.com . All Rights Reserved</p>
+    </footer>
+<script src="__HOME__/js/jquery.js"></script>
+<script type="text/javascript" src="/Public/layer/layer.js"></script>
+<script type="text/javascript">
+    $(function() {
+
+        // var url = $("#hiddenUrl").attr('data-url');
+        var string = window.location.hash;
+        var string1 = string.split('=');
+        var string3 = string1[1];
+        var string2 = string3.split('&');
+        var access_token = string2[0];
+        window.location.href = "/index.php/Home/Login/qq" + "?access_token=" + access_token;
+
+    });
+
+
+    $(".loginout").click(function(){
+    layer.confirm("您确定要退出登录吗?", {btn: ['确定', '取消'], title: "提示"}, function (){
+        window.location.href="{:U('Home/Public/logout')}";
+    });
+});
+    var is_login="{$is_login}";
+    $(".login_tan").click(function(){
+        if(is_login==3){
+            layer.open({
+                type: 2,
+                title: false,
+                area: ['680px', '470px'],
+
+                shade: 0.8,
+                shadeClose: true, //close
+                content: ['{:U("Home/Public/loginbox?type=2")}', 'no'],
+
+            });
+        }
+    });
+
+    $('#register').on('click', function () {
+        layer.open({
+            type: 2,
+            title: false,
+            area: ['680px', '440px'],
+            shade: 0.8,
+            shadeClose: true, //close
+            content: ['{:U("Home/Public/register?type=2")}', 'no']
+        });
+    });
+    $('.loginbox').on('click', function () {
+        layer.open({
+            type: 2,
+            title: false,
+            area: ['680px', '470px'],
+
+            shade: 0.8,
+            shadeClose: true, //close
+            content: ['{:U("Home/Public/loginbox?type=2")}', 'no'],
+
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.loginbox').on('mouseover',function(){
+            $('.login_way').show()
+        });
+        $('.loginbox').on('mouseout',function(){
+            $('.login_way').hide()
+        });
+
+
+
+        $('.content-right-box,.user-right-help').on('mouseover',function(){
+
+            $('.dropDown-help').show();
+        });
+        $('.content-right-box,.user-right-help').on('mouseout',function(){
+            $('.dropDown-help').hide()
+        });
+    })
+    $(document).ready(function(){
+        $('.user-right-name').hover(function(){
+            $('.login-drop').show();
+        },function(){
+            $('.login-drop').hide();
+        })
+    })
+</script>
+
+<block name="script">
+
+</block>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+        <div class="tw-list-wrap tw-edit-wrap">
+        <form action="__SELF__" method="post" class="form-horizontal ajaxForm">
+            <div class="form-item">
+                <div class="controls">
+                    <textarea name="remark" style="width:100%; height:280px;">{$remark|htmlspecialchars_decode}</textarea><br/>
+                </div>
+            </div>
+             <div class="tw-tool-bar-bot">
+                <button type="submit" class="tw-act-btn-confirm">提交</button>
+                <button type="button" class="tw-act-btn-cancel">返回</button>
+            </div>
+                <input type="hidden" name="id" value="{$_GET['id']|default=''}"/>
+            </form>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <script>
+        $(".tw-act-btn-cancel").click(function(){
+            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+            parent.layer.close(index);
+        })
+        function timeClosed(){  
+            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+            parent.location.reload();
+            parent.layer.close(index);
+        }  
+        function callback(data){
+             //如果没有回调函数, 默认执行
+                if(data.status == 1){
+                    if (data.info != '' && typeof(data.info) != 'undefined')  {
+                        toastr.success(data.info);
+                        window.setTimeout(timeClosed,2000); 
+                    }
+                } else {
+                    if (data.info != '' && typeof(data.info) != 'undefined') toastr.error(data.info);
+                    else  toastr.error('未定义错误!');
+                }
+        }
+        
+    </script>
+</block>

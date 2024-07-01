@@ -1,0 +1,17 @@
+<ul class="mui-table-view comments">
+    <volist name="article_list" id="vo"  offset="0" length='1' >
+        <li class="mui-table-view-cell mui-media" data-url="{$vo.id}" onclick="detail(110)">
+            <img class="mui-media-object mui-pull-left" src="__MOBILE__/images/zaoping.jpg">
+            <div class="mui-media-body">
+                <h2>{$vo.name}</h2>
+                <p>{$vo.add_time|time_format}</p>
+                <p>{$vo.introduce}</p>
+            </div>
+        </li>
+    </volist>
+</ul>
+<script type="text/javascript">
+    function detail(id){
+        window.location.href='<?php echo U("Mobile/Index/trader_list");?>?type='+110;
+    }
+</script>

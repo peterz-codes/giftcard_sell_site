@@ -1,0 +1,40 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/help.css" />
+</block>
+<block name="body">
+    <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+        <!--侧滑菜单部分-->
+        <include file="Index:left" />
+        <!--主界面部分-->
+        <div class="mui-inner-wrap">
+            <header class="mui-bar mui-bar-nav">
+                <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"  href="javascript:history.back(-1)"></a>
+                <h1 class="mui-title">帮助中心</h1>
+                <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+            </header>
+
+            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+                <div class="mui-scroll" id="move-togger">
+                    
+                            <a class="mui-navigate-right" href="#" style="text-align: center;">{$detail.title}</a>
+                            <div class="mui-collapse-content">
+                                <p>{$detail.content|htmlspecialchars_decode}</p>
+                            </div>
+                   
+
+
+                </div>
+            </div>
+            <div class="mui-off-canvas-backdrop"></div>
+        </div>
+    </div>
+</block>    
+<block name="script">
+	<script type="text/javascript">
+        mui('#offCanvasSideScroll').scroll();
+        mui('#offCanvasContentScroll').scroll();
+    </script>
+</block>	
+

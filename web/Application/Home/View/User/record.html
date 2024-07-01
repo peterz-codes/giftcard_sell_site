@@ -1,0 +1,113 @@
+<extend name="Base/user_no"/>
+<block name="title">
+	<title>百分百收卡网_礼品卡兑换_一家专注二手礼品卡回收的网站 - www.ohbbs.cn 欧皇源码论坛 </title>
+</block>
+<block name="style">
+	<link rel="stylesheet" type="text/css" href="__HOME__/css/record.css"/>
+	<link rel="stylesheet" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+	<!--<link href="__HOME__/css/foundation.min.css" rel="stylesheet" type="text/css">-->
+	<link href="__HOME__/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+	<link href="__HOME__/css/page.css" rel="stylesheet" type="text/css">
+</block>
+<block name="content">
+		<div class="record">
+			<div class="record-title">
+				<span class="record-title-font">提现记录</span>
+				<span class="record-title-text">如遇提现失败，请联系客服了解详情！客服电话：400-800-8888</span>
+			</div>
+			<div class="record-date">
+				<form class="fl" action="__ACTION__" id="form_recored">
+					<span class="record-date-font">日期筛选</span>
+					<input type="text" class=" record-date-input" value="" id="dpd1" name="start_time" autocomplete="off">
+					<span class="record-date-interval">-</span>
+					<input type="text" class=" record-date-input" value="" id="dpd2" name="end_time" autocomplete="off">
+					<input type="hidden" vlaue="" id="time_type" name="time_type"/>
+					<div class="record-date-button">查询</div>
+
+
+				</form>
+				<span class="record-date-day <if condition='$time_type eq 1'>record-date-color</if>" data-id="1">今天</span>
+				<span class="record-date-day <if condition='$time_type eq 2'>record-date-color</if> " data-id="2">最近7天</span>
+				<span class="record-date-day <if condition='$time_type eq 3'>record-date-color</if>" data-id="3">1个月</span>
+				<span class="record-date-day <if condition='$time_type eq 4'>record-date-color</if>" data-id="4">2个月</span>
+				<span class="record-date-day <if condition='$time_type eq 5'>record-date-color</if>" data-id="5">3个月</span>
+				<span class="record-date-day <if condition='$time_type eq 6'>record-date-color</if>" data-id="6">1年</span>
+
+			</div>
+			<div class="record-date-table">
+				<table border="1" rules=rows cellspacing="0" cellpadding="0">
+					<tr>
+						<th class="th">日期</th>
+						<th class="th">提现金额(元)</th>
+						<th class="th">提现账号</th>
+						<th class="th">状态</th>
+						<th class="th">说明</th>
+					</tr>
+					<volist name="paymentList" id="vo">
+						<tr>
+							<td class="td">{$vo['add_time']}</td>
+							<td class="td">{$vo['pay_cash']}</td>
+							<td class="td"><if condition="$vo['falg_type'] eq 1">支付宝<else/>银行卡</if>（{$vo['alipaycount']}）</td>
+							<td class="td">{$vo['flag_status']}</td>
+							<td class="td">{$vo['remarks']}</td>
+						</tr>
+					</volist>
+				</table>
+				<div class="secondHand-pageNumBox page-flex">
+					{$page}
+				</div>
+			</div>
+		</div>
+</block>
+<block name="script">
+	<script src="__HOME__/js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__HOME__/js/dataInfo.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__HOME__/js/foundation-datepicker.js"></script>
+	<script src="__HOME__/js/locales/foundation-datepicker.zh-CN.js"></script>
+	<script type="text/javascript">
+        parent.$('.user-sub-nav-floor').removeClass("nav-select");
+        parent.$('.floor-record').addClass("nav-select");
+        //parent. $("#iframe-page-content").attr("src", p_address);
+		var tr = $('table').find('tr');
+		for(var i=0;i<tr.length;i++){
+			if(i%2 == 0){
+				tr[i].style.backgroundColor = '#F9F9F9';
+			}
+		}
+        $("body").on('click', ".record-date-day", function(){
+            var time_type=$(this).attr("data-id");
+            $("#time_type").val(time_type);
+            $("#form_recored").submit();
+        });
+        $("body").on('click', ".record-date-button", function(){
+           // alert($("#dpd1").val());
+            $("#form_recored").submit();
+        });
+
+	</script>
+
+	<script>
+        var nowTemp = new Date();
+        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+        var checkin = $('#dpd1').fdatepicker({
+            onRender: function (date) {
+               // return date.valueOf() < now.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function (ev) {
+            if (ev.date.valueOf() > checkout.date.valueOf()) {
+                var newDate = new Date(ev.date)
+                newDate.setDate(newDate.getDate() + 1);
+                checkout.update(newDate);
+            }
+            checkin.hide();
+            $('#dpd2')[0].focus();
+        }).data('datepicker');
+        var checkout = $('#dpd2').fdatepicker({
+            onRender: function (date) {
+                return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function (ev) {
+            checkout.hide();
+        }).data('datepicker');
+	</script>
+</block>

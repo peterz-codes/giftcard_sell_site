@@ -1,0 +1,128 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+    	<div class="tw-list-hd">
+            用户统计
+        </div>
+        <div class="tw-list-top">
+            <form action="__ACTION__" method="get" id='frmSearch'>
+                <div class="tw-search-bar">
+
+                    <div class="search-form fr cf">
+                        <label class="tw-form-label" for="">开始时间：</label>
+                        <input type="text" class="tw-form-text" id="start_time" name="start_time" onclick="laydate({format: 'YYYY-MM-DD', istime:false, festival: true})" value="{:I('start_time')}" placeholder="输入开始时间">
+                        <label class="tw-form-label" for="">结束时间：</label>
+                        <input type="text" class="tw-form-text" id="end_time" name="end_time" onclick="laydate({format: 'YYYY-MM-DD', istime:false, festival: true})" value="{:I('end_time')}"  placeholder="输入结束时间">
+                        <button class="tw-search-bar-btn">
+                            <i class="tw-icon-search"></i> 搜索
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="" style="margin-top: 50px;">
+
+
+
+                <div id="main" style="height:500px;width: 800px;"></div>
+
+                 <div class="tw-tool-bar-bot">
+                    <button type="button" onclick="goback()" class="tw-act-btn-cancel">返回</button>
+                </div>
+                    <input type="hidden" name="id" value="{$info.id|default=''}"/>
+
+	    </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript" src="__PUBLIC__/assets/plugins/laydate-v1.1/laydate/laydate.js"></script>
+
+    <!-- ECharts单文件引入 -->
+    <script src="__PUBLIC__/echarts/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: '__PUBLIC__/echarts'
+            }
+        });
+
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/line',
+              
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main'));
+
+                option = {
+                    title : {
+                        text: '用户数量统计',
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['用户量']
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {show: true, type: ['line', 'bar']},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : {$date_lst}
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show:true
+                        }
+                    ],
+                    series : [
+                        {
+                            itemStyle: {
+                                normal: {
+                                    barBorderColor: 'red',
+
+                                },
+
+                            },
+                            name:'用户量',
+                            type:'bar',
+                            data:{$count_lst},
+
+                        },
+
+
+                    ]
+
+                };
+
+
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+            }
+        );
+    </script>
+
+    <script>
+
+    </script>
+   
+</block>

@@ -1,0 +1,107 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+    	<div class="tw-list-hd">
+            招聘图文
+        </div>
+
+	    <div class="tw-list-wrap tw-edit-wrap">
+            <form action="__SELF__" method="post" class="form-horizontal ajaxForm">
+                <div class="form-item">
+                    <label class="item-label">中文名称<span class="check-tips"><b>*</b>（输入图文名称）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="name" value="{$info.name}">
+                    </div>
+                </div>
+               
+               <div class="form-item">
+                    <label class="item-label">英文名称<span class="check-tips"><b>*</b>（输入图文名称）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="ename" value="{$info.ename}">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">上传PC图片<span class="check-tips"><b>*</b>（用于上传图片 大小为579*386 各个图片大小必须一致）</span></label>
+                    <div class="controls">
+                        <div>
+                            <img src="{$info.photo_path}" style="width:200px;" id="img_"/>
+                        </div>
+                        <input type="hidden" value="{$info.photo_path}" name="photo_path" id="img" />
+                            <input class="btn btn-default btn-xs" type="button" value="上传" id="btnUpload"/>
+                            <input class="btn btn-danger btn-xs" type="button" value="删除" onclick="delFile($('#img').val(), '')" id="btn_delete_" />
+                            <if condition="$info.photo_path eq ''">
+                                <script>
+                                    $("#img_, #btn_delete_").hide();
+                                </script>
+                            </if>
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">上传手机端图片<span class="check-tips"><b>*</b>（用于上传图片 大小为579*386 各个图片大小必须一致）</span></label>
+                    <div class="controls">
+                        <div>
+                            <img src="{$info.m_photo_path}" style="width:200px;" id="img_1"/>
+                        </div>
+                        <input type="hidden" value="{$info.m_photo_path}" name="m_photo_path" id="img1" />
+                            <input class="btn btn-default btn-xs" type="button" value="上传" id="btnUpload1"/>
+                            <input class="btn btn-danger btn-xs" type="button" value="删除" onclick="delFile($('#img1').val(), '1')" id="btn_delete_1" />
+                            <if condition="$info.m_photo_path eq ''">
+                                <script>
+                                    $("#img_1, #btn_delete_1").hide();
+                                </script>
+                            </if>
+                    </div>
+                </div>
+         
+                <div class="form-item">
+                    <label class="item-label">中文描述<span class="check-tips">（输入图文描述）</span></label>
+                    <div class="controls">
+                        <textarea name="description" rows="5" cols="57">{$info.description}</textarea><br/>
+                    </div>
+                </div>
+
+                <div class="form-item"> 
+                    <label class="item-label">英文描述<span class="check-tips">（输入图文描述）</span></label>
+                    <div class="controls">
+                        <textarea name="edescription" rows="5" cols="57">{$info.edescription}</textarea><br/>
+                    </div>
+                </div>
+                
+                <div class="form-item">
+                    <label class="item-label">排序<span class="check-tips">（输入排序大小）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="sort" value="{$info.sort}">
+                    </div>
+                </div>
+				
+               <div class="form-item">
+                    <label class="item-label">是否启用<span class="check-tips">（用于该招聘信息是否启用）</span></label>
+                    <div class="controls">
+                        <label class="radio"><input type="radio" name="disable" value="0" <if condition="$info['disable'] eq false ">checked</if>>是</label>
+		                <label class="radio"><input type="radio" name="disable" value="1" <if condition="$info['disable'] eq 1 ">checked</if>>否</label>
+                    </div>
+                </div>
+
+                 <div class="tw-tool-bar-bot">
+                    <input type="hidden" name="id" value="{$info.id}"/>
+                    <button type="submit" class="tw-act-btn-confirm">提交</button>
+                    <button type="button" onclick="goback()" class="tw-act-btn-cancel">返回</button>
+                </div>
+                </form>
+	    </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ajaxupload.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__COMMON__/js/imgupload.js"></script>
+    <script>
+        $(function(){
+            ajaxUpload('#btnUpload', "#img", 'RecruitImageText', '');
+            ajaxUpload('#btnUpload1', "#img1", 'RecruitImageText', '1');
+        })
+    </script>
+</block>

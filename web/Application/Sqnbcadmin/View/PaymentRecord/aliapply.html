@@ -1,0 +1,154 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <style>
+        .textarea_hide textarea {
+            padding: 5px;
+            min-width: 480px;
+            min-height: 245px;
+            max-height: 245px;
+            margin: 5px 0 5px 5px;
+        }
+        .textarea_hide button {
+            width: 150px;
+            margin-left: 175px;
+            background: #CA2E2F;
+            color: #ffffff;
+            border: solid 1px #CA2E2F;
+            height: 30px;
+        }
+        .textarea_hide {
+            width: 500px;
+        }
+    </style>
+    <!-- S=头部设置 -->
+    <div class="tw-layout">        
+        <!-- S=信息管理 -->
+        <div class="tw-list-hd"> 申请列表</div>
+        <!-- E=信息管理 -->        
+        <!-- S=导航设置 -->
+        <div class="tw-list-top">
+            <!-- S=添加删除 -->
+            <div class="tw-tool-bar">
+                <!--<a class="tw-tool-btn-add" href="{:U('edit')}">-->
+                    <!--<i class="tw-icon-plus-circle"></i> 添加-->
+                <!--</a>-->
+                    <a class="tw-tool-btn-add" href="javascript:void(0)" onclick="exportExcel({$tag})" >
+                        <i class="tw-icon-paper-plane"></i> 导出
+                    </a>
+
+            </div>
+            <!-- E=添加删除 -->
+            <!-- S=高级搜索 -->                        
+            <form action="__ACTION__" method="get" id='frmSearch'>
+                <div class="tw-search-bar">
+                    <div class="search-form fr cf">
+                        <div class="sleft">
+                            <input type="text" name="name" class="search-input" value="{:I('name')}" placeholder="请输入用户名">
+                            <a type="submit" class="sch-btn" onclick="$('#frmSearch').submit();"><i class="btn-search"></i></a>
+                        </div>
+                    </div>            
+                </div>
+	    </form>          
+            <!-- E=高级搜索 -->
+        </div>
+        <!-- E=导航设置 -->
+    </div>
+    <!-- E=头部设置 -->
+    <!-- S=详情显示 -->	
+    <div class="tw-list-wrap">
+        <!-- S=表单 -->
+        <form class="ids">
+            <table class="tw-table tw-table-list tw-table-fixed">
+                <thead>
+                    <tr>
+                        <th class="row-selected">
+                            <input class="checkbox check-all" type="checkbox">
+                        </th>
+                        <th width="30">ID</th>
+                        <th width="10%">提现用户名</th>
+                        <th width="10%">提现用户ID</th>
+                        <th width="10%">提现金额</th>
+                        <th width="10%">提现账户</th>
+                        <th width="10%">提现状态</th>
+                        <th class="show-time">提现时间</th>
+                        <th width="100">操作</th>
+                    </tr>
+                </thead>
+                <!-- S=详细信息 -->	
+                <tbody>
+                    <notempty name="data">
+                      
+                        <volist name="data" id="vo">
+                            <tr>
+                                <td><input class="ids row-selected" type="checkbox" name="chkbId" value="{$vo.id}"></td>
+                                <td>{$vo.id}</td>
+                                <td >{$vo.member_name}</td>
+                                <td >{$vo.user}</td>
+                                <td >{$vo.pay_cash}</td>
+                                <td>{$vo.alipaycount}</td>
+                                <td ><if condition="$vo.flag eq 1">  未审核<elseif  condition="$vo.static eq 1" /> 申请无效<else/>已到账</if></td>
+
+                                <td>{$vo.add_time|time_format}</td>
+                                <td>
+                                <if condition="$vo.flag eq 1"> 
+                                    <a class="tw-tool-btn-view" href="{:U('payRecommend?id='.$vo['id'])}"><i class="tw-icon-pencil"></i> 通过 </a>
+                                    <a onclick="Remarks({$vo.id})" class="tw-tool-btn-del"><i class="tw-icon-minus-circle" ></i> 不通过</a>
+                                    <!--<a class="tw-tool-btn-del" href="{:U('payNoRecommend?id='.$vo['id'])}"><i class="tw-icon-minus-circle"></i> 不通过</a>-->
+                                    <else/>已审核</if>
+                                </td>                                
+                            </tr>
+                        </volist>
+                        <else/>
+                            <td colspan="5" class="text-center"> aOh! 暂时还没有内容! </td>
+                    </notempty>
+                </tbody>
+                <!-- E=详细信息 -->
+            </table>
+        </form>
+        <!-- E=表单 -->
+        <div class="page">{$page}</div>
+         </div>
+    </div>
+    <!-- E=详情显示 -->	
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        function exportExcel(tag){
+            window.location.href='{:U('aliexportExcel','','')}/tag/'+tag;
+        }
+    </script>
+    <script type="text/javascript">
+        function Remarks(e) {
+
+            layer.open({
+                title:'修改备注',
+                type: 1,
+                skin: 'layui-layer-demo', //样式类名
+                closeBtn: 1, //不显示关闭按钮
+                anim: 2,
+                area: ['500', '350px'], //宽高
+                shadeClose: true, //开启遮罩关闭
+                content: "<div class=\"textarea_hide\">\n" +
+                    "\t\t<form id='form_s'>\n" +
+                    "\t\t<textarea maxlength='500' name='remarks' placeholder=\"未填写备注\"></textarea>" +
+                    "<input type='hidden' name='id' value='"+e+"'>\n" +
+                    "\t\t\t<button type='button' onclick='submit_mod()'>保存</button>\n" +
+                    "\t\t</form>\n" +
+                    "\t</div>"
+            });
+
+        }
+        function submit_mod(e) {
+            //alert('sdfsdfsaf');
+            $.post("/index.php/SqnbcAdmin/PaymentRecord/payNoRecommend",$("#form_s").serialize(),function (date) {
+                alert(date['info']);
+                if(date['status']==1){
+                    window.location.reload();
+                }
+            });
+            return false;
+        }
+    </script>
+</block>

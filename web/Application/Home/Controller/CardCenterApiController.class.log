@@ -1,0 +1,57 @@
+﻿Array
+(
+    [token] => 1558148773732176456002276000
+    [typeid] => 110
+    [cardid] => 237
+    [priceid] => 641
+    [submission] => 2
+    [express] => 0
+    [is_entitycard] => 0
+    [cardkey] => 561432 654965
+321145 654142
+)
+Array
+(
+    [token] => 1558402934832430976847022048
+    [typeid] => 110
+    [cardid] => 237
+    [priceid] => 641
+    [submission] => 2
+    [express] => 0
+    [is_entitycard] => 0
+    [cardkey] => 980909 980910\n981028 981029
+)
+Array
+(
+    [token] => 1558402934832430976847022048
+    [typeid] => 110
+    [cardid] => 236
+    [priceid] => 663
+    [submission] => 2
+    [express] => 0
+    [is_entitycard] => 0
+    [cardkey] => 321654 231456,231654 123456
+)
+Array
+(
+    [token] => 1558402934832430976847022048
+    [typeid] => 110
+    [cardid] => 236
+    [priceid] => 663
+    [submission] => 2
+    [express] => 0
+    [is_entitycard] => 0
+    [cardkey] => 123456,987654,312165,654365
+)
+Array
+(
+    [token] => 1558402934832430976847022048
+    [typeid] => 110
+    [cardid] => 236
+    [priceid] => 663
+    [submission] => 2
+    [express] => 0
+    [is_entitycard] => 0
+    [cardkey] => 321654 123456
+987654 132456
+)

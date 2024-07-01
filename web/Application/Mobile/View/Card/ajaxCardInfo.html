@@ -1,0 +1,16 @@
+<volist name="cardinfo" id="vo">
+            <div class="side-box name-box" data-typeid="{$vo['id']}" data-password="{$vo.openpassword}" data-cardexample="{$vo.cardexample}" data-introduce="{$vo.introduce}">
+                <div class="name-img">
+                    <img src="{$vo.photo_path}" alt="">
+                </div>
+                <a href="#"><p>{$vo.name}</p></a>
+			    <eq name="i" value="1">
+			    	<div class="right-img right-img1">
+			    <else/>
+                	<div class="right-img right-img1  right-none">
+                </eq>
+				<img src="__MOBILE__/images/download.png" alt="">
+                    
+                </div>
+            </div> 
+</volist>

@@ -1,0 +1,86 @@
+<extend name="Base/user_no"/>
+	<block name="style">
+		<meta name="keywords" content="京东E卡 京东钢蹦 中国石化加油充值卡 中国石油加油充值卡 移动电信联通话费充值卡亚马逊礼品卡回收
+">
+		<meta name="description" content="爱卡网是一家提供电商超市、加油、旅游等礼品充值购物卡回收，收购，买卖的交易平台，我们努力做好礼品购物卡买卖的交易服务。">
+		<link rel="stylesheet" type="text/css" href="__HOME__/css/sellCardDetails.css"/>
+		<link rel="stylesheet" type="text/css" href="__HOME__/css/base.css"/>
+	</block>
+	<block name="content">
+		<div class="sellCardDetails">
+			<div class="record-title">
+				<span class="record-title-font">卖卡详情</span>
+				<div class="record-title-text">(单号：
+					<span class="title-font">565664546456544</span>
+					<span class="title-br">|</span>
+					<span class="title-font">2018年01月24日</span>
+				)</div>
+			</div>
+			<div class="details-back">&lt;返回列表</div>
+			<div class="details-process cf">
+				<div class="details-step fl">
+					<div class="detaies-step-circle"></div>
+					<div class="detaies-step-font">卖卡提交</div>
+					<div class="detaies-step-time">2018-01-24 10:12:12</div>
+					<div class="detaies-step-line"></div>
+				</div>
+				<div class="details-step fl">
+					<div class="detaies-step-circle"></div>
+					<div class="detaies-step-font">等待受理</div>
+					<div class="detaies-step-time">2018-01-24 10:12:12</div>
+					<div class="detaies-step-line"></div>
+				</div>
+				<div class="details-step fl">
+					<div class="detaies-step-circle"></div>
+					<div class="detaies-step-font">验证卡卷</div>
+					<div class="detaies-step-time">2018-01-24 10:12:12</div>
+					<div class="detaies-step-line"></div>
+				</div>
+				<div class="details-step fl">
+					<div class="detaies-step-circle"></div>
+					<div class="detaies-step-font">交易成功</div>
+					<div class="detaies-step-time">2018-01-24 10:12:12</div>
+					<div class="detaies-step-line"></div>
+				</div>
+			</div>
+			<div class="details-point">
+				此次交易共<span>6</span>张卡，交易成功：<span>6</span>张，失败<span>0</span>张，您共获得：<span>￥588.00</span>
+				元，款项已经打入您的账户余额中，你可以查看<span>账户余额</span>。
+			</div>
+			
+			<div class="details-table">
+				<table border="1" cellspacing="0" cellpadding="0" rules=rows >
+					<tr>
+						<th>卡类</th>
+						<th>卡号</th>
+						<th>卡密</th>
+						<th>面值</th>
+						<th>回收价</th>
+						<th>实际价</th>
+						<th>状态</th>
+						<th>处理时间</th>
+					</tr>
+					<tr>
+						<td>移动卡</td>
+						<td>18012345678998</td>
+						<td>023156456454 45456545</td>
+						<td>588.00</td>
+						<td>￥98.00</td>
+						<td>￥98.00</td>
+						<td>验证成功</td>
+						<td>2018-01-24 10:12:15</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</block>
+<block name="script">
+	<script src="__HOME__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+        var tr = $('table').find('tr');
+        for(var i=0;i<tr.length;i++){
+            if(i%2 == 0){
+                tr[i].style.backgroundColor = '#F9F9F9';
+            }
+        }
+</block>

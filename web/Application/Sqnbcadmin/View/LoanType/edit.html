@@ -1,0 +1,54 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+        <div class="tw-list-hd">
+            {:isset($info['id'])?'编辑':'新增'}贷款分类
+        </div>
+        <div class="tw-list-wrap tw-edit-wrap ">
+            <form action="__SELF__" method="post" class="form-horizontal ajaxForm" enctype="multipart/form-data">
+                <div class="form-item">
+                    <label class="item-label">贷款分类名称<span class="check-tips"><b>*</b>（输入贷款分类名称）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="name" value="{$info.name}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">排序<span class="check-tips"><b>*</b></span></label>
+                    <div class="controls">
+                         <input type="text" class="text input-large" name="sort" value="{$info.sort}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">seo标题<span class="check-tips">(请输入seo标题)</span></label>
+                    <div class="controls">
+                        <input name="title" class="text input-large" value="{$info.title} ">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">seo搜索关键字<span class="check-tips">（请输入seo搜索关键字,关键字用','分隔）</span></label>
+                    <div class="controls">
+                         <input type="text" class="text input-large" name="keywords" value="{$info.keywords}">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">seo搜索描述<span class="check-tips">(请输入seo搜索描述)</span></label>
+                    <div class="controls">
+                         <textarea name="discription" rows="5" cols="55">{$info.discription}</textarea>
+                    </div>
+                </div>
+                <div class="tw-tool-bar-bot">
+                    <input type="hidden" name="id" value="{$info.id}"/>
+                    <button type="submit" class="tw-act-btn-confirm">提交</button>
+                    <button type="button" onclick="goback()" class="tw-act-btn-cancel">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script>
+        _TARGET_URL="{:U('Admin/LoanType/index')}";
+    </script>
+</block>

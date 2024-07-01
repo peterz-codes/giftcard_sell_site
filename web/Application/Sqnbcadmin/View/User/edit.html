@@ -1,0 +1,125 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+    	<div class="tw-list-hd">
+            {:isset($info['id'])?'编辑':'新增'}信息
+        </div>
+
+	    <div class="tw-list-wrap tw-edit-wrap">
+            <form action="__SELF__" method="post" class="form-horizontal ajaxForm">
+
+                <div class="form-item">
+                    <label class="item-label">姓名：</label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="name" value="{$info.name}" />
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">联系方式：</label>
+                    <div class="controls">
+                        <p type="text" class="text input-large" name="phone" >{$info.phone}</p>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">QQ账号：</label>
+                    <div class="controls">
+                        <p type="text" class="text input-large" name="qq" >{$info.qq}</p>
+                    </div>
+                </div>
+              <!--  <div class="form-item">
+                    <label class="item-label">密码：</label>
+                    <div class="controls">
+                        <p type="text" class="text input-large" name="password" >{$info.password}</p>
+                    </div>
+                </div>-->
+                <div class="form-item">
+                    <label class="item-label">是否是实名：<span class="check-tips"></span></label>
+                    <div class="controls">
+                        <if condition="$info.is_permission eq 1">
+                            <label class="radio"><input type="radio" value="0" name="is_permission" >否</label>
+                            <label class="radio"><input type="radio" value="1" name="is_permission" checked="checked" >是</label>
+                            <else  />
+                            <label class="radio"><input type="radio" value="0" name="is_permission" checked="checked" >否</label>
+                            <label class="radio"><input type="radio" value="1" name="is_permission" >是</label>
+                        </if>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">注册时间：<span class="check-tips"></span></label>
+                    <div class="controls">
+                        <input type="text" id="add_time" class="text input-3x laydate-icon" name="add_time"  onclick="laydate({format: 'YYYY-MM-DD', istime:false, festival: true})" value="{$info.add_time|time_format=###,'Y-m-d'}" placeholder="请选择注册时间">
+                          </div>
+                </div>
+
+               <!-- <if condition="$info.is_member eq 1">
+                    <div class="form-item">
+                        <label class="item-label">是否授权：<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <if condition="$info.is_permission eq 1">
+                                <label class="radio"><input type="radio" value="0" name="is_permission" >未授权</label>
+                                <label class="radio"><input type="radio" value="1" name="is_permission" checked="checked" >已授权</label>
+                                <else  />
+                                <label class="radio"><input type="radio" value="0" name="is_permission" checked="checked" >未授权</label>
+                                <label class="radio"><input type="radio" value="1" name="is_permission" >已授权</label>
+                            </if>
+                        </div>
+                    </div>
+                </if>-->
+                 <div class="tw-tool-bar-bot">
+                    <button type="submit" class="tw-act-btn-confirm">提交</button>
+
+                    <button type="button" onclick="goback()" class="tw-act-btn-cancel">返回</button>
+                </div>
+                    <input type="hidden" name="id" value="{$info.id|default=''}"/>
+                </form>
+	    </div>
+    </div>
+</block>
+<block name="script">
+    <script>
+        _TARGET_URL="{:U('Sqnbcadmin/User/index')}";
+        // function validate(){
+        //     //时间插件，结束时间要大于开始时间
+        //     var start_time = $('#start_time').val();
+        //     var end_time = $('#end_time').val();
+        //
+        //     var d1 = new Date(start_time.replace(/\-/g, "\/"));
+        //     var d2 = new Date(end_time.replace(/\-/g, "\/"));
+        //     if(start_time = ''){
+        //         toastr.error('开始时间不能为空！');
+        //         return false;
+        //     }
+        //     if(end_time = ''){
+        //         toastr.error('结束时间不能为空！');
+        //         return false;
+        //     }
+        //
+        //     if(start_time!=""&&end_time!=""&&d1 >d2){
+        //         toastr.error('开始时间不能大于结束时间！');
+        //         return false;
+        //     }
+        // }
+
+        // 时间插件
+        var start = {
+            elem: '#add_time',
+            format: 'YYYY/MM/DD',
+            max: '2099-06-16', //最大日期
+            istime: true,
+            istoday: false,
+
+        };
+        // var end = {
+        //     elem: '#end_time',
+        //     format: 'YYYY/MM/DD',
+        //
+        //     max: '2099-06-16',
+        //     istime: true,
+        //     istoday: false,
+        //
+        // };
+        laydate(start);
+        // laydate(end);
+    </script>
+</block>

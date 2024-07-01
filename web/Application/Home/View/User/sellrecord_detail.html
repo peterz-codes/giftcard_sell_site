@@ -1,0 +1,116 @@
+<extend name="Base/user_no"/>
+<block name="title">
+	<title>百分百收卡网_礼品卡兑换_一家专注二手礼品卡回收的网站 - www.ohbbs.cn 欧皇源码论坛 </title>
+</block>
+	<block name="style">
+		<link rel="stylesheet" type="text/css" href="__HOME__/css/sellCardDetails.css"/>
+		<link rel="stylesheet" type="text/css" href="__HOME__/css/base1.css"/>
+		<link href="__HOME__/css/page.css" rel="stylesheet" type="text/css">
+	</block>
+	<block name="content">
+		<div class="sellCardDetails">
+			<div class="record-title">
+				<span class="record-title-font">卖卡详情</span>
+				<div class="record-title-text">(单号：
+					<span class="title-font">{$orderinfo['order_sn']}</span>
+					<span class="title-br">|</span>
+					<span class="title-font">{$orderinfo['add_time']}</span>
+				)</div>
+			</div>
+			<a href="{:U('User/sellCardRecord')}"><div class="details-back">&lt;返回列表</div></a>
+			<div class="details-process cf">
+				<div class="details-step fl">
+					<div class="detaies-step-circle"></div>
+					<div class="detaies-step-font">卖卡提交</div>
+					<div class="detaies-step-time">{$orderinfo['add_time']}</div>
+					<div class="detaies-step-line"></div>
+				</div>
+				<div class="details-step fl">
+					<div class="detaies-step-circle"></div>
+					<div class="detaies-step-font">等待受理</div>
+					<div class="detaies-step-time">{$orderinfo['add_time']}</div>
+					<div class="detaies-step-line"></div>
+				</div>
+				<div class="details-step fl">
+					<div class="detaies-step-circle"></div>
+					<div class="detaies-step-font">验证卡卷</div>
+					<div class="detaies-step-time">{$orderinfo['add_time']}</div>
+					<div class="detaies-step-line"></div>
+				</div>
+				<if condition="$orderinfo['order_status'] eq 2" >
+				<div class="details-step fl">
+					<div class="detaies-step-circle"></div>
+					<div class="detaies-step-font">交易成功</div>
+					<div class="detaies-step-time">{$orderinfo['end_time']}</div>
+					<div class="detaies-step-line"></div>
+				</div>
+					<elseif condition="$orderinfo['order_status'] eq 3" />
+					<div class="details-step fl">
+						<div class="detaies-step-circle"></div>
+						<div class="detaies-step-font">交易失败</div>
+						<div class="detaies-step-time">{$orderinfo['end_time']}</div>
+						<div class="detaies-step-line"></div>
+					</div>
+					<else/>
+					<div class="details-step fl">
+						<div class="detaies-step-circle"></div>
+						<div class="detaies-step-font">待审核</div>
+						<!--<div class="detaies-step-time">{$orderinfo['end_time']}</div>-->
+						<div class="detaies-step-line"></div>
+					</div>
+				</if>
+			</div>
+			<div class="details-point">
+				此次交易共<span>{$orderinfo['count']}</span>张卡，待审核:<span>{$orderinfo['waitcount']}</span>张，交易成功：<span>{$orderinfo['sucesscount']}</span>张，失败<span>{$orderinfo['falsecount']}</span>张，您共获得：<span>￥{$orderinfo['order_amount']}</span>
+				元，款项已经打入您的账户余额中，你可以查看<a href="{:U('User/index')}" target="_parent"><span> 账户余额</span></a>。
+			</div>
+			
+			<div class="details-table">
+				<table border="1" cellspacing="0" cellpadding="0" rules=rows >
+					<tr>
+						<th>卡类</th>
+						<if condition="$orderinfo['is_entitycard'] eq 0">
+						<th>卡号</th>
+						<th>卡密</th>
+							<else/>
+						<th>实体卡</th>
+						</if>
+						<th>面值</th>
+						<th>回收价</th>
+						<th>实际价</th>
+						<th>状态</th>
+						<th>处理时间</th>
+					</tr>
+					<volist name="cardList" id="vo">
+					<tr>
+						<td>{$vo['card_name']}</td>
+						<if condition="$orderinfo['is_entitycard'] eq 0">
+						<td>{$vo['cardkey']}</td>
+						<td>{$vo['password']}</td>
+							<else/>
+							<td><img src="{$vo['imgs']}" style="width:200px;"/></td>
+						</if>
+						<td>{$vo['price']}</td>
+						<td>￥{$vo['saleprice']}</td>
+						<td>￥{$vo['actual_price']}</td>
+						<td>{$vo['order_status']}</td>
+						<td>{$vo['flag_time']}</td>
+					</tr>
+					</volist>
+				</table>
+				<div class="secondHand-pageNumBox page-flex">
+					{$page}
+				</div>
+			</div>
+		</div>
+	</block>
+<block name="script">
+	<script src="__HOME__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+        var tr = $('table').find('tr');
+        for(var i=0;i<tr.length;i++){
+            if(i%2 == 0){
+                tr[i].style.backgroundColor = '#F9F9F9';
+            }
+        }
+</block>

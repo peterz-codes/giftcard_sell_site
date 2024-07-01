@@ -1,0 +1,94 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/unline.css" />
+</block>
+<block name="body">
+    <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+        <!--侧滑菜单部分-->
+        <include file="Index:left" />
+        <!--主界面部分-->
+        <div class="mui-inner-wrap">
+            <header class="mui-bar mui-bar-nav">
+                <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"  href="javascript:history.back(-1)"></a>
+                <h1 class="mui-title">线下交易</h1>
+                <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+            </header>
+            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+                <div class="mui-scroll" id="move-togger">
+                    <div class="banner">
+                    </div>
+                    <div class="step-box">
+                        <div class="title-box">
+                            <div class="line"></div>
+                            <div class="title">线下交易流程</div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="step-list list">
+                            <div class="item">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/offlineicon1.png" alt="">
+                                </div>
+                                <span>联系客服专员</span>
+                            </div>
+                            <div class="item">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/offlineicon2.png" alt="">
+                                </div>
+                                <span>选择交易方式</span>
+                            </div>
+                            <div class="item">
+                                <div class="img-box">
+                                    <img src="__MOBILE__/images/offlineicon3.png" alt="">
+                                </div>
+                                <span>获得交易资金</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="api">
+                        <h3>线下礼品卡回收网点</h3>
+                        <div class="inbox">
+                            <div class="p-box">
+                                <p>拥有全国各大城市回收网点</p>
+                                <p>线下交易更方便</p>
+                            </div>
+                            <a href="{:U('Mobile/Exchange/sites')}"><button class="btn">立即查看</button></a>
+                        </div>
+                    </div>
+                    <div class="col-box recycle">
+                        <div class="t-box">
+                            <h3>线下礼品卡回收列表</h3>
+                        </div>
+                        <ul class="logo-list cf">
+                          
+                         <volist name="cardinfo" id="vo">
+         
+                            <li class="logo-item fl">
+                                <div class="img-box">
+                                    <img src="{$vo.photo_path}" alt="">
+                                </div>
+                            </li>
+                        </volist>
+                           
+                        </ul>
+                    </div>
+                    <div class="hint-info">
+                        <p>温馨提示：如回收列表里面没有您想要出售的卡，可以联系在线客服咨询</p>
+                        <a class="btn">立即咨询</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="mui-off-canvas-backdrop"></div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        mui('#offCanvasSideScroll').scroll();
+        mui('#offCanvasContentScroll').scroll();
+        $('.btn').on( 'tap',function () {
+            window.location.href="http://wpa.qq.com/msgrd?v=3&uin=76891828&site=qq&menu=yes";
+        });
+    </script>
+</block>	
+

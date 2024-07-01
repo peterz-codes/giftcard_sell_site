@@ -1,0 +1,94 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <!-- S=头部设置 -->
+    <div class="tw-layout">        
+        <!-- S=信息管理 -->
+        <div class="tw-list-hd"> 用户列表</div>
+        <!-- E=信息管理 -->        
+        <!-- S=导航设置 -->
+        <div class="tw-list-top">
+            <!-- S=添加删除 -->
+            <div class="tw-tool-bar">
+            </div>
+            <!-- E=添加删除 -->
+            <!-- S=高级搜索 -->                        
+            <form action="__ACTION__" method="get" id='frmSearch'>
+                <div class="tw-search-bar">
+                    <div class="search-form fr cf">
+                        <div class="sleft">
+                            <input type="text" name="userid" class="search-input" value="{:I('userid','')}" placeholder="用户ID">
+                        </div>
+                        <div class="sleft">
+                            <input type="text" name="keywords" class="search-input" value="{:I('keywords','')}" placeholder="搜索关键字">
+                            <a type="submit" class="sch-btn" onclick="$('#frmSearch').submit();"><i class="btn-search"></i></a>
+                        </div>
+                    </div>            
+                </div>
+	        </form>
+            <!-- E=高级搜索 -->
+        </div>
+        <!-- E=导航设置 -->
+    </div>
+    <!-- E=头部设置 -->
+    <!-- S=详情显示 -->	
+    <div class="tw-list-wrap">
+        <!-- S=表单 -->
+        <form class="ids">
+            <table class="tw-table tw-table-list tw-table-fixed">
+                <thead>
+                    <tr>
+                        <th class="row-selected">
+                            <input class="checkbox check-all" type="checkbox">
+                        </th>
+                        <th width="30">ID</th>
+                        <th width="7%">昵称</th>
+                        <th width="7%">姓名</th>
+                        <th width="7%">电话</th>
+                        <th width="7%">账户余额</th>
+
+                        <th width="5%">是否实名</th>
+
+                        <th width="15%">注册时间</th>
+                        <th width="100">操作</th>
+                    </tr>
+                </thead>
+                <!-- S=详细信息 -->	
+                <tbody>
+                    <notempty name="data">
+                      
+                        <volist name="data" id="vo">
+                            <tr>
+                                <td><input class="ids row-selected" type="checkbox" name="chkbId" value="{$vo.id}"></td>
+                                <td>{$vo.id}</td>
+                                <td>{$vo.username}</td>
+                                <td class="text-center">{$vo.name}</td>
+                                <td class="text-center">{$vo.phone}</td>
+                                <td class="text-center">{$vo.balance}</td>
+
+                                <td><if condition="$vo.is_permission eq 0 ">非实名<elseif condition="$vo.is_permission eq 1" />实名<else/>待审核</if></td>
+
+                                <td>{$vo.add_time|time_format=###,'Y-m-d'} </td>
+                                <td>
+                                    {:change_disabled($vo['id'],$vo['disabled'])}
+                                    <a class="tw-tool-btn-edit" href="{:U('edit?id='.$vo['id'])}"><i class="tw-icon-pencil"></i> 修改 </a>
+                                    <a class="tw-tool-btn-del" onclick="javascript:recycle({$vo['id']}, '确认删除?! 删除后此信息将不在此地显示!',true)"><i class="tw-icon-minus-circle"></i> 删除</a>
+                                </td>
+                            </tr>
+                        </volist>
+                        <else/>
+                            <td colspan="10" class="text-center"> aOh! 暂时还没有内容! </td>
+                    </notempty>
+                </tbody>
+                <!-- E=详细信息 -->
+            </table>
+        </form>
+        <!-- E=表单 -->
+        <div class="page">{$page}</div>
+         </div>
+    </div>
+    <!-- E=详情显示 -->	
+</block>
+
+<block name="script">
+</block>

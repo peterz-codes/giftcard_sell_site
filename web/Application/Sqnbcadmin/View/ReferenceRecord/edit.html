@@ -1,0 +1,48 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+    	<div class="tw-list-hd">
+            {:isset($info['id'])?'编辑':'新增'}信息
+        </div>
+
+	    <div class="tw-list-wrap tw-edit-wrap">
+            <form action="__SELF__" method="post" class="form-horizontal ajaxForm">
+                <div class="form-item">
+                    <label class="item-label">联系方式：</label>
+                    <div class="controls">
+                        <p type="text" class="text input-large" name="phone" >{$info.phone}</p>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">股票账号：</label>
+                    <div class="controls">
+                        <p type="text" class="text input-large" name="number" >{$info.number}</p>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">是否是联系：<span class="check-tips"></span></label>
+                    <div class="controls">
+                        <if condition="$info.is_notice eq 2">
+                            <label class="radio"><input type="radio" value="1" name="is_notice" >否</label>
+                            <label class="radio"><input type="radio" value="2" name="is_notice" checked="checked" >是</label>
+                            <else  />
+                            <label class="radio"><input type="radio" value="1" name="is_notice" checked="checked" >否</label>
+                            <label class="radio"><input type="radio" value="2" name="is_notice" >是</label>
+                        </if>
+                    </div>
+                </div>
+                 <div class="tw-tool-bar-bot">
+                    <button type="submit" class="tw-act-btn-confirm">提交</button>
+                    <button type="button" onclick="goback()" class="tw-act-btn-cancel">返回</button>
+                </div>
+                    <input type="hidden" name="id" value="{$info.id|default=''}"/>
+                </form>
+	    </div>
+    </div>
+</block>
+<block name="script">
+    <script>
+        _TARGET_URL="{:U('Admin/ReferenceRecord/index')}";
+    </script>
+</block>

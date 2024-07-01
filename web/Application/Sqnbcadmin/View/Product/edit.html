@@ -1,0 +1,186 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+    	<div class="tw-list-hd">
+            {:isset($info['id'])?'编辑':'新增'}信息
+        </div>
+
+	    <div class="tw-list-wrap tw-edit-wrap">
+            <form action="__SELF__" method="post" class="form-horizontal ajaxForm">
+                <div class="form-item">
+                    <label class="item-label">标题<span class="check-tips"><b>*</b>（输入产品名称）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="title" value="{$info.title}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">产品定义<span class="check-tips"><b>*</b>（输入产品定义）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="define" value="{$info.define}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">选股思路<span class="check-tips"><b>*</b>（输入选股思路）</span></label>
+                    <div class="controls">
+                        <textarea name="ideas" rows="5" cols="57">{$info.ideas}</textarea><br/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">产品特点<span class="check-tips"><b>*</b>（输入产品特点）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="feature" value="{$info.feature}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">产品优势<span class="check-tips"><b>*</b>（输入产品优势）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="advantage" value="{$info.advantage}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">产品价格<span class="check-tips"><b>*</b>（输入产品价格）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="price" value="{$info.price}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">使用期限<span class="check-tips"><b>*</b>（输入使用期限）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="used_time" value="{$info.used_time}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">适合客户<span class="check-tips"><b>*</b>（输入适合客户）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="customers" value="{$info.customers}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">上传产品图片<span class="check-tips"><b>*</b>（用于上传图片 请上传大于400*400的正方形图片）</span></label>
+                    <div class="controls">
+                        <div>
+                            <img src="{$info.photo_path}" style="height:129px; width:129px;" id="img_"/>
+                        </div>
+                        <input type="hidden" value="{$info.photo_path}" name="photo_path" id="img" />
+                            <input class="btn btn-default btn-xs" type="button" value="上传" id="btnUpload"/>
+                            <input class="btn btn-danger btn-xs" type="button" value="删除" onclick="delFile($('#img').val(), '')" id="btn_delete_" />
+                            <if condition="$info.photo_path eq ''">
+                                <script>
+                                    $("#img_, #btn_delete_").hide();
+                                </script>
+                            </if>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">上传附件<span class="check-tips"><b>*</b>（附件格式：zip、rar）</span></label>
+                    <div class="controls">
+                        <div>
+                            <div style="height:20px; width:100px;" id="img1_div"/><a href="{$info.attach_path}" id="img1_" download="{$info.file_name}">{$info.file_name}</a></div>
+                    </div>
+                    <input type="hidden" value="{$info.attach_path}" name="attach_path" id="enclosure" />
+                    <input class="btn btn-default btn-xs" type="button" value="上传" id="btnUpload1"/>
+                    <input class="btn btn-danger btn-xs" type="button" value="删除" onclick="delFileFile($('#enclosure').val(), 1,'','enclosure')" id="btn_delete1" />
+                    <if condition="$info.attach_path eq ''">
+                        <script>
+                            $("#img1_div, #btn_delete1").hide();
+                        </script>
+                    </if>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">排序<span class="check-tips"><b>*</b>（输入产品的展示顺序）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="sort" value="{$info.sort}">
+                    </div>
+                </div>
+                 <div class="tw-tool-bar-bot">
+                    <button type="submit" class="tw-act-btn-confirm">提交</button>
+                    <button type="button" onclick="goback()" class="tw-act-btn-cancel">返回</button>
+                </div>
+                    <input type="hidden" name="id" value="{$info.id|default=''}"/>
+                </form>
+	    </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ajaxupload.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__COMMON__/js/imgupload.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__JS__/admin.js"></script>
+    <script>
+        _TARGET_URL="{:U('Admin/Product/index')}";
+        $(function(){
+            ajaxUpload('#btnUpload', $("#img"), 'Product', '');
+            ajaxUploadField('#btnUpload1', $("#enclosure"), 'Product', '');
+        });
+
+        function ajaxUploadField(btnUpload, inputImg, savePath, item){
+            var filename = ""; // 旧文件的文件名
+            var oldImg = $(inputImg).val();
+            if($.trim(oldImg) != "" && oldImg.indexOf('/') != -1){
+                var arr = oldImg.split('/');
+                var file = arr[arr.length - 1];
+                filename = file.split('.')[0];
+            }
+
+            if(!savePath) savePath = "";  // 要存放的路径
+
+            new AjaxUpload($(btnUpload), {
+                action: UPLOAD_FIELD_URL,
+                name: 'photo',   //这相当于<input type = "file" name = "photo"/>
+                data:{},  //附加参数值
+                dataType : 'text',
+                onSubmit : function(file, ext){
+                    if(!(ext && /^(rar|zip|mp4|wma)$/.test(ext.toLowerCase()))){
+                        toastr.error('上传附件格式不支持');
+                        return false;
+                    }
+                    this.setData({'oldImg':filename, 'savePath':savePath});
+                    this.disable();
+                },
+                onComplete: function(file, response){
+                    $('.tw-act-btn-confirm').attr("disabled",true);
+                    json = $.parseJSON($(response).text());
+                    if(json['status'] == true || json['status'] == 1 || json['status'].toString() == '1'){
+                        $("#img1_div").show();
+                        $("#img1_").html(json['file_name']).show();
+                        $("#img1_").attr('download', json['file_name']).show();
+                        $("#img1_").attr('href', json['src']).show();
+                        $("#enclosure" + item).val(json['src']);
+                        $('#btn_delete1_' + item).show();
+                        $('.tw-act-btn-confirm').attr("disabled",false);
+                    }else{
+                        toastr.error(json['msg'])
+                    }
+                    this.enable();
+                }
+            });
+
+        }
+        function delFileFile(file, item, message,id){
+
+                if(! message) message = "确认删除吗? 此步骤无法恢复!"
+                if(! confirm(message)) return false;
+
+                var url;
+                if (DELETE_FILE_URL.indexOf('?') > -1) {
+                    url = DELETE_FILE_URL + "&file="+ file;
+                } else {
+                    url = DELETE_FILE_URL + "?file="+ file;
+                }
+
+                $.get(url, function(data){
+                    if(data.status == 1){
+                        $('#img' + item).attr('href', '').hide();
+                        $('#img'+item+"_").val('').hide();
+                        $('#'+id).val('').hide();
+                        $('#btn_delete' + item).hide();
+                        toastr.success(data.msg);
+                    }else{
+                        toastr.error(data.msg)
+                    }
+                })
+
+        }
+
+    </script>
+</block>

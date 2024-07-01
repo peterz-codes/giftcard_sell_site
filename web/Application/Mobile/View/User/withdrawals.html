@@ -1,0 +1,252 @@
+<extend name="Base/base"/>
+<block name="style">
+<link rel="stylesheet" href="__MOBILE__/css/real_name.css">
+<link rel="stylesheet" href="__MOBILE__/css/initializeaa.css">
+
+    <link rel="stylesheet" href="__MOBILE__/css/tixian_mobile.css?v=<?php echo time() //测试阶段, 防止缓存, 正式发布时请去掉 ?>">
+</block>
+<block name="body">
+    <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+        <!--侧滑菜单部分-->
+        <include file="Index:left" />
+        <!--主界面部分-->
+        <div class="mui-inner-wrap">
+            <header class="mui-bar mui-bar-nav">
+                <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"  href="javascript:history.back(-1)"></a>
+                <h1 class="mui-title">申请提现</h1>
+               <!--  <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a> -->
+            </header>
+ <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+                <div class="mui-scroll" id="move-togger">
+
+<div class="session">
+    <div class="sess">
+        <div class="nav-box" id="tab">
+            <ul class="cf">
+                <li class="nav-item nav-item-on fl">支付宝支付</li>
+                <li class="nav-item fr">银行卡支付</li>
+            </ul>
+        </div>
+        <div class="tab_box">
+        <div class="pro-box">
+            <div class="money" id="money1">
+                <input type="text"   value="{$default_alipay}" placeholder="请输入支付宝帐号" class="mui-input-clear" name="phone"  id="alipay">
+                <input type="text" class="mui-input-password form-password" id="money" name="password" placeholder="请输入提现金额">
+                <input  type="password" class="mui-input-password form-password" id="paypassword" name="password" placeholder="请输入支付密码">
+                
+                  <button class="btn reg-btn" id="submit">确认提交</button>
+                             <button class="c-gery sel-btn">取消</button>
+            </div>
+        </div>
+        <div class="pro-box hide" >
+            <div class="money" id="money2">
+                <a href="#" class="add">+ 添加银行卡</a>
+                <input type="text"  id="bankcardnum" placeholder="请输入银行卡号" value="{$user_info['bankcardnum']}">
+                <input type="text" id="bankmoney" placeholder="请输入提现金额">
+                <input type="password" id="bankpaypassword" placeholder="请输入支付密码">
+                <button class="bankbtn" id="bankbtn">确认提交</button>
+                <button class="c-gery">取消</button>
+            </div>
+            <div class="add-card" id="add-card">
+                <p>添加银行卡</p>
+                <input type="text" id="tjbankcardnum" placeholder="银行卡号">
+                <input type="text" id="bankname" placeholder="开户行">
+                <input type="text" id="bkusername" placeholder="姓名">
+                <input type="text" id="bankphone" placeholder="预留手机号">
+                <button id="editbankcardnum">确定添加</button><button class="c-gery">取消</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+  </div>
+    </div>
+</block>    
+<block name="script">
+<script type="text/javascript">
+    $(document).ready(function(){
+        var $tab_li = $('#tab ul li');
+        $tab_li.on('tap',function(){
+            $(this).addClass('nav-item-on').siblings().removeClass('nav-item-on');
+            var index = $tab_li.index(this);
+            $('div.tab_box > div').eq(index).show().siblings().hide();
+        });
+        $(".add").on('tap',function () {
+            $("#money2").hide();
+            $(".add-card").show();
+        })
+    });
+</script>
+<script type="text/javascript">
+
+        $('#submit').on('tap',function () {
+             $('#submit').attr('disabled',"true");
+
+            var hasmoney = {$user_info['balance']};
+            money = $('#money').val();
+            alipay = $('#alipay').val();
+            paypassword =  $('#paypassword').val();
+            if(money == ''){
+                mui.toast("提现金额不能为空");
+                $('#submit').removeAttr("disabled"); 
+                return false;
+            }
+            if(alipay == ''){
+                mui.toast("提现账户不能为空");
+                $('#submit').removeAttr("disabled"); 
+                return false;
+               }
+            if(money == 0){
+                mui.toast("提现金额不能为0");
+                $('#submit').removeAttr("disabled"); 
+                return false;}
+            if(money < 0){
+                mui.toast("提现金额不正确");
+                $('#submit').removeAttr("disabled"); 
+                return false;}
+            if(paypassword == ''){
+                mui.toast("提现密码不能为空");
+                $('#submit').removeAttr("disabled"); 
+                return false;
+
+            }
+            if(money > hasmoney){
+                mui.toast("提现金额不能大于账户余额空");
+                $('#submit').removeAttr("disabled"); 
+                return false;
+          }
+            if(money != '' && alipay != '') {
+                $.ajax({
+                    type: 'post',
+                    data: {'money': money, 'alipay': alipay, 'paypassword': paypassword},
+                    url: "{:U('Mobile/User/withcash')}",
+                    success: function (data) {
+                        if (data.status == 1) {
+
+                            console.log(data);
+                            mui.toast('申请成功');
+                            window.location.href = "{:U('Mobile/User/index')}";
+                        } else {
+                            console.log(data);
+                            mui.toast(data.info);
+                            $('#submit').removeAttr("disabled"); 
+                        }
+
+
+                    }
+                });
+            }
+
+
+        });
+        //银行卡号修改
+        $('#editbankcardnum').on('tap',function(){
+            bankname = $('#bankname').val();
+            bankcardnum = $('#tjbankcardnum').val();
+            bankphone = $('#bankphone').val();
+            username = $('#bkusername').val();
+            if(bankcardnum == ''){
+                console.log(bankcardnum);
+                mui.alert('银行卡卡号不能为空');
+                 $('#submit').removeAttr("disabled"); 
+                return false;
+            }
+            if(bankphone == ''){
+                mui.alert('银行预留手机号不能为空');
+                 $('#submit').removeAttr("disabled"); 
+                return false;
+            }
+           
+            if(!bankname || !username){
+                mui.alert('请正确填写银行卡信息');
+                 $('#submit').removeAttr("disabled"); 
+                return false;
+            }else {
+                $.ajax({
+                    type: 'post',
+                    data: {'bankname': bankname,'bankcardnum':bankcardnum,'bankphone':bankphone,'username':username},
+                    url: "{:U('Mobile/User/editbankcard')}",
+                    success: function (data) {
+                        if(data.status==1){
+                            $(".bkdrop").hide();
+                            console.log(data);
+                            mui.alert('修改成功');
+                             $("#money2").show();
+                             $(".add-card").hide();
+                           $('#bankcardnum').val($('#tjbankcardnum').val());  
+                        }else{
+                            console.log(data);
+                            mui.alert(data.info);
+                            $('#submit').removeAttr("disabled"); 
+                        }
+
+
+                    }
+                });
+
+            }
+
+
+        })
+
+        //银行卡提现申请
+        $("#bankbtn").on('tap',function () {
+            $("#bankbtn").attr('disabled',"true");
+           
+            var hasmoney = {$user_info['balance']};
+            money = $('#bankmoney').val();
+            alipay = $('#bankcardnum').val();
+            paypassword =  $('#bankpaypassword').val();
+            paytype = 2;
+            if(money == ''){ 
+                mui.alert("提现金额不能为空");
+                $("#bankbtn").removeAttr("disabled"); 
+                return false;
+            }
+            if(alipay == ''){
+                mui.alert("提现账户不能为空");
+                $("#bankbtn").removeAttr("disabled"); 
+                return false;}
+            if(money < 0){
+                mui.alert("提现金额不正确");
+                $("#bankbtn").removeAttr("disabled"); 
+                return false;}
+            if(money == 0){
+                mui.toast("提现金额不能为0");
+                $("#bankbtn").removeAttr("disabled"); 
+                return false;}
+            if(paypassword == ''){
+                mui.alert("提现密码不能为空");
+                $("#bankbtn").removeAttr("disabled"); 
+                return false;
+            }
+            if(money > hasmoney){ 
+                mui.alert("提现金额不能大于账户余额");
+                $("#bankbtn").removeAttr("disabled"); 
+                return false;
+            }
+            if(money != '' && alipay != ''){
+                $.ajax({
+                    type: 'post',
+                    data: {'money': money,'alipay':alipay,'paypassword':paypassword,paytype:paytype},
+                    url: "{:U('Mobile/User/withcash')}",
+                    success: function (data) {
+                        if(data.status==1){
+                            $(".bkdrop").hide();
+                            console.log(data);
+                            mui.alert('申请成功');
+                        }else{
+                            console.log(data);
+                           mui.alert(data.info);
+                            $("#bankbtn").removeAttr("disabled"); 
+                        }
+
+
+                    }
+                });
+            }
+
+
+        })
+    </script>
+</block>

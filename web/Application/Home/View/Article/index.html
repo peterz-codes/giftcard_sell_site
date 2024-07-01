@@ -1,0 +1,166 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" href="__HOME__/css/page.css">
+</block>
+<block name="body">
+    <!-- 背景图片 -->
+    <div class="show"></div>
+    <!-- 主体内容 -->
+    <div class="nowlink">
+        <p>当前位置：
+            <a href="{:U('Home/Index/index')}">首页</a>
+            <span>></span>
+            <a href="{:U('Home/Article/index')}" class="active">咨询平台</a>
+        </p>
+    </div>
+    <section>
+        <div class="section-aside ">
+            <div class="section-aside-title">
+                <img src="__HOME__/images/service.png" />
+                <span>咨询平台</span>
+            </div>
+            <input type="hidden" value="{$type_index}" id="type_index">
+            <input type="hidden" value="{$first_articleType_id}" id="first_articleType_id">
+            <ul class="section-aside-content" >
+                <volist name="Article_type_list" id="vo">
+                    <li data-url="{$vo.id}"><a onclick="javascript(void(0));">{$vo.name}</a></li>
+                </volist>
+            </ul>
+        </div>
+        <input type="hidden" id="article_id" value="{$article_id}">
+        <input type="hidden" id="type" value="{$type}">
+        <div class="go-top" id="go-top" style="display: block;">
+            <a href="javascript:;" class="uc-2vm"></a>
+            <div class="uc-2vm-pop dn">
+                <h2 class="title-2wm">用微信扫一扫</h2>
+                <div class="logo-2wm-box">
+                    <img src="__HOME__/images/qifutong.jpg" alt="" width="240" height="240">
+                </div>
+            </div>
+            <a href="javascript:;" class="go"></a>
+        </div>
+        <div id="content">
+            <div class="section-content section-model-index" id="d_details">
+                <volist name="Article_list" id="vo">
+                    <div class="section-model-title">
+                        <input type="hidden" id="d_type" value="{$d_type}">
+                        <h3>{$vo.name}</h3>
+                        <p>来源：{$vo.source} {$vo.add_time|time_format}</p>
+                    </div>
+                    <div class="section-model-content">
+                        {$vo.content|htmlspecialchars_decode}
+                    </div>
+                    <div class="section-model-jump col-xs-12">
+                        <if condition="$upon_id neq ''">
+                            <a href="javascript:;" class="section-model-jump-pre" data-val="{$upon_id}">上一篇：{$upon_name}</a>
+                        </if>
+                        <if condition="$next_id neq ''">
+                            <a href="javascript:;" class="section-model-jump-nex" data-val="{$next_id}">下一篇：{$next_name}</a>
+                        </if>
+                    </div>
+                </volist>
+            </div>
+        </div>
+    </section>
+</block>
+<block name="script">
+    <script>
+
+        $(function () {
+            $('.header-nav-first').removeClass('on');
+            $('.header-nav-service').removeClass('on');
+            $('.header-nav-article').addClass('on');
+            var type_index = $('#type_index').val();
+            $('.section-aside-content li ').eq(type_index).addClass('section-aside-content-model');
+
+            var article_id = $('#article_id').val();
+            var type = $('#type').val();
+            var first_articleType_id = $('#first_articleType_id').val();
+            if(article_id != '' && type != ''){
+                detail(article_id,type)
+            }else{
+                ajaxList(0,first_articleType_id,1);
+            }
+            var type = $('#d_type').val();
+            $('.section-model-jump-pre').click(function () {
+                var id = $(this).attr('data-val');
+                detail(id,type);
+            });
+            $('.section-model-jump-nex').click(function () {
+                var id = $(this).attr('data-val');
+                detail(id,type);
+            });
+            cut_text('section-refer-news-art',78);
+            //滚动显示二维码与置顶
+            $(window).on('scroll',function(){
+                var st = $(document).scrollTop();
+                if( st>0 ){
+                    if( $('#main-container').length != 0  ){
+                        var w = $(window).width(),mw = $('#main-container').width();
+                        if( (w-mw)/2 > 70 )
+                            $('#go-top').css({'left':(w-mw)/2+mw+20});
+                        else{
+                            $('#go-top').css({'left':'auto'});
+                        }
+                    }
+                    $('#go-top').fadeIn(function(){
+                        $(this).removeClass('dn');
+                    });
+                }else{
+                    $('#go-top').fadeOut(function(){
+                        $(this).addClass('dn');
+                    });
+                }
+            });
+
+            $('#go-top .go').on('click',function(){
+                $('html,body').animate({'scrollTop':0},500);
+            });
+
+            $('#go-top .uc-2vm').hover(function(){
+                $('#go-top .uc-2vm-pop').removeClass('dn');
+            },function(){
+                $('#go-top .uc-2vm-pop').addClass('dn');
+            });
+
+        });
+        function cut_text(class_text,len) {
+            var textLength=$('.'+class_text).text().length;
+            if(textLength>len){
+                var newText=$('.'+class_text).text().substr(0,len);
+                $('.'+class_text).text(newText+'......');
+            }
+        }
+        $('.section-aside-content li ').click(function () {
+            var type = $(this).attr('data-url');
+            var type_index =$('.section-aside-content li ').index(this);
+            $('.section-aside-content li').siblings().removeClass('section-aside-content-model');
+            $(this).addClass('section-aside-content-model');
+            ajaxList(type_index,type,1);
+        });
+        // 用ajax分页显示文章
+        function ajaxList(type_index,type,page){
+            $.ajax({
+                type:"post",
+                data:{'type_index':type_index,type:type,page:page},
+                url:"{:U('Home/Article/article')}",
+                success:function(data){
+                    $("#content").html('');
+                    $("#content").html(data);
+                }
+            })
+        }
+
+        function detail(article_id,type) {
+            $.ajax({
+                type:"post",
+                data:{'article_id':article_id,'type':type},
+                url:"{:U('Home/Article/detail')}",
+                success:function(data){
+                    $('#d_details').html("");
+                    $('#d_details').html(data);
+                }
+            })
+        }
+    </script>
+</block> 

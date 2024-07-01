@@ -1,0 +1,153 @@
+html {
+	width: 100%;
+	height: auto;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+	margin: 0;
+	padding: 0;
+}
+
+mark {
+	background: inherit;
+	color: inherit
+}
+
+body {
+	background: #F3F5F8;
+	height: auto;
+	font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	font-weight: normal;
+	font-size: 100%;
+}
+
+a {
+	color: #0099FF;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none !important;
+}
+
+.cf:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.cf {
+	display: inline-table;
+}
+
+/* Hides from IE-mac \*/
+* html .cf {
+	height: 1%;
+}
+
+.cf {
+	display: block;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.flex {
+	display: flex;
+}
+
+img {
+	border: none;
+}
+
+ol,
+ul,
+li {
+	list-style: none;
+}
+
+i {
+	font-style: normal
+}
+
+input,
+textarea,
+select,
+button {
+	background: #FAFAFA;
+	font: 14px Verdana, Helvetica, Arial, sans-serif;
+	border: 1px solid #999;
+	outline: none;
+}
+
+input{
+	padding-left: 15px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+button {
+	cursor: pointer;
+	outline: none;
+	border: 0;
+}
+
+.font-l:before {
+	content: "";
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	position: relative;
+}
+.show_alert_model{cursor: pointer}
+input:focus {
+	border: 2px solid #27BAFF;
+}
+textarea:focus {
+	outline:#27BAFF solid 2px;
+}

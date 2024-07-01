@@ -1,0 +1,35 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" href="__HOME__/css/about.css">
+</block>
+<block name="content">
+    <div class="banner">
+        <div class="inbox">
+            <h6>关于我们</h6>
+            <h5>专注自营卡回收</h5>
+            <a  href="http://wpa.qq.com/msgrd?v=3&uin=76891828&site=qq&menu=yes" target="_blank"><button class="banner-btn">立即咨询</button></a>
+        </div>
+    </div>
+    <div class="outbox">
+        <div class="inbox">
+            <div class="text">{$company.content|htmlspecialchars_decode}</div>
+            <div class="name">公司名称：</div>
+            <p class="info">{$company.name}</p>
+            <div class="name">公司电话：</div>
+            <p class="info">{$company.tel}</p>
+            <div class="name">公司邮箱：</div>
+            <p class="info">{$company.email}</p>
+            <div class="name">官方QQ：</div>
+            <p class="info">{$company.qq}</p>
+            <div class="name">公司地址：</div>
+            <p class="info">{$company.address}</p>
+        </div>
+    </div>
+</block>
+<block name="script">
+<script type="text/javascript">   $(function () {
+    $('.nav .nav-item').siblings().removeClass('on');
+    $('.nav .nav-item').eq(5).addClass('on');
+    });</script>
+ 
+</block> 

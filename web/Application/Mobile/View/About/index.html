@@ -1,0 +1,44 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/about.css" />
+</block>
+<block name="body">
+    <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+        <!--侧滑菜单部分-->
+        <include file="Index:left" />
+        <!--主界面部分-->
+        <div class="mui-inner-wrap">
+            <header class="mui-bar mui-bar-nav">
+                <h1 class="mui-title">关于我们</h1>
+                <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+            </header>
+            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+                <div class="outbox">
+                    <div class="inbox">
+                        <div class="text">{$company.content|htmlspecialchars_decode}</div>
+                        <div class="name">公司名称：</div>
+                        <p class="info">{$company.name}</p>
+                        <div class="name">公司电话：</div>
+                        <p class="info">{$company.tel}</p>
+                        <div class="name">公司邮箱：</div>
+                        <p class="info">{$company.email}</p>
+                        <div class="name">官方QQ：</div>
+                        <p class="info">{$company.qq}</p>
+                        <div class="name">公司地址：</div>
+                        <p class="info">{$company.address}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- off-canvas backdrop -->
+            <div class="mui-off-canvas-backdrop"></div>
+        </div>
+    </div>
+</block>    
+<block name="script">
+	<script type="text/javascript">
+        mui('#offCanvasSideScroll').scroll();
+        mui('#offCanvasContentScroll').scroll();
+    </script>
+</block>	
+

@@ -1,0 +1,61 @@
+<extend name="Base/base"/>
+<block name="style">
+	<link rel="stylesheet" type="text/css" href="__MOBILE__/css/clinics.css" />
+</block>
+<block name="body">
+	<header class="mui-bar mui-bar-nav header">
+		<h1 class="mui-title">在线诊股</h1>
+	</header>
+	<section>
+		<div class="clinShow">
+			<img src="__MOBILE__/images//bg.png" class="clinShow-bg" />
+			<img src="__MOBILE__/images//title.png" class="clinShow-title" />
+		</div>
+		<form class="mui-input-group form">
+			<div class="mui-input-row username">
+				<input type="text" class="mui-input-clear form-username" id="stock_code" placeholder="请输入股票代码">
+			</div>
+			<p class="form-warn"><span>免费获取</span>诊断报告，股票买卖信息一测即知！</p>
+			<button type="button" id="submit" class="mui-btn  mui-btn-block">立即诊股</button>
+		</form>
+		<if condition="$phone eq ''">
+			<div class="bg"></div>
+			<div class="login">
+				<p><i>请先登录!</i></p>
+				<a href="javascript:void(0)" class="mui-btn login-btn btn-login">确定</a>
+			</div>
+		</if>
+	</section>
+	<input type="hidden" value="{$phone}" id="phone">
+</block>
+<block name="script">
+
+	<script type="text/javascript">
+		$(function () {
+			$('.login-content').css('display','none');
+			$('#submit').click(function () {
+				var phone = $('#phone').val();
+				var stock_code = $('#stock_code').val();
+				if(stock_code == ''){
+					alert("请输入股票代码！");
+				}else{
+					$.ajax({
+						type:"post",
+						data:{stock_code:stock_code},
+						url:"{:U('Mobile/Index/add_record')}",
+						success:function(data){
+							if(data.status == 1){
+								alert("感谢您的诊断，稍后我们会有专业分析师为您分析！");
+								$('#stock_code').val('');
+							}
+						}
+					})
+				}
+			});
+
+			$('.btn-login').click(function () {
+				window.location.href="{:U('Mobile/User/login')}";
+			});
+		});
+	</script>
+</block>

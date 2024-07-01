@@ -1,0 +1,244 @@
+<extend name="Base/user_no"/>
+<block name="style">
+	<meta name="keywords" content="京东E卡 京东钢蹦 中国石化加油充值卡 中国石油加油充值卡 移动电信联通话费充值卡亚马逊礼品卡回收
+">
+	<meta name="description" content="爱卡网是一家提供电商超市、加油、旅游等礼品充值购物卡回收，收购，买卖的交易平台，我们努力做好礼品购物卡买卖的交易服务。">
+	<link rel="stylesheet" type="text/css" href="__HOME__/css/sellcardrecord.css"/>
+	<link rel="stylesheet" type="text/css" href="__HOME__/css/base1.css" />
+	<link rel="stylesheet" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+	<!--<link href="__HOME__/css/foundation.min.css" rel="stylesheet" type="text/css">-->
+	<link href="__HOME__/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+	<link href="__HOME__/css/page.css" rel="stylesheet" type="text/css">
+</block>
+<block name="content">
+		<div class="sellCardRecord">
+			<div class="record-title">
+				<span class="record-title-font">卖卡记录</span>
+				<span class="record-title-text">如遇提现失败，请联系客服了解详情！客服电话：400-800-8888</span>
+			</div>
+			<div class="record-date">
+				<span class="record-date-font">日期筛选</span>
+				<input type="text" class=" record-date-input start_time" value="" id="dpd1" autocomplete="off">
+				<span class="record-date-interval">-</span>
+				<input type="text" class=" record-date-input end_time" value="" id="dpd2" name="" autocomplete="off">
+				<button class="record-date-button">查询</button>
+
+
+				<!--<form action="__ACTION__" method="get" class="record-date-day">-->
+					<!--<input type="hidden" name="time_type" value="1"/>-->
+					<!--<button type="submit"  class="record-date-day" >今天</button>-->
+				<!--</form>-->
+				<!--<form action="{:U('Home/Seach/refresh')}" method="post" class="record-date-day">-->
+					<!--<input type="hidden" name="time_type" value="2"/>-->
+					<!--<button type="submit"  class="record-date-day" >最近7天</button>-->
+				<!--</form>-->
+				<!--<form action="{:U('Home/Seach/refresh')}" method="post" class="record-date-day">-->
+					<!--<input type="hidden" name="time_type" value="3"/>-->
+					<!--<button type="submit"  class="record-date-day" >1个月</button>-->
+				<!--</form>-->
+				<!--<form action="{:U('Home/Seach/refresh')}" method="post" class="record-date-day">-->
+					<!--<input type="hidden" name="time_type" value="4"/>-->
+					<!--<button type="submit"  class="record-date-day" >2个月</button>-->
+				<!--</form>-->
+				<!--<form action="{:U('Home/Seach/refresh')}" method="post" class="record-date-day">-->
+				<!--<input type="hidden" name="time_type" value="5"/>-->
+				<!--<button type="submit"  class="record-date-day" >3个月</button>-->
+				<!--</form>-->
+				<!--<form action="{:U('Home/Seach/refresh')}" method="post" class="record-date-day">-->
+					<!--<input type="hidden" name="time_type" value="6"/>-->
+					<!--<button type="submit"  class="record-date-day" >1年</button>-->
+				<!--</form>-->
+				<span class="record-date-day" data-id="1">今天</span>
+				<span class="record-date-day" data-id="2">最近7天</span>
+				<span class="record-date-day" data-id="3">1个月</span>
+				<span class="record-date-day" data-id="4">2个月</span>
+				<span class="record-date-day" data-id="5">3个月</span>
+				<span class="record-date-day" data-id="6">1年</span>
+				<input type="hidden" vlaue="" id="time_type"/>
+			</div>
+			<div class="sellCardRecord-order">
+				<span class="record-date-font">订单查询</span>
+				<input class="order-input" type="text" value="" placeholder="请输入关键字" id="order_keyword"/>
+				<select class="order-down" name="order-down" id="order_keyword_typ">
+					<option value="1">订单号</option>
+					<option value="2">卡号</option>
+					<option value="3">卡密</option>
+				</select>
+				<span class="cardType">卡种类型</span>
+				<select class="order-down-type" name="order-down" id="card_type">
+					<option value="">全部类型</option>
+					<volist name="cardtype" id="vo">
+						<option value="{$vo['id']}">{$vo['name']}</option>
+					</volist>
+				</select>
+				<span class="cardType">卖卡状态</span>
+				<select class="order-down-type" name="order-down" id="order_type">
+					<option value="">全部状态</option>
+					<option value="1">待验证</option>
+					<option value="2">交易成功</option>
+					<option value="3">交易失败</option>
+
+				</select>
+			</div>
+			
+			<div class="sellCardRecord-btn cf">
+				<div class="search-btn s-bgColor fl" id="search" style="cursor: pointer">
+					<img src="__HOME__/images/search.png" >
+					<span >搜索</span>
+				</div>
+				<a href="{:U('User/sellCardRecord')}">
+				<div class="search-btn d-bgColor fl">
+					<img src="__HOME__/images/del.png" >
+					<span>清空</span>
+				</div>
+				</a>
+				<!--<a href="{:U('User/export')}">-->
+				<div class="importRecord import-all fl export" onclick="export_list()">
+					<div class="importRecord-fontImg">
+						<i class="icon-excel icon-svg"></i>
+					</div>
+					<span >导出记录(Excel)</span>
+				</div>
+				<!--</a>-->
+				<!--<a href="{:U('User/export',array('order_type'=>2))}">-->
+				<div class="importRecord import-success fl" onclick="export_list(2)">
+					<div class="importRecord-fontImg">
+						<i class="icon-excel icon-svg"></i>
+					</div>
+					<span>只导出成功记录(Excel)</span>
+				</div>
+				<!--</a>-->
+			</div>
+			
+			<div class="sellCardRecord-table ajax_more">
+				<table border="1" rules=rows cellspacing="0" cellpadding="0">
+					<tr>
+						<th>日期</th>
+						<th>订单号</th>
+						<th>卡种</th>
+						<th>预计可得</th>
+						<th>实际转账</th>
+						<th>交易状态</th>
+						<th>说明</th>
+						<th>操作</th>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+
+</block>
+<block name="script">
+	<script src="__HOME__/js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__HOME__/js/dataInfo.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__HOME__/js/foundation-datepicker.js"></script>
+	<script src="__HOME__/js/locales/foundation-datepicker.zh-CN.js"></script>
+	<script type="text/javascript">
+
+        parent.topTo();
+       /// window.scrollTo(0)
+        parent.$('.user-sub-nav-floor').removeClass("nav-select");
+        parent.$('.floor-sell-record').addClass("nav-select");
+        getList(1);
+		var tr = $('table').find('tr');
+		for(var i=0;i<tr.length;i++){
+			if(i%2 == 0){
+				tr[i].style.backgroundColor = '#F9F9F9';
+			}
+		}
+		var  start_time = '';//开始时间
+        var  end_time = '';//结束时间
+        var  order_type = '';//卖卡状态  1:等待验证 2:完成交易 3:交易失败
+        var  card_type = '';//卡种类型
+        var  order_keyword_typ = '';//订单查询分类 1.订单号 2:卡号 3:卡密
+        var  order_keyword = '';//订单查询关键词
+        var  time_type = '';
+        var  p=1;
+
+        $("body").on('click', ".record-date-day", function(){
+            var time_type=$(this).attr("data-id");
+            $("#time_type").val(time_type);
+            getList(p);
+		});
+
+        $("body").on('click', ".record-date-button", function(){
+            var time_type=$(this).attr("data-id");
+            $("#time_type").val(time_type);
+            getList(p);
+        });
+
+
+		function param(){
+			start_time=$(".start_time").val();
+            end_time=$(".end_time").val();
+            order_type=$("#order_type").val();
+            time_type=$("#time_type").val();
+            card_type=$("#card_type").val();
+            order_keyword_typ=$("#order_keyword_typ").val();
+            order_keyword=$("#order_keyword").val();
+		}
+
+        function export_list(order_types){
+            param();
+            if(order_types){
+                order_type=order_types;
+			}
+            window.location.href = "/Home/User/export?start_time=" + start_time + "&end_time=" + end_time + "&order_type=" + order_type + "&time_type=" + time_type + "&card_type=" + card_type + "&order_keyword_typ=" + order_keyword_typ + "&order_keyword=" + order_keyword;
+        }
+
+
+        $("#search").click(function(){
+            getList(1);
+        });
+        function  getList(p){
+		//console.log('sss');
+        param();
+
+            $.ajax({
+			type: 'post',
+			data: {'p':p,'start_time': start_time,'end_time':end_time,'order_type':order_type,'time_type':time_type,'card_type':card_type,'order_keyword_type':order_keyword_typ,'order_keyword':order_keyword},
+			url: "{:U('Home/User/ajax_sellrecord')}",
+			success: function (data) {
+                //console.log(data);
+				if(data){
+					$('.ajax_more').html("");
+					$('.ajax_more').html(data);
+				}else{
+
+				}
+
+
+			}
+		});
+	}
+
+
+	</script>
+	<script>
+        var nowTemp = new Date();
+        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+        var checkin = $('#dpd1').fdatepicker({
+            onRender: function (date) {
+                // return date.valueOf() < now.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function (ev) {
+            if (ev.date.valueOf() > checkout.date.valueOf()) {
+                var newDate = new Date(ev.date)
+                newDate.setDate(newDate.getDate() + 1);
+                checkout.update(newDate);
+            }
+            checkin.hide();
+            $('#dpd2')[0].focus();
+        }).data('datepicker');
+        var checkout = $('#dpd2').fdatepicker({
+            onRender: function (date) {
+                return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function (ev) {
+            checkout.hide();
+        }).data('datepicker');
+
+
+
+	</script>
+</block>

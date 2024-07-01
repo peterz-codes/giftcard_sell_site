@@ -1,0 +1,139 @@
+html,body{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+*{
+    box-sizing: border-box;
+}
+.header{
+    width: 100%;
+    height: 44px;
+    background: #3723da;
+    position: relative;
+}
+.back{
+    width: 1rem;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+.back img{
+    width: 100%;
+}
+.menu{
+    width: 1rem;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+.menu img{
+    width: 100%;
+}
+.header-name{
+    position: relative;
+    text-align: center;
+    font-size: .7rem;
+    line-height: 44px;
+    color: #fff;
+    padding: 0 40px;
+}
+
+.nav-box{
+    width: 7rem;
+    height: 1.2rem;
+    margin: 10px auto;
+}
+.nav-item{
+    width: 3.2rem;
+    height: 100%;
+    line-height: 1.2rem;
+    display: block;
+    text-align: center;
+    border: 1px solid #ceced1;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: .5rem;
+}
+.nav-item-on{
+    background: #3723da;
+    color: #fff;
+    border: 1px solid #3723da;
+}
+.hide{
+    display: none;
+}
+.tab_box{
+    width: 100%;
+    padding: 20px;
+}
+.money{
+    width: 100%;
+    padding: 0 10px;
+}
+.money input{
+    width: 100%;
+    height: 1.6rem;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    border: 1px solid #dcdcdc;
+}
+input::-webkit-input-placeholder{
+    color: #999999;
+}
+.money  button{
+    background: #221396;
+    width: 45%;
+    color: #fff;
+    font-size: .5rem;
+    line-height: 1.5rem;
+    margin: 0 5px;
+}
+.money .add{
+    background: #221396;
+    width: 50%;
+    display: block;
+    text-align: center;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: .5rem;
+    margin: 0 auto 10px;
+    color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.add-card{
+    width: 100%;
+    padding: 0 10px;
+    display: none;
+    text-align: center;
+}
+.add-card p{
+    font-size: .7rem;
+    margin-bottom: 10px;
+}
+.add-card input{
+    width: 100%;
+    height: 1.6rem;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    border: 1px solid #dcdcdc;
+}
+.add-card button{
+    background: #221396;
+    width: 45%;
+    color: #fff;
+    font-size: .5rem;
+    line-height: 1.5rem;
+    margin: 0 5px;
+}
+.add-card .c-gery{
+    background: #fff;
+    color: #221396;
+    border: 1px solid #221396;
+}
+.money .c-gery{
+    background: #fff;
+    color: #221396;
+    border: 1px solid #221396;
+}

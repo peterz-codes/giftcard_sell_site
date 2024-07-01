@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>实名认证 - www.ohbbs.cn 欧皇源码论坛 </title>
+    <link rel="stylesheet" href="__HOME__/css/initialize.css">
+    <link rel="stylesheet" href="__HOME__/css/realname.css">
+    <link rel="stylesheet" href="__HOME__/css/real_name.css" />
+</head>
+<body>
+<div class="bkdrop">
+    <div class="form-box">
+        <div class="title">实名认证</div>
+        <form class="inp-group mui-input-group"  id="info">
+            <div class="inp-row cf">
+                <label class="fl">姓名</label>
+                <input type="text" placeholder="请输入真实姓名"  name="real_name" id="real_name" value="{$user_info.name}">
+            </div>
+            <div class="inp-row cf">
+                <label class="fl">身份证号</label>
+                <input type="text" placeholder="请输入身份证号" name="Id_card" id="Id_card" value="{$user_info.id_card}">
+            </div>
+            <div class="inp-row upload-box" style="position:relative;height: 160px">
+                <label class="fl">上传照片</label>
+
+                <if condition="$user_info.id_card_phone_upon eq ''">
+                    <img src="{$user_info.id_card_phone_upon}"  id="img_1" style="width:30%;height: 140px; display: none;"/>
+                    <img src="__HOME__/images/data_camera.png" class="IDcard-img-positive " id="btnUpload" style="height: 60px;width: 80px; position: absolute;left: 33%;top:140px;" />
+                    <else />
+                    <img src="{$user_info.id_card_phone_upon}"  id="img_1" style="width:30%;height: 140px; "/>
+                    <img src="__HOME__/images/data_camera.png" class="IDcard-img-positive " id="btnUpload" style="height: 60px;width: 80px; position: absolute;left: 33%;top:140px;" />
+
+                </if>
+
+          
+                <input type="hidden" value="{$user_info.id_card_phone_upon}" name="id_card_phone_upon" id="img1" />
+
+<!--反面-->
+                <if  condition="$user_info.id_card_phone_down eq ''">
+                    <img src="{$user_info.id_card_phone_down}"   id="img_2" style="width:30%;height: 140px;display: none;"/>
+                    <img src="__HOME__/images/data_camera.png" class="IDcard-img-negative" id="btnUpload2" style="height: 60px;width: 80px; position: absolute;left: 63%;top:140px;"/>
+                    <else />
+                     <img src="{$user_info.id_card_phone_down}"   id="img_2" style="width:30%;height: 140px;"/>
+                    <img src="__HOME__/images/data_camera.png" class="IDcard-img-negative" id="btnUpload2" style="height: 60px;width: 80px; position: absolute;left: 63%;top:140px;"/>
+
+                </if>
+
+
+                <input type="hidden" value="{$user_info.id_card_phone_down}" name="id_card_phone_down" id="img2" />
+            </div>
+            <div class="notice" style="text-align: left;padding-left: 125px; "><span style="margin-right: 100px">上传身份证正面 </span>    上传身份证反面</div>
+          
+        </form>
+        
+        <div class="btn-list">
+         <div class="notice">请上传清晰的身份证正反面照片,并确保认证姓名和提现帐号姓名一致否则提现不能到账</div>
+            <div class="list-inbox cf">
+                <button class="confirm sel-btn fl" id="submit" type="submit" style="margin: 24px 80px;">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="__HOME__/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__HOME__/js/ajaxupload.js"></script>
+<script>
+ ajaxUpload('#btnUpload', "#img1", 'User', 1);
+ajaxUpload('#btnUpload2', "#img2", 'User', 2);
+    $('.IDcard-img-positive').on('click',function () {
+        ajaxUpload('#btnUpload', "#img1", 'User', 1);
+    });
+    $('.IDcard-img-negative').on('click',function () {
+        ajaxUpload('#btnUpload2', "#img2", 'User', 2);
+       
+    });
+    $('#submit').click(function () {
+        var real_name = $('#real_name').val();
+        var Id_card = $('#Id_card').val();
+        var id_card_phone_upon = $('#img1').val();
+        var id_card_phone_down = $('#img2').val();
+        if(real_name == ''){
+            alert('请填写姓名！');
+            return false;
+        }
+        if(Id_card == ''){
+            alert("请输入你的身份证号码！");
+            return false;
+        }else{
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+            if(reg.test(Id_card) === false){
+                alert("身份证输入不合法！");
+                return false;
+            }
+        }
+
+        if(id_card_phone_upon == ''){
+            alert('请输上传身份证正面照片！');
+            return false;
+        }
+        if(id_card_phone_down == ''){
+            alert('请输上传身份证反面照片！');
+            return false;
+        }
+
+        $.ajax({
+            type:"post",
+            data:{real_name:real_name,Id_card:Id_card,id_card_phone_upon:id_card_phone_upon,id_card_phone_down:id_card_phone_down},
+            url:"{:U('Home/Public/real_name')}",
+            success:function(data){
+                if(data.status == -1){
+                    alert(data.info);
+                    return false;
+                }else{
+                    alert(data.info);
+                    var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                    parent.layer.close(index);
+                    parent.location.reload(); // 父页面刷新
+                }
+            }
+        })
+    });
+    <!--上传-->
+    function ajaxUpload(btnUpload, inputImg, savePath, item){
+        var UPLOAD_IMG_URL = "{:U('uploadImg')}"; // 默认上传图片地址
+        var filename = ""; // 旧文件的文件名
+        var oldImg = $(inputImg).val();
+        if($.trim(oldImg) != "" && oldImg.indexOf('/') != -1){
+            var arr = oldImg.split('/');
+            var file = arr[arr.length - 1];
+            filename = file.split('.')[0];
+        }
+        if(!savePath) savePath = "";  // 要存放的路径
+        new AjaxUpload($(btnUpload), {
+            action: UPLOAD_IMG_URL,
+            name: 'photo',   //这相当于<input type = "file" name = "photo"/>
+            data:{},  //附加参数值
+            dataType : 'text',
+            onSubmit : function(file, ext){
+                if(!(ext && /^(jpg|png|gif|jpeg)$/.test(ext.toLowerCase()))){
+                    toastr.error('图片格式不支持, 请上传jpg, png, gif, jpeg格式图片');
+                    return false;
+                }
+                this.setData({'oldImg':filename, 'savePath':savePath});
+                this.disable();
+            },
+            onComplete: function(file, response){
+                json = $.parseJSON($(response).text());
+                if(json['status'] == true || json['status'] == 1 || json['status'].toString() == '1'){
+                    $("#img_" + item).attr('src', json['src'] + "?" + Math.random()).show();
+                    $("#img" + item).val(json['src']);
+                }else{
+                    toastr.error(json['msg'])
+                }
+                this.enable();
+            }
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,65 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" href="__MOBILE__/css/record.css">
+</block>
+<block name="body">
+    <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+        <!--侧滑菜单部分-->
+        <include file="Index:left" />
+        <!--主界面部分-->
+
+
+    <div class="mui-inner-wrap">
+        <header class="mui-bar mui-bar-nav">
+            <a class="mui-action-back mui-pull-left mui-icon mui-icon-arrowleft"  href="javascript:history.back(-1)"></a>
+            <h1 class="mui-title">提现记录</h1>
+            <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+        </header>
+        <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+            <div class="mui-scroll" id="move-togger">
+            <div class="hint-info">如遇提现失败，请联系客服了解详情！</div>
+            <div class="record-list">
+            <ul class="mui-table-view">
+               <li class="mui-table-view-cell mui-collapse">  
+                <div class="record-item">
+                    <div class="nth1">日期</div>
+                    <div class="nth2">账户</div>
+                    <div class="nth3">到账</div>
+                    <div class="nth4">状态</div>
+                </div>
+                </li>
+                <volist name="payinfo" id="vo">
+                 <li class="mui-table-view-cell mui-collapse">  
+              <a class="mui-navigate-right" href="#">  <div class="record-item">
+                    <div class="nth1">{$vo.add_time|date='Y-m-d',###}</div>
+                      <div class="nth2" style="line-height: 30px;
+    text-align:center;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+    display: block;">{$vo.alipaycount}</div>
+                    <div class="nth3 on">¥{$vo.pay_cash}</div>
+                    <div class="nth4"><if condition="$vo.flag eq 1">  未审核<elseif  condition="$vo.static eq 1" />已到账 <else />申请无效</if></div>
+               
+                </div></a>
+                      <div class=" mui-collapse-content">  
+                <p>{$vo.alipaycount}<if condition="$vo.flag eq 1">  未审核<elseif  condition="$vo.static eq 1" />已到账 <else />申请无效请检查卡号</if></p>  
+            </div> 
+                 </li>
+              </volist>
+      
+              </ul>
+            </div>
+        </div>
+        <!-- off-canvas backdrop -->
+        <div class="mui-off-canvas-backdrop"></div>
+    </div>
+</div>
+<script src="./js/mui.min.js"></script>
+<script>
+    mui.init();
+    //主界面和侧滑菜单界面均支持区域滚动；
+    mui('#offCanvasSideScroll').scroll();
+    mui('#offCanvasContentScroll').scroll();
+</script>
+</block>

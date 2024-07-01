@@ -1,0 +1,24 @@
+body {
+	min-width: 1080px;
+}
+
+.nameAttest {
+	height: 100%;
+	background: #fff;
+	padding: 30px;
+}
+
+.nameAttest-active{
+	display: none;
+}
+
+.nameAttest-no-active{
+	display: block;
+}
+
+.email-bind-right-color {
+	font-size: 21px;
+	color: #CE1C00;
+	margin-top: 17px;
+	margin-bottom: 14px;
+}

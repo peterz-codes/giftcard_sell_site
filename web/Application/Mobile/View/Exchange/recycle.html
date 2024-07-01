@@ -1,0 +1,100 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/recycle.css" />
+</block>
+<block name="body">
+    <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+        <!--侧滑菜单部分-->
+        <include file="Index:left" />
+        <!--主界面部分-->
+        <div class="mui-inner-wrap">
+            <header class="mui-bar mui-bar-nav">
+                <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"  href="javascript:history.back(-1)"></a>
+                <h1 class="mui-title">企业回收</h1>
+                <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+            </header>
+            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+                <div class="mui-scroll" id="move-togger">
+                    <div class="banner">
+                    <img src="__MOBILE__/images/banner3.jpg" width="100%" height="100%">
+                        <button class="con-btn">立即兑换</button>
+                    </div>
+                    <div class="adv-box">
+                        <div class="title-box">
+                            <div class="line"></div>
+                            <div class="title">我们的优势</div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="inbox">
+                            <div class="cf adv-inbox">
+                                <div class="adv-item fl cf">
+                                    <div class="img-box fl">
+                                        <img src="__MOBILE__/images/advimg1.png" alt="">
+                                    </div>
+                                    <div class="text-box fl">
+                                        <h5>一对一服务</h5>
+                                        <h6>我们出色的专业服务团队确保交易安全放心满意</h6>
+                                    </div>
+                                </div>
+                                <div class="adv-item fl cf">
+                                    <div class="img-box fl">
+                                        <img src="__MOBILE__/images/advimg2.png" alt="">
+                                    </div>
+                                    <div class="text-box fl">
+                                        <h5>一对一服务</h5>
+                                        <h6>我们出色的专业服务团队确保交易安全放心满意</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cf adv-inbox">
+                                <div class="adv-item fl cf">
+                                    <div class="img-box fl">
+                                        <img src="__MOBILE__/images/advimg3.png" alt="">
+                                    </div>
+                                    <div class="text-box fl">
+                                        <h5>一对一服务</h5>
+                                        <h6>我们出色的专业服务团队确保交易安全放心满意</h6>
+                                    </div>
+                                </div>
+                                <div class="adv-item fl cf">
+                                    <div class="img-box fl">
+                                        <img src="__MOBILE__/images/advimg4.png" alt="">
+                                    </div>
+                                    <div class="text-box fl">
+                                        <h5>一对一服务</h5>
+                                        <h6>我们出色的专业服务团队确保交易安全放心满意</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   <!--  <div class="api">
+                        <h3>对外API接口</h3>
+                        <div class="inbox">
+                            <div class="p-box">
+                                <p>全面稳定的API接口资源</p>
+                                <p>我是企业，我要咨询合作</p>
+                            </div>
+                            <button class="btn">立即咨询</button>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="mui-off-canvas-backdrop"></div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        mui('#offCanvasSideScroll').scroll();
+        mui('#offCanvasContentScroll').scroll();
+        $('.btn').on( 'tap',function () {
+            window.location.href="http://wpa.qq.com/msgrd?v=3&uin=76891828&site=qq&menu=yes";
+        });
+
+         $('.con-btn').on( 'tap',function () {
+            window.location.href="http://wpa.qq.com/msgrd?v=3&uin=76891828&site=qq&menu=yes";
+        });
+    </script>
+</block>	
+

@@ -1,0 +1,106 @@
+<extend name="Base/base"/>
+<block name="style">
+</block>
+<block name="body">
+    <!-- 背景图片 -->
+    <div class="show"></div>
+    <!--当前位置-->
+    <div class="nowlink">
+        <p>当前位置：
+            <a href="{:U('Home/Index/index')}">首页</a>
+            <span>></span>
+            <a href="{:U('Home/Service/index')}" class="active">产品服务</a>
+        </p>
+    </div>
+    <!-- 主体内容 -->
+    <section>
+            <div class="section-refer">
+                <!-- 每日早评 -->
+                <div class="section-refer-show">
+                    <img src="__HOME__/images/zaoping.jpg" alt="">
+                </div>
+                <!-- 美国原油 -->
+                <div class="section-refer-news">
+                    <a href="{:U('Home/Article/index',array('article_id'=>$article_day['id'],'type'=>110))}">
+                        <h4 class="section-refer-news-title">{$article_day.name}</h4>
+                        <p class="section-refer-news-time">{$article_day.add_time|time_format}</p>
+                        <p class="section-refer-news-art">{$article_day.introduce}</p>
+                    </a>
+                </div>
+                <!-- 操盘必读 -->
+                <div class="section-refer-trader">
+                    <img src="__HOME__/images/caopan.png" alt="">
+                </div>
+                <!-- 咨询 -->
+                <ul class="section-refer-advisory">
+                    <volist name="article_early_list" id="vo" offset="0" length="5">
+                        <li >
+                            <a href="{:U('Home/Article/index',array('article_id'=>$vo['id'],'type'=>111,'type_index'=>1))}" >
+                                <p class="col-xs-6 section-refer-advisory-title">{$vo.name}（{$vo.type_name}）</p>
+                                <p class="col-xs-5 section-refer-advisory-time"> {$vo.add_time|time_format=###,'Y-m-d'} </p>
+                            </a>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+        <!-- 产品服务 -->
+        <div class="section-pruductSer">
+            <div class="section-pruductSer-title">
+                <img src="__HOME__/images/service.png" />
+                <span>产品服务</span>
+            </div>
+            <div class="section-pruductSer-content">
+                <volist name="product_list" id="vo">
+                    <a href="javascript:void(0);" class="serve_product">
+                        <div class="section-pruductSer-content-sort">
+                            <h4>{$vo.title}</h4>
+                            <p>价格：{$vo.price} 元  {$vo.used_time}个月</p>
+                            <img src="{$vo['photo_path']}" />
+                        </div>
+                    </a>
+                    <ul class="product product-standard">
+                        <li class="product-name">产品名称：<span>{$vo.title}</span></li>
+                        <li class="product-defin">产品定义： <span>{$vo.define}</span></li>
+                        <li class="product-thinking">选股思路： <span>{$vo.ideas}</span></li>
+                        <li class="product-chara">产品特点： <span>{$vo.feature}</span></li>
+                        <li class="product-advan">产品优势： <span>{$vo.advantage}</span></li>
+                        <li class="product-price">产品价格： <span>{$vo.price} 元，使用期限{$vo.used_time}个月</span></li>
+                        <li class="product-cus">适合客户： <span>{$vo.customers}</span></li>
+                        <li class="product-note">注：本款产品相应服务项目客户只有在启费用完全交期的情况下方能享有。</li>
+                        <if condition="$vo.attach_path neq ''">
+                            <a  class="product-btn " href='{$vo.attach_path}'>下载</a>
+                        </if>
+                        <img src="__HOME__/images/close.png"  class="product-close">
+                    </ul>
+                </volist>
+            </div>
+        </div>
+    </section>
+    <div class="bg"></div>
+</block>
+<block name="script">
+
+    <script>
+        $(function () {
+            $('.header-nav-first').removeClass('on');
+            $('.header-nav-service').addClass('on');
+            $('.serve_product').click(function () {
+                var index =$('.serve_product').index(this);
+                $('.product').eq(index).css('display','block');
+                $('.bg').css('display','block');
+            });
+            $('.product-close').click(function () {
+                $('.product').hide();
+                $('.bg').hide();
+            });
+            cut_text('section-refer-news-art',78);
+        });
+        function cut_text(class_text,len) {
+            var textLength=$('.'+class_text).text().length;
+            if(textLength>len){
+                var newText=$('.'+class_text).text().substr(0,len);
+                $('.'+class_text).text(newText+'......');
+            }
+        }
+    </script>
+</block> 

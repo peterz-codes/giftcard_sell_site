@@ -1,0 +1,113 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+    	<div class="tw-list-hd">
+            新增招聘
+        </div>
+
+	    <div class="tw-list-wrap tw-edit-wrap">
+            <form action="__SELF__" method="post" class="form-horizontal ajaxForm">
+                <div class="form-item">
+                    <label class="item-label">中文职务名称<span class="check-tips"><b>*</b>（输入职务名称）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="name" value="{$info.name}">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">英文职务名称<span class="check-tips"><b>*</b>（输入职务名称）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="ename" value="{$info.ename}">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">岗位所属部门<span class="check-tips"><b>*</b>（用于选择岗位所属部门）</span></label>
+                    <div class="controls">
+                        <select name="category_id">
+                            <option>--请选择部门--</option>    
+                            <foreach name="jobCategory" item="vo" key="k" >
+                                <option value="{$vo.id}" <eq name="vo.id" value="$info['category_id']">selected</eq>>{$vo.name}</option> 
+                            </foreach>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-item">
+                    <label class="item-label">中文工作地点<span class="check-tips"><b>*</b>（输入工作地点）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="address" value="{$info.address}">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">英文工作地点<span class="check-tips"><b>*</b>（输入工作地点）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="eaddress" value="{$info.eaddress}">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">薪资范围<span class="check-tips"><b>*</b>(输入薪资范围,格式5000-10000)</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="salary" value="{$info.salary}">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">排序<span class="check-tips">（输入排序大小）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="sort" value="{$info.sort}">
+                    </div>
+                </div>
+				
+				<div class="form-item">
+                    <label class="item-label">是否启用<span class="check-tips">（用于该招聘信息是否启用）</span></label>
+                    <div class="controls">
+                        <label class="radio"><input type="radio" name="disable" value="0" <if condition="$info['disable'] eq false ">checked</if>>是</label>
+		                <label class="radio"><input type="radio" name="disable" value="1" <if condition="$info['disable'] eq 1 ">checked</if>>否</label>
+                    </div>
+                </div>
+                
+                <div class="form-item">
+                    <label class="item-label">中文招聘详情<span class="check-tips">（输入招聘详情）</span></label>
+                    <div class="controls">
+                        <textarea name="description" id="UE">{$info.description|htmlspecialchars_decode}</textarea><br/>
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">英文招聘详情<span class="check-tips">（输入招聘详情）</span></label>
+                    <div class="controls">
+                        <textarea name="edescription" id="eUE">{$info.edescription|htmlspecialchars_decode}</textarea><br/>
+                    </div>
+                </div>
+                
+                 <div class="tw-tool-bar-bot">
+                 	<input type="hidden" name="id" value="{$info.id}">
+                    <button type="submit" class="tw-act-btn-confirm">提交</button>
+                    <button type="button" onclick="goback()" class="tw-act-btn-cancel">返回</button>
+                </div>
+            </form>
+	    </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script>
+        UE.getEditor('UE',{
+            autoHeightEnabled: false,
+            initialFrameWidth: '700',
+            initialFrameHeight: 350
+        });
+
+        UE.getEditor('eUE',{
+            autoHeightEnabled: false,
+            initialFrameWidth: '700',
+            initialFrameHeight: 350
+        });
+    </script>
+</block>

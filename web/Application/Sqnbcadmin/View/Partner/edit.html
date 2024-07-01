@@ -1,0 +1,57 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+    	<div class="tw-list-hd">
+            {:isset($info['id'])?'编辑':'新增'}链接
+        </div>
+
+	    <div class="tw-list-wrap tw-edit-wrap">
+            <form action="__SELF__" method="post" class="form-horizontal ajaxForm">
+                <div class="form-item">
+                    <label class="item-label">标题<span class="check-tips"><b>*</b>（输入标题）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="title" value="{$info.title}">
+                    </div>
+                </div>
+                <div class="form-item">
+                <label class="item-label">上传图片<b>*</b><span class="check-tips">（用于上传标题图片 大小474*255各个新闻的图片大小必须一致）</span></label>
+                <div class="controls">
+                    <div>
+                        <img src="{$info.photo_path}" style="width:200px;" id="img_"/>
+                    </div>
+                    <input type="hidden" value="{$info.photo_path}" name="photo_path" id="img" />
+                    <input class="btn btn-default btn-xs" type="button" value="上传" id="btnUpload"/>
+                    <input class="btn btn-danger btn-xs" type="button" value="删除" onclick="delFile($('#img').val(), '')" id="btn_delete_" />
+                    <if condition="$info.photo_path eq ''">
+                        <script>
+                            $("#img_, #btn_delete_").hide();
+                        </script>
+                    </if>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">链接地址<span class="check-tips"><b>*</b>（输入链接地址）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="link" value="{$info.link}">
+                    </div>
+                </div>
+                 <div class="tw-tool-bar-bot">
+                    <button type="submit" class="tw-act-btn-confirm">提交</button>
+                    <button type="button" onclick="goback()" class="tw-act-btn-cancel">返回</button>
+                </div>
+                    <input type="hidden" name="id" value="{$info.id|default=''}"/>
+                </form>
+	    </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ajaxupload.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__COMMON__/js/imgupload.js"></script>
+    <script>
+        _TARGET_URL="{:U('Admin/Partner/index')}";
+        $(function(){
+            ajaxUpload('#btnUpload', "#img", 'Partner', '');
+        })
+    </script>
+</block>

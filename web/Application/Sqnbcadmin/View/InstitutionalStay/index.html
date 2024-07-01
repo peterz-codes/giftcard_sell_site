@@ -1,0 +1,106 @@
+<extend name="Public/base" />
+
+<block name="body">
+
+	<div class="tw-layout">
+	<!-- 标题框 -->
+		<div class="tw-list-hd">机构入驻列表</div>
+		<div class="tw-list-top">
+                    <div class="tw-tool-bar">
+                        <a class="tw-tool-btn-del" onclick="javascript:recycle('chkbId', '确认删除?',true)">
+                            <i class="tw-icon-minus-circle"></i> 批量删除
+                        </a>
+                    </div>
+                    <form action="__ACTION__" method="get" id='frmSearch'>
+                        <div class="tw-search-bar">
+                            <div class="search-form fr cf">
+                                <div class="sleft">
+                                    <input type="text" name="keywords" class="search-input" value="{:I('keywords', '')}" placeholder="搜索姓名/电话">
+                                    <a type="submit" class="sch-btn" onclick="$('#frmSearch').submit();"><i class="btn-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+		</div>
+		<div class="tw-list-wrap">
+            <table class="tw-table tw-table-list tw-table-fixed">
+                <thead>
+                    <tr>
+                        <th width="10" class="row-selected">
+                            <input class="checkbox check-all" type="checkbox">
+                        </th>
+                        <th width="50">ID</th>
+                        <th width="10%">姓名</th>
+                        <th width="10%">电话</th>
+                        <th width="10%">机构名称</th>
+                        <th width="10%">提交时间</th>
+                        <th width="10%">处理状态</th>
+                        <th width="10%">处理时间</th>
+                        <th width="250">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <notempty name="InstitutionalStayData" >
+                        <volist name="InstitutionalStayData" id="vo">
+                            <tr>
+                                <td><input class="ids row-selected" type="checkbox" name="chkbId" value="{$vo.id}"></td>
+                                <td>{$vo.id} </td>
+                                <td class="text-left">{$vo.name}</td>
+                                <td>{$vo.phone}</td>
+                                <td>{$vo.institution_name}</td>
+                                <td>
+                                    <if condition="$vo.add_time eq 0">
+                                        无
+                                        <else />
+                                        {$vo.add_time|time_format}
+                                    </if>
+                                </td>
+                                <td>{:show_treat($vo['status'])}</td>
+                                <td>
+                                    <if condition="$vo.treat_time eq 0">
+                                        无
+                                    <else />
+                                        {$vo.treat_time|time_format}
+                                    </if>
+                                </td>
+                                <td>
+                                    <if condition="$vo.status eq 0">
+                                        <a class="tw-tool-btn-edit" onclick="check_institutional({$vo.id})" >
+                                            <i class="tw-icon-pencil"></i> 处理
+                                        </a>
+                                    <else/>
+                                        <a class="tw-tool-btn-view" onclick="check_institutional({$vo.id})" >
+                                            <i class="tw-icon-desktop"></i> 修改
+                                        </a>
+                                    </if>
+                                    <a class="tw-tool-btn-del" onclick="javascript:recycle({$vo['id']}, '确认删除?',true)" >
+                                        <i class="tw-icon-minus-circle"></i> 删除
+                                    </a>
+                               </td>
+                            </tr>
+                        </volist>
+                    <else/>
+                        <td colspan="8" class="text-center"> aOh! 暂时还没有内容! </td>
+                    </notempty>
+                </tbody>
+            </table>
+                <div class="page">{$page}</div>
+	    </div>
+	</div>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+	function check_institutional(id){
+		layer.open({
+		  type: 2,
+		  title: '输入审批记录',
+		  shadeClose: true,
+		  shade: 0.8,
+		  area: ['800px', '400px'],
+		  content: '__URL__/edit?id='+id ,
+		}); 
+	}
+
+</script>
+</block>

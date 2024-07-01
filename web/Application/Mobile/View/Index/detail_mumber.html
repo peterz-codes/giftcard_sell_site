@@ -1,0 +1,27 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/trader.css" />
+</block>
+<block name="body">
+    <header class="mui-bar mui-bar-nav header">
+        <h1 class="mui-title">文章详情</h1>
+    </header>
+    <div class="search-noshow">
+    </div>
+    <div class="artical">
+        <div class="artical-title">
+            <h1>{$info.name}</h1>
+            <p>{$info.add_time|time_format} </p>
+        </div>
+        <p>{$info.content|htmlspecialchars_decode}</p>
+    </div>
+</block>    
+<block name="script">
+    <script src="__MOBILE__/js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+        $(function () {
+            $('#nav-notice').addClass('mui-active');
+        });
+	</script>
+</block>	
+

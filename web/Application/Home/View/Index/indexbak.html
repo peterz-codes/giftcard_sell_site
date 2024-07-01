@@ -1,0 +1,280 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" href="__HOME__/css/index.css">
+    <script type="text/javascript" src="__HOME__/js/unslider.min.js"></script>
+    <script type="text/javascript" src="__HOME__/js/swiper-3.3.1.min.js"></script>
+</block>
+<block name="body">
+    <!-- 轮播图 -->
+    <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0"
+                class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="5"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="__HOME__/images/banner1.png" alt="First slide">
+            </div>
+            <div class="item">
+                <img src="__HOME__/images/banner2.png" alt="Second slide">
+            </div>
+            <div class="item">
+                <img src="__HOME__/images/banner3.png" alt="Third slide">
+            </div>
+            <div class="item">
+                <img src="__HOME__/images/banner5.png" alt="Fire slide">
+            </div>
+            <div class="item">
+                <img src="__HOME__/images/banner6.png" alt="Six slide">
+            </div>
+        </div>
+        <!-- 轮播（Carousel）导航 -->
+        <a class="carousel-control left" href="#myCarousel"
+           data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel"
+           data-slide="next">&rsaquo;</a>
+    </div>
+    <!-- 公告 -->
+    <div class="anno">
+        <div class="anno-content">
+            <img src="__HOME__/images/gg.png" />
+            <span class="anno-content-title">站内公告：</span>
+            <p>
+                <marquee class="anno-content-art">{:C('WEB_NOTICE')}</marquee>
+            </p>
+        </div>
+    </div>
+    <section>
+        <!-- 股民学堂 -->
+        <div class="section-school">
+            <div class="section-school-title">
+                <div class="section-school-title-top">
+                    <img src="__HOME__/images/licai.png" />
+                    <span>股民学堂</span>
+                </div>
+                <a href="{:U('Home/Eduction/index')}" class="more">查看更多></a>
+            </div>
+            <div class="section-school-content">
+                <div class="section-school-content-sec">
+                        <div class="section-school-content-sec-show col-xs-5">
+                            <div class="section-school-content-sec-show-img banner" id="b03">
+                                <ul>
+                                    <volist name="eduction_list" id="vo" offset="0" length="4">
+                                        <li>
+                                            <a href="{:U('Home/Eduction/index',array('eduction_id'=>$vo['id'],'type'=>$eduction_type))}">
+                                                <img src="{$vo['photo_path']}">
+                                            </a>
+                                        </li>
+                                    </volist>
+                                </ul>
+                            </div>
+                        </div>
+                    <volist name="eduction_list" id="vo" offset="0" length="1">
+                        <div class="section-school-content-sec-art col-xs-7">
+                            <a href="{:U('Home/Eduction/index',array('eduction_id'=>$vo['id'],'type'=>$eduction_type))}">
+                                <h5>{$vo.name}</h5>
+                                <p class="content">{$vo.introduce}</p>
+                                <p class="section-school-content-sec-art-time">{$vo.add_time|time_format=###,'Y-m-d'}</p>
+                            </a>
+                        </div>
+                    </volist>
+                    <input type="hidden" id="eduction_list_type" value="{$eduction_type}">
+                </div>
+            </div>
+            <div class="section-school-news">
+                <ul class="section-school-news-left col-xs-6">
+                    <volist name="eduction_list" id="vo" offset="1" length="4">
+                        <li>
+                            <a href="{:U('Home/Eduction/index',array('eduction_id'=>$vo['id'],'type'=>$eduction_type))}">
+                                <p class="section-school-news-left-content col-xs-8">{$vo.name}</p>
+                                <P class="section-school-news-left-time col-xs-4">{$vo.add_time|time_format=###,'Y-m-d'}</P>
+                            </a>
+                        </li>
+                    </volist>
+                </ul>
+                <ul class="section-school-news-left col-xs-6">
+                    <volist name="eduction_list" id="vo" offset="5" length="4">
+                        <li>
+                            <a href="{:U('Home/Eduction/index',array('eduction_id'=>$vo['id'],'type'=>$eduction_type))}">
+                                <p class="section-school-news-left-content col-xs-8">{$vo.name}</p>
+                                <P class="section-school-news-left-time col-xs-4">{$vo.add_time|time_format=###,'Y-m-d'}</P>
+                            </a>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+        <!-- 咨询平台 -->
+        <div class="section-refer">
+            <div class="section-school-title">
+                <div class="section-school-title-top">
+                    <img src="__HOME__/images/hangq.png" />
+                    <span>咨询平台</span>
+                </div>
+                <a href="{:U('Home/Article/index')}" class="more">查看更多></a>
+            </div>
+            <!-- 每日早评 -->
+            <volist name="article_review" id="vo" offset="0" length="1">
+                <div class="section-refer-show">
+                    <img src="__HOME__/images/zaoping.jpg" alt="">
+                </div>
+                <div class="section-refer-news">
+                    <a href="{:U('Home/Article/index',array('article_id'=>$vo['id'],'type'=>110))}">
+                        <h4 class="section-refer-news-title">{$vo.name}</h4>
+                        <p class="section-refer-news-time">{$vo.add_time|time_format}</p>
+                        <p class="section-refer-news-art platform">{$vo.introduce}</p>
+                    </a>
+                </div>
+            </volist>
+            <!-- 操盘必读 -->
+            <div class="section-refer-trader">
+                <img src="__HOME__/images/caopan.png" alt="">
+            </div>
+            <!-- 咨询 -->
+            <ul class="section-refer-advisory">
+                <volist name="article_must_list" id="vo" >
+                    <li>
+                        <a href="{:U('Home/Article/index',array('article_id'=>$vo['id'],'type'=>111,'type_index'=>1))}">
+                            <p class="col-xs-6 section-refer-advisory-title">{$vo.name}</p>
+                            <p class="col-xs-4 section-refer-advisory-time"> {$vo.add_time|time_format=###,'Y-m-d'} </p>
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+        <!-- 启富通团队 -->
+        <div class="section-team">
+            <div class="section-school-title">
+                <div class="section-school-title-top">
+                    <img src="__HOME__/images/tuandui.png" />
+                    <span>团队风采</span>
+                </div>
+                <a href="{:U('Home/About/index')}" class="more">查看更多></a>
+            </div>
+            <!-- 团队展示 -->
+            <ul class="section-team-content col-xs-12">
+                <volist name="team_list" id="vo">
+                    <li>
+                        <div class="section-team-content-show">
+                            <img src="{$vo['photo_path']}" alt="">
+                        </div>
+                        <div class="section-team-content-detail">
+                            <h4>{$vo.title}</h4>
+                            <p class="section-team-content-detail-adr">{$vo['address']}</p>
+                            <p class="section-team-content-detail-phone">电话：{$vo['tel']} </p>
+                            <p class="section-team-content-detail-ide">投资理念：{$vo['idea']} </p>
+                            <p class="section-team-content-detail-control">风险控制：{$vo['risk']}</p>
+                        </div>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+        <div class="go-top" id="go-top" style="display: block;">
+            <a href="javascript:;" class="uc-2vm"></a>
+            <div class="uc-2vm-pop dn">
+                <h2 class="title-2wm">用微信扫一扫</h2>
+                <div class="logo-2wm-box">
+                    <img src="__HOME__/images/qifutong.jpg" alt="" width="240" height="240">
+                </div>
+            </div>
+            <a href="javascript:;" class="go"></a>
+        </div>
+        <!-- 网络课程 -->
+        <div class="section-netcl">
+            <div class="section-school-title">
+                <div class="section-school-title-top">
+                    <img src="__HOME__/images/wl.png" />
+                    <span>网络课程</span>
+                </div>
+                <a href="{:U('Home/Eduction/index',array('type'=>110))}" class="more">查看更多></a>
+            </div>
+                <div class="section-refer-show">
+                    <if condition="$base_info neq ''">
+                        <video width="100%" controls height="218px;">
+                            <source src="{$base_info}" type="video/mp4">
+                        </video>
+                    </if>
+                </div>
+                <volist name="eduction_live_list" id="vo" offset="0" length="1">
+                    <div class="section-netcl-cotent">
+                        <a href="{:U('Home/Eduction/index',array('type'=>110))}">
+                            <p class="section-netcl-cotent-style">投资风格：{$vo['style']}</p>
+                            <p class="section-netcl-cotent-grade">历史战绩：{$vo['record']}</p>
+                            <p class="section-netcl-cotent-intro">简介：{$vo['introduce']}</p>
+                        </a>
+                    </div>
+                </volist>
+        </div>
+        <!-- 友情链接 -->
+        <div class="section-link">
+            <div class="section-link-title">
+                <img src="__HOME__/images/lj.png" alt="">
+                <span>友情链接</span>
+            </div>
+            <div class="section-link-content col-xs-12">
+                <volist name="link_list" id="v">
+                    <a href="{$v.link}" class="col-xs-1">{$v.title}</a>
+                </volist>
+            </div>
+        </div>
+    </section>
+</block>
+<block name="script">
+    <script>
+        $(function(){
+
+            $('#b03').unslider({
+                dots: true
+            });
+            // 初始化轮播
+            $('#myCarousel').carousel({
+                interval: 2500
+            })
+            $("#myCarousel").carousel('cycle');
+            cut_text('platform',65);
+            $(window).on('scroll',function(){
+                var st = $(document).scrollTop();
+                if( st>0 ){
+                    if( $('#main-container').length != 0  ){
+                        var w = $(window).width(),mw = $('#main-container').width();
+                        if( (w-mw)/2 > 70 )
+                            $('#go-top').css({'left':(w-mw)/2+mw+20});
+                        else{
+                            $('#go-top').css({'left':'auto'});
+                        }
+                    }
+                    $('#go-top').fadeIn(function(){
+                        $(this).removeClass('dn');
+                    });
+                }else{
+                    $('#go-top').fadeOut(function(){
+                        $(this).addClass('dn');
+                    });
+                }
+            });
+
+            $('#go-top .go').on('click',function(){
+                $('html,body').animate({'scrollTop':0},500);
+            });
+
+            $('#go-top .uc-2vm').hover(function(){
+                $('#go-top .uc-2vm-pop').removeClass('dn');
+            },function(){
+                $('#go-top .uc-2vm-pop').addClass('dn');
+            });
+        });
+
+        function cut_text(class_text,len) {
+            var textLength=$('.'+class_text).text().length;
+            if(textLength>len){
+                var newText=$('.'+class_text).text().substr(0,len);
+                $('.'+class_text).text(newText+'......');
+            }
+        }
+    </script>
+</block> 

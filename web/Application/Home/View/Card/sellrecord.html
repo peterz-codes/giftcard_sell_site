@@ -1,0 +1,66 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" href="__HOME__/css/recycle.css">
+    <link rel="stylesheet" href="__HOME__/css/sell_record.css">
+    <link rel="stylesheet" href="__HOME__/css/user_center.css">
+</block>
+<block name="body">
+
+    <!--主界面部分-->
+    <div class="outbox">
+        <div class="inbox">
+            <div class="type-list cf">
+                <a class="type-item fl on">卖卡记录</a>
+                <a class="type-item fl"  href="{:U('Home/User/index')}">返回账户中心</a>
+            </div>
+            <volist name="ordersninfo" id="vo" key="key">
+
+            <div class="hint-info order orders">单号：<span>{$vo['order_sn']}</span>  |  时间：<span>{$vo['add_time']|date='Y-m-d',###}</span></div>
+                <if condition="$vo['data'][0]['flag'] eq 2">
+                    <div class="hint-info info">此次交易共{$vo.count}张卡，交易成功： <span>{$vo.sucesscount}</span>张，失败{$vo.falsecount}张，您共获得：<span>¥{$vo.moneycount}</span>元，款项已经打入您的账户余额中，你可以查看 <a href="#">账户余额</a>。</div>
+                    <else />
+                    <div class="hint-info info">此次交易共{$vo.count}张卡，交易等待审核，交易成功后款项会自动打入您的账户余额中，你可以在个人中心查看 <a href="#">账户余额</a>。</div>
+
+                </if>
+              <div class="table-box table-box2">
+                <div class="cf view-box">
+                    <div class="view-item fl nth1">卡类</div>
+                    <div class="view-item fl nth2">卡号</div>
+                    <div class="view-item fl nth3">密码</div>
+                    <div class="view-item fl nth4">回收价</div>
+                    <div class="view-item fl nth7">加急</div>
+                    <div class="view-item fl nth5">状态</div>
+                    <div class="view-item fl nth6">处理时间</div>
+                </div>
+                <volist name="vo.data" id="f" key="k">
+                <div class="cf view-box">
+                    <div class="view-item fl nth1">{$f['name']}</div>
+                    <div class="view-item fl nth2">{$f.cardkey}</div>
+
+                    <div class="view-item fl nth3">
+                        <if condition="$f.password neq ''">  {$f.password}<else /> 无</if></div>
+                    <div class="view-item fl nth4">¥{$f.saleprice}</div>
+                    <div class="view-item fl nth7"> <if condition="$f.express eq 1">  是<else/>否</if></div>
+                    <div class="view-item fl nth5"> <if condition="$f.flag eq 1">  未审核<elseif  condition="$f.static eq 1" />交易成功 <else/>此卡无效</if></div>
+                    <div class="view-item fl nth6"><if condition="$f.flag_time neq ''"> {$f.flag_time|date='Y-m-d',###}<else /> 等待审核</if></div>
+                </div>
+                    </volist>
+
+
+            </div>
+
+            </volist>
+        </div>
+    </div>
+
+
+
+</block>
+<block name="script">
+    <script>
+        $(".type-item").click(function () {
+            $(".type-item").removeClass("on");
+            $(this).addClass("on");
+        })
+    </script>
+</block>

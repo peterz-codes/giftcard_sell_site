@@ -1,0 +1,39 @@
+
+<table border="1" rules=rows cellspacing="0" cellpadding="0">
+    <tr>
+        <th>日期</th>
+        <th>订单号</th>
+        <th>卡种</th>
+        <th>预计可得</th>
+        <th>实际转账</th>
+        <th>交易状态</th>
+        <th>说明</th>
+        <th>操作</th>
+    </tr>
+    <volist name="ordersninfo" id="vo">
+        <tr>
+            <td class="td">{$vo['add_time']}</td>
+            <td class="td">{$vo['order_sn']}</td>
+            <td class="td">{$vo['card_name']}</td>
+            <td class="td">{$vo['total_amount']}</td>
+            <td class="td">{$vo['order_amount']}</td>
+            <td class="td"><if condition="$vo['order_status'] eq 1">待验证<elseif condition="$vo['order_status'] eq 2"/>交易成功<else/>交易失败</if></td>
+            <td class="td">自动结算</td>
+            <td class="td"><a href="{:U('User/sellrecord_detail',array('order_id'=>$vo['order_id']))}">查看详情</a></td>
+        </tr>
+    </volist>
+
+</table>
+
+<div class="secondHand-pageNumBox new-house-page">
+    {$page}
+</div>
+
+<script>
+    // 点击分页触发的事件
+    $(".new-house-page a").click(function(){
+        var p = $(this).data('p');
+        getList(p);
+    });
+    parent.GetIframeStatus();
+</script>

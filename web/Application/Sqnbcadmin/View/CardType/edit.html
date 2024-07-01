@@ -1,0 +1,90 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+    	<div class="tw-list-hd">
+            {:isset($info['id'])?'编辑':'新增'}分类
+        </div>
+	    <div class="tw-list-wrap tw-edit-wrap">
+            <form action="__SELF__" method="post" class="form-horizontal ajaxForm">
+                <div class="form-item">
+                    <label class="item-label">名称<span class="check-tips"><b>*</b>（输入名称）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="name" value="{$info.name}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">上传图片<span class="check-tips">（用于pc端展示图片 请上传尺寸为296*168的图片）</span></label>
+                    <div class="controls">
+                        <div>
+                            <img src="{$info.photo_path}" style="height:129px; width:129px;" id="img_1"/>
+                        </div>
+                        <input type="hidden" value="{$info.photo_path}" name="photo_path" id="img1" />
+                        <input class="btn btn-default btn-xs" type="button" value="上传" id="btnUpload1"/>
+                        <input class="btn btn-danger btn-xs" type="button" value="删除" onclick="delFile($('#img1').val(), '')" id="btn_delete_1" />
+                        <if condition="$info.photo_path eq ''">
+                            <script>
+                                $("#img_1, #btn_delete_1").hide();
+                            </script>
+                        </if>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">上传图片<span class="check-tips">（用于手机端展示图片 请上传尺寸为120*120的图片）</span></label>
+                    <div class="controls">
+                        <div>
+                            <img src="{$info.wapphoto_path}" style="height:129px; width:129px;" id="img_0"/>
+                        </div>
+                        <input type="hidden" value="{$info.wapphoto_path}" name="wapphoto_path" id="img0" />
+                        <input class="btn btn-default btn-xs" type="button" value="上传" id="btnUpload0"/>
+                        <input class="btn btn-danger btn-xs" type="button" value="删除" onclick="delFile($('#img0').val(), '')" id="btn_delete_0" />
+                        <if condition="$info.photo_path eq ''">
+                            <script>
+                                $("#img_0, #btn_delete_0").hide();
+                            </script>
+                        </if>
+                    </div>
+                </div>
+                  <div class="form-item">
+                    <label class="item-label">上传图片<span class="check-tips">（用于手机端下拉框展示图片 请上传尺寸为170*60的图片）</span></label>
+                    <div class="controls">
+                        <div>
+                            <img src="{$info.wapdropphoto_path}" style="height:40px; width:40px;" id="img_2"/>
+                        </div>
+                        <input type="hidden" value="{$info.wapdropphoto_path}" name="wapdropphoto_path" id="img2" />
+                        <input class="btn btn-default btn-xs" type="button" value="上传" id="btnUpload2"/>
+                        <input class="btn btn-danger btn-xs" type="button" value="删除" onclick="delFile($('#img2').val(), '')" id="btn_delete_2" />
+                        <if condition="$info.photo_path eq ''">
+                            <script>
+                                $("#img_2, #btn_delete_2").hide();
+                            </script>
+                        </if>
+                    </div>
+                </div>
+                 <div class="tw-tool-bar-bot">
+                    <button type="submit" class="tw-act-btn-confirm">提交</button>
+                    <button type="button" onclick="goback()" class="tw-act-btn-cancel">返回</button>
+                </div>
+                    <input type="hidden" name="id" value="{$info.id|default=''}"/>
+                </form>
+	    </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ajaxupload.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__COMMON__/js/imgupload.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__JS__/admin.js"></script>
+    <script>
+        _TARGET_URL="{:U('Sqnbcadmin/CardType/index')}";
+        $(function(){
+            ajaxUpload('#btnUpload1', "#img1", 'CardType', '1');
+        })
+        $(function(){
+            ajaxUpload('#btnUpload0', "#img0", 'CardType', '0');
+        })
+         $(function(){
+            ajaxUpload('#btnUpload2', "#img2", 'CardType', '2');
+        })
+    </script>
+</block>

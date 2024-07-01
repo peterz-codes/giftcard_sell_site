@@ -1,0 +1,46 @@
+<extend name="Base/user_no"/>
+<block name="style">
+	<meta name="keywords" content="京东E卡 京东钢蹦 中国石化加油充值卡 中国石油加油充值卡 移动电信联通话费充值卡亚马逊礼品卡回收
+">
+	<meta name="description" content="爱卡网是一家提供电商超市、加油、旅游等礼品充值购物卡回收，收购，买卖的交易平台，我们努力做好礼品购物卡买卖的交易服务。">
+	<link rel="stylesheet" type="text/css" href="__HOME__/css/log.css"/>
+</block>
+<block name="content">
+		<div class="log">
+			<div class="record-title">
+				<span class="record-title-font">操作日志</span>
+			</div>
+			
+			<div class="log-table">
+				<table border="1" rules=rows cellspacing="0" cellpadding="0">
+					<tr>
+						<th class="th">日期</th>
+						<th class="th">操作IP</th>
+						<th class="th">金额</th>
+						<th class="th">类型</th>
+						<th class="th">信息</th>
+					</tr>
+					<volist name="actionLog" id="vo">
+					<tr>
+						<td class="td">{$vo['add_time']||date='Y-m-d H:i',###}</td>
+						<td class="td">{$vo['ip']}</td>
+						<if condition="$vo['type'] eq 1">
+						    <td class="td">-</td>
+							<td class="td">登录</td>
+							<td class="td">-</td>
+						<elseif condition="$vo['type'] eq 2"/>
+							<td class="td color_green">+{$vo['money']}</td>
+							<td class="td ">卡券回收</td>
+							<td class="td">{$vo['message']}</td>
+						<elseif condition="$vo['type'] eq 3"/>
+							<td class="td color_red">-{$vo['money']}</td>
+							<td class="td ">提现</td>
+							<td class="td ">-</td>
+						</if>
+
+					</tr>
+					</volist>
+				</table>
+			</div>
+		</div>
+</block>

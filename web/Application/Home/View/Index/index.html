@@ -1,0 +1,166 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+    <link rel="stylesheet" href="__HOME__/css/style2.css">
+    <link rel="stylesheet" href="__HOME__/css/swiper.min.css">
+    <link rel="stylesheet" href="__HOME__/css/index2.css">
+    <title>百分百收卡网_礼品卡兑换_一家专注二手礼品卡回收的网站 - www.ohbbs.cn 欧皇源码论坛 </title>
+    <link rel="stylesheet" href="__HOME__/css/index.css?v=<?php echo time() //测试阶段, 防止缓存, 正式发布时请去掉 ?>">
+</block>
+<block name="content">
+   <section class="postr">
+        <div class="swiper-container container1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="{:U('Home/Card/sellcard')}" class="banner">
+                                <img src="__HOME__/images/banner.png" alt="" class="img">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="{:U('Home/Card/sellcard')}" class="banner">
+                        <img src="__HOME__/images/banner.png" alt="" class="img">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="{:U('Home/Card/sellcard')}" class="banner">
+                        <img src="__HOME__/images/banner.png" alt="" class="img">
+                        </a>
+                    </div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination pagination1"></div>
+                
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev swiper-button-white"></div>
+                <div class="swiper-button-next swiper-button-white"></div>
+            </div>
+            <div class="sect1 layout shadow bgf">
+                <div class="title_top txtc fx_center">
+                    <img src="images/line_left.png" alt="">
+                    <span>急速兑换现金只需4步数</span>
+                    <img src="__HOME__/images/line_right.png" alt="">
+                </div>
+                <div class="clear exchange">
+                    <div class="fl li">
+                        <a href="">
+                            <img src="__HOME__/images/huiyuan.png" alt="">
+                            <p>注册会员</p>
+                        </a>
+                    </div>
+                    <div class="fl interval">
+                        <img src="__HOME__/images/line_yuan.png" alt="">
+                    </div>
+                    <div class="fl li">
+                        <a href="">
+                            <img src="__HOME__/images/kami.png" alt="">
+                        <p>提交卡密</p>
+                        </a>
+                    </div>
+                    <div class="fl interval">
+                        <img src="__HOME__/images/line_yuan.png" alt="">
+                    </div>
+                    <div class="fl li">
+                       <a href="">
+                        <img src="__HOME__/images/shenhe.png" alt="">
+                        <p>审核通过</p>
+                       </a>
+                    </div>
+                    <div class="fl interval">
+                        <img src="__HOME__/images/line_yuan.png" alt="">
+                    </div>
+                    <div class="fl li">
+                        <a href="">
+                            <img src="__HOME__/images/jiesuan.png" alt="">
+                        <p>打算结款</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+   </section>
+    <section class="cardCalss">
+        <div class="title_top txtc fx_center">
+            <img src="__HOME__/images/line_left.png" alt="">
+            <span>支持卡种</span>
+            <img src="__HOME__/images/line_right.png" alt="">
+        </div>
+        <div class="swiper-container container2 layout">
+            <div class="swiper-wrapper">
+                <volist name="cardtype_info" id="vo">
+                <div class="swiper-slide">
+                    <div class="sect2  shadow bgf">
+                        <ul class="clear">
+                            <li>
+                                <img src="{$vo.wapphoto_path}" alt="">
+                                <p class="name">{$vo.name}</p>
+                                <button><a href="{:U('Home/card/sellCard?typeid='.$vo['id'])}">立即兑换</a></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </volist>
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination pagination2"></div>
+        </div>
+    </section>
+    <section class="wecan">
+        <div class="title_top txtc fx_center">
+            <img src="__HOME__/images/line_left.png" alt="">
+            <span>我们能做什么</span>
+            <img src="__HOME__/images/line_right.png" alt="">
+        </div>
+        <div class="layout list">
+           <div class="mz-row clear">
+               <volist name="cando" id="v">
+            <div class="mz-col-33">
+                <img src="{$v.photo_path}" alt="" class="img">
+                <div class="posta">
+                    <div class="title">{$v.name}</div>
+                    <div class="center">
+                        {$v.keywords}{$v.content}
+                    </div>
+                </div>
+            </div>
+               </volist>
+
+           </div>
+        </div>
+    </section>
+   
+</block>
+<block name="script">
+    <script src="__HOME__/js/jquery-3.4.1.min.js"></script>
+    <script src="__HOME__/js/swiper.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var mySwiper = new Swiper ('.container1', {
+                loop: true, // 循环模式选项
+                autoplay:true,
+                // 如果需要分页器
+                pagination: {
+                    el: '.pagination1',
+                },
+
+                // 如果需要前进后退按钮
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            })
+            var Swiper2 = new Swiper ('.container2', {
+                loop: true, // 循环模式选项
+                slidesPerView: 4,
+                spaceBetween: 30,
+                autoplay:true,
+                // 如果需要分页器
+                pagination: {
+                    el: '.pagination2',
+                },
+            })
+        })
+    </script>
+</html>
+</block>

@@ -1,0 +1,96 @@
+<extend name="Base/base"/>
+<block name="title">
+    <title>百分百收卡网_礼品卡兑换_一家专注二手礼品卡回收的网站 - www.ohbbs.cn 欧皇源码论坛 </title>
+</block>
+<block name="style">
+    <link rel="stylesheet" href="__HOME__/css/help_center.css">
+
+</block>
+<block name="content">
+
+    <div class="outbox">
+        <div class="inbox cf">
+         <div class="l-box fl">
+             <!--   <ul class="sub-list">
+                 <volist name="menu_list" id="vo">
+                     <a href="{:U('Home/Help/Index')}/id/{$vo.id}"  <if condition="$vo.id eq $id">class="on sub-item"</if> class="sub-item" >{$vo.title}</a>
+                 </volist>
+             </ul>-->
+             <div id="firstpane" class="menu_list">
+                 <p  <if condition="$typeid eq 0">class="menu_head current"<else />class="menu_head" </if>>帮助中心</p>
+                 <div <if condition="$typeid eq 0">style="display:block"<else />style="display:none"</if> class=menu_body >
+
+                     <volist name="menu_list" id="vo">
+                         <a href="{:U('Home/Help/Index')}/id/{$vo.id}" class="sub-item" >{$vo.title}</a>
+                     </volist>
+                 </div>
+                 <volist name="cardtypelist" id="vo">
+                 <p <if condition="$vo.id eq $typeid">class="menu_head current"<else />class="menu_head" </if>>{$vo.name}</p>
+
+                 <div <if condition="$vo.id eq $typeid">style="display:block"<else />style="display:none"</if>  class=menu_body >
+                     <volist name="vo.data" id="v">
+                     <a href="{:U('Home/Help/Index')}/aid/{$v.id}"   class="sub-item" >{$v.name}</a>
+                     </volist>
+                 </div>
+
+                     </volist>
+
+
+             </div>
+
+         </div>
+
+            <script src="__HOME__/js/jquery.js"></script>
+            <script type=text/javascript>
+                $(document).ready(function(){
+                  //  $("#firstpane .menu_body:eq(0)").show();
+                    $("#firstpane p.menu_head").click(function(){
+                        $(this).addClass("current").next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+                        $(this).siblings().removeClass("current");
+                    });
+                    $("#secondpane .menu_body:eq(0)").show();
+                    $("#secondpane p.menu_head").mouseover(function(){
+                        $(this).addClass("current").next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");
+                        $(this).siblings().removeClass("current");
+                    });
+
+                });
+            </script>
+            <div class="r-box fr">
+                <div class="title">
+                    {$detail.title}
+                </div>
+                <div class="content">
+                    <if condition="$id neq 11">
+                    {$detail.content|htmlspecialchars_decode}
+                        <elseif condition="$id eq 11" />
+                        <div class="timeline notice-timeline ">
+                            <s class="timeline-line"></s>
+                            <ul class="timeline-listing">
+                                <volist name="list" id="vo">
+                                <li class="timeline-item">
+                                    <div class="timeline-date">
+                                        <i class="dot"></i>{$vo['add_time']|time_format=###,'m-d'}<span>{$vo['add_time']|time_format=###,'Y'}</span>
+                                    </div>
+                                    <div class="timeline-main">
+                                        <h5>{$vo['name']}</h5>
+                                        {$vo['content']|htmlspecialchars_decode}
+                                    </div>
+                                </li>
+                                </volist>
+                            </ul>
+                        </div>
+                    </if>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script>
+        $(function () {
+            $('.nav .nav-item').siblings().removeClass('on');
+            $('.nav .nav-item').eq(6).addClass('on');
+        });
+    </script>
+</block> 

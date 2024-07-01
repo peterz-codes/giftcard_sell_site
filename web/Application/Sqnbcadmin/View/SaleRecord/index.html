@@ -1,0 +1,191 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <style>
+        .textarea_hide textarea {
+            padding: 5px;
+            min-width: 480px;
+            min-height: 245px;
+            max-height: 245px;
+            margin: 5px 0 5px 5px;
+        }
+        .textarea_hide button {
+            width: 150px;
+            margin-left: 175px;
+            background: #CA2E2F;
+            color: #ffffff;
+            border: solid 1px #CA2E2F;
+            height: 30px;
+        }
+        .textarea_hide {
+            width: 500px;
+        }
+    </style>
+    <!-- S=头部设置 -->
+    <div class="tw-layout">        
+        <!-- S=信息管理 -->
+        <div class="tw-list-hd"> 分类列表</div>
+        <!-- E=信息管理 -->        
+        <!-- S=导航设置 -->
+        <div class="tw-list-top">
+            <!-- S=添加删除 -->
+            <div class="tw-tool-bar">
+                <!--<a class="tw-tool-btn-add" href="{:U('edit')}">-->
+                    <!--<i class="tw-icon-plus-circle"></i> 添加-->
+                <!--</a>-->
+                <a class="tw-tool-btn-add" href="javascript:void(0)" onclick="exportExcel({$tag})" >
+                        <i class="tw-icon-paper-plane"></i> 导出
+                    </a>
+                    <if condition="$tag eq 1">
+                     <a class="tw-tool-btn-del" onclick="javascript:recycle('chkbId', '确认不通过',true)">
+                    <i class="tw-icon-minus-circle"></i> 批量不通过
+                </a>
+                </if>
+            </div>
+            <!-- E=添加删除 -->
+            <!-- S=高级搜索 -->                        
+            <form action="__ACTION__" method="get" id='frmSearch'>
+                <div class="tw-search-bar">
+
+                    <div class="search-form fr cf">
+                        <div class="sleft">
+                            <select name="flag_type" id="flag_type" >
+                                <option value="">--请选择状态--</option>
+                                <option value="1">合格</option>
+                                <option value="0">不合格</option>
+                            </select>
+                        </div>
+                    <div class="sleft">
+                         <input type="text" name="userid" class="search-input" value="{:I('userid')}" placeholder="请输入用户id">
+                        
+                          
+                        </div>
+                        <div class="sleft">
+                       
+                        
+                            <input type="text" name="name" class="search-input" value="{:I('name')}" placeholder="请输入名称">
+                            <a type="submit" class="sch-btn" onclick="$('#frmSearch').submit();"><i class="btn-search"></i></a>
+                        </div>
+                    </div>            
+                </div>
+                 <input type="hidden" name="flag"  value="{$tag}" >
+	    </form>          
+            <!-- E=高级搜索 -->
+        </div>
+        <!-- E=导航设置 -->
+    </div>
+    <!-- E=头部设置 -->
+    <!-- S=详情显示 -->	
+    <div class="tw-list-wrap">
+        <!-- S=表单 -->
+        <form class="ids">
+            <table class="tw-table tw-table-list tw-table-fixed">
+                <thead>
+                    <tr>
+                        <th class="row-selected">
+                            <input class="checkbox check-all" type="checkbox">
+                        </th>
+                        <th width="30">ID</th>
+                        <th width="5%">用户名</th>
+                        <th width="5%">用户ID</th>
+                        <th width="10%">卡片名称</th>
+
+                        <th width="5%">卡片金额</th>
+                        <th width="5%">回收价</th>
+                        <th width="5%">实际价</th>
+                        <th width="10%">卡片帐号</th>
+                        <th width="10%">卡片密码</th>
+                        <th width="10%">实体卡</th>
+                        <th width="5%">卡片状态</th>
+                        <th class="show-time">添加时间</th>
+                        <if condition="$tag eq 1">
+                        <th width="100">操作</th>
+                        </if>
+                    </tr>
+                </thead>
+                <!-- S=详细信息 -->	
+                <tbody>
+                    <notempty name="data">
+                      
+                        <volist name="data" id="vo">
+                            <tr>
+                                <td><input class="ids row-selected" type="checkbox" name="chkbId" value="{$vo.id}"></td>
+                                <td>{$vo.id}</td>
+                                <td>{$vo.username}</td>
+                                <td>{$vo.user_id}</td>
+                                <td >{$vo.name}</td>
+                                <td >{$vo.price}</td>
+                                <td >{$vo.saleprice}</td>
+                                <td >{$vo.actual_price}</td>
+                                <td>{$vo.cardkey}</td>
+                                <td>{$vo.password}</td>
+                                <td><a href="{$vo.imgs}" target="_blank"><img src="{$vo.imgs}"/></a></td>
+                                <td >{$vo.flagstatic}<if condition="$vo.express eq 1"><i style="color: red"> 加急</i> </if></td>
+
+                                <td>{$vo.add_time|time_format}</td>
+                                <if condition="$tag eq 1">
+                                <td>
+                                    <a class="tw-tool-btn-view" href="{:U('cardRecommend?id='.$vo['id'])}"><i class="tw-icon-pencil"></i> 通过 </a>
+                                    <!--<a class="tw-tool-btn-del" href="{:U('cardNoRecommend?id='.$vo['id'])}"><i class="tw-icon-minus-circle"></i> 不通过</a>-->
+                                     <a onclick="Remarks({$vo.id})" class="tw-tool-btn-del"><i class="tw-icon-minus-circle" ></i> 不通过</a>
+
+                                </td>
+                                </if>
+                            </tr>
+                        </volist>
+                        <else/>
+                        <if condition="$type eq 1">
+                            <td colspan="13" class="text-center"> aOh! 暂时还没有内容! </td>
+                            <eles/>
+                            <td colspan="12" class="text-center"> aOh! 暂时还没有内容! </td>
+                        </if>
+                    </notempty>
+                </tbody>
+                <!-- E=详细信息 -->
+            </table>
+        </form>
+        <!-- E=表单 -->
+        <div class="page">{$page}</div>
+         </div>
+    </div>
+    <!-- E=详情显示 -->	
+</block>
+<block name="script">
+    <script type="text/javascript">
+        function exportExcel(tag){
+            window.location.href='{:U('exportExcel','','')}/tag/'+tag;
+        }
+    </script>
+    <script type="text/javascript">
+        function Remarks(e) {
+
+            layer.open({
+                title:'修改备注',
+                type: 1,
+                skin: 'layui-layer-demo', //样式类名
+                closeBtn: 1, //不显示关闭按钮
+                anim: 2,
+                area: ['500', '350px'], //宽高
+                shadeClose: true, //开启遮罩关闭
+                content: "<div class=\"textarea_hide\">\n" +
+                    "\t\t<form id='form_s'>\n" +
+                    "\t\t<textarea maxlength='500' name='remarks' placeholder=\"未填写备注\"></textarea>" +
+                    "<input type='hidden' name='id' value='"+e+"'>\n" +
+                    "\t\t\t<button type='button' onclick='submit_mod()'>保存</button>\n" +
+                    "\t\t</form>\n" +
+                    "\t</div>"
+            });
+
+        }
+        function submit_mod(e) {
+            //alert('sdfsdfsaf');
+            $.post("/index.php/SqnbcAdmin/SaleRecord/cardNoRecommend",$("#form_s").serialize(),function (date) {
+                alert(date['info']);
+                if(date['status']==1){
+                    window.location.reload();
+                }
+            });
+            return false;
+        }
+    </script>
+</block>

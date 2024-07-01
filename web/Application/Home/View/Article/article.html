@@ -1,0 +1,60 @@
+
+<ul class="section-content section-news">
+    <volist name="Article_list" id="vo">
+        <li class="section-content-list">
+            <a href="javaScript:;" class="article_detail" data-url="{$vo.id}">
+                <h5 class="title">{$vo.name}</h5>
+                <p class="section-content-list-art artical">{$vo.introduce}</p>
+                <span class="section-content-list-from">来源:{$vo.source}   {$vo.add_time|time_format=###,'Y-m-d'} </span>
+            </a>
+        </li>
+    </volist>
+    <!-- 分页  -->
+    <div class="eval-cen-ri fr pa-to-17 pa-ri-25 te-al-ri di-bl">{$page}</div>
+</ul>
+<div class="section-content section-model" id="d_details">
+
+</div>
+<input type="hidden" id="type_article" value="{$type}">
+<input type="hidden" id="index" value="{$type_index}">
+<input type="hidden" id="page" value="{$current_page}">
+
+<script>
+    $(function () {
+        var page = $('#page').val();
+        $('.paginate_button').siblings().removeClass('active');
+        $('.paginate_button').eq(page-1).addClass('active');
+        var textLength=$('.artical').text().length;
+        if(textLength>95){
+            var newText=$('.artical').text().substr(0,95);
+            $('.artical').text(newText+'......');
+        }
+
+    });
+    // 点击分页触发的事件
+    $("#content .paginate_button  a").click(function(){
+        var type_index = $('#index').val();
+        var type = $('#type_article').val();
+        var cur_page = $(this).data('p');
+        ajaxList(type_index,type,cur_page);
+    });
+    $('.article_detail').click(function () {
+        var article_id = $(this).attr('data-url');
+        var type = $('#type_article').val();
+        detail(article_id,type);
+        $('.section-news').css('display','none');
+        $('.section-model').css('display','block');
+    });
+
+    function detail(article_id,type) {
+        $.ajax({
+            type:"post",
+            data:{'article_id':article_id,'type':type},
+            url:"{:U('Home/Article/detail')}",
+            success:function(data){
+                $('#d_details').html("");
+                $('#d_details').html(data);
+            }
+        })
+    }
+</script>

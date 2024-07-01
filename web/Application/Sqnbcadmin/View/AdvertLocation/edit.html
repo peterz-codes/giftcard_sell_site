@@ -1,0 +1,48 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="tw-layout">
+    	<div class="tw-list-hd">
+            {:isset($advertLocationInfo['id'])?'编辑':'新增'}广告位置
+        </div>
+
+	    <div class="tw-list-wrap tw-edit-wrap">
+            <form action="__SELF__" method="post" class="form-horizontal ajaxForm">
+                <div class="form-item">
+                    <label class="item-label">广告位置名称<span class="check-tips"><b>*</b>（输入广告位置名称）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="name" value="{$advertLocationInfo.name}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">广告位置简称<span class="check-tips">（输入广告位置简称）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="simple_name" value="{$advertLocationInfo.simple_name}">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="item-label">广告图大小<span class="check-tips">（如400px*400px）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="img_size" value="{$advertLocationInfo.img_size}">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="item-label">排序<span class="check-tips">（用于排序）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="sort" value="{$advertLocationInfo.sort}">
+                    </div>
+                </div>
+
+                <div class="tw-tool-bar-bot">
+                    <button type="submit" class="tw-act-btn-confirm">提交</button>
+                    <button type="button" onclick="goback()" class="tw-act-btn-cancel">返回</button>
+                </div>
+                    <input type="hidden" name="id" value="{$advertLocationInfo.id|default=''}"/>
+                </form>
+	    </div>
+    </div>
+</block>
+
+<block name="script">
+</block>

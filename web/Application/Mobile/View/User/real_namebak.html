@@ -1,0 +1,144 @@
+<extend name="Base/base"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__MOBILE__/css/real_name.css" />
+</block>
+<block name="body">
+    <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="overflow-x: hidden;">
+        <!--侧滑菜单部分-->
+        <include file="Index:left" />
+        <!--主界面部分-->
+        <div class="mui-inner-wrap">
+            <header class="mui-bar mui-bar-nav">
+                <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left" href="javascript:history.back(-1)"></a>
+                <h1 class="mui-title">实名认证</h1>
+                <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+            </header>
+            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+                <div class="mui-scroll" id="move-togger">
+                    <form class="inp-group mui-input-group"  method="post"  enctype="multipart/form-data" onSubmit="return validate_info()" id="info">
+                        <div class="inp-row mui-input-row">
+                            <input type="text" placeholder="请输入真实姓名" class="mui-input-clear" name="real_name" id="real_name" value="{$user_info.name}">
+                        </div>
+                        <div class="inp-row mui-input-row">
+                            <input type="text" placeholder="请输入身份证号" class="mui-input-clear" name="Id_card" id="Id_card" value="{$user_info.id_card}">
+                        </div>
+                        <div class="inp-row upload-box">
+                            <a href="javascript:;" class="file" style="width: 100%;height: 140px;">
+                                <div id="fileList0">
+                                    <img style="width: 100%;height: 140px;" id="img1" src="{$user_info.id_card_phone_upon}">
+                                </div>
+                                <input type="file" onChange="handleFiles(this,0)" name="positive[]" accept="image/*">
+                            </a>
+                            <p>请上传清晰的身份证正面照片</p>
+                        </div>
+                        <div class="inp-row upload-box">
+                            <a href="javascript:;" class="file" style="width: 100%;height: 140px;">
+                                <div id="fileList1">
+                                    <img style="width: 100%;height: 140px;" id="img2" src="{$user_info.id_card_phone_down}">
+                                </div>
+                                <input type="file" onChange="handleFiles(this,1)" name="negative[]" accept="image/*">
+                            </a>
+                            <p>请上传清晰的身份证反面照片</p>
+                        </div>
+                        <if condition="$user_info.is_permission neq 1">
+                            <button class="btn" id="submit"  type="submit" >提交</button>
+                            </else>
+                        </if>
+                    </form>
+                </div>
+            </div>
+            <div class="mui-off-canvas-backdrop"></div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script>
+        mui('#offCanvasSideScroll').scroll();
+        mui('#offCanvasContentScroll').scroll();
+        function validate_info(){
+            var name = $('#real_name').val();
+            var id_card = $('#Id_card').val();
+            var img1 = $('#img1').attr('src');
+            var img2 = $('#img2').attr('src');
+            if(name == ''){
+                mui.toast("请输入你的真实姓名！");
+                return false;
+            }
+            if(id_card == ''){
+                mui.toast("请输入你的身份证号码！");
+                return false;
+            }else{
+                var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+                if(reg.test(id_card) === false){
+                    mui.toast("身份证输入不合法！");
+                    return false;
+                }
+            }
+            //验证上传的图片
+            var error = [];
+            var img_num = 0;
+            var AllImgExt=".jpg|.jpeg|.gif|.bmp|.png|";//全部图片格式类型
+            $(".file input").each(function(index){
+                FileExt = this.value.substr(this.value.lastIndexOf(".")).toLowerCase();
+                if(this.value!=''){
+                    img_num++;
+                    if(AllImgExt.indexOf(FileExt+"|")==-1){
+                        error.push("第"+(index+1)+"张图片格式错误");
+                    }
+                }
+            });
+            if(img1 == ''){
+                mui.toast("请上传身份证正面照片！");
+                return false;
+            }
+            if(img2 == ''){
+                mui.toast("请上传身份证反面照片！");
+                return false;
+            }
+            if(error.length>0){
+                mui.toast(error);
+                return false;
+            }else{
+                //ajax提交表单信息
+                return true;
+            }
+        }
+
+        window.URL = window.URL || window.webkitURL;
+        function handleFiles(obj,id) {
+            fileList = document.getElementById("fileList"+id);
+            var files = obj.files;
+            img = new Image();
+            if(window.URL){
+                img.src = window.URL.createObjectURL(files[0]); //创建一个object URL，并不是你的本地路径
+                img.onload = function(e) {
+                    window.URL.revokeObjectURL(this.src); //图片加载后，释放object URL
+                }
+                if(fileList.firstElementChild){
+                    fileList.removeChild(fileList.firstElementChild);
+                }
+                fileList.appendChild(img);
+            }else if(window.FileReader){
+                //opera不支持createObjectURL/revokeObjectURL方法。我们用FileReader对象来处理
+                var reader = new FileReader();
+                reader.readAsDataURL(files[0]);
+                reader.onload = function(e){
+                    img.src = this.result;
+                    fileList.appendChild(img);
+                }
+            }else
+            {
+                obj.select();
+                obj.blur();
+                var nfile = document.selection.createRange().text;
+                document.selection.empty();
+                img.src = nfile;
+                img.onload=function(){
+
+                }
+                fileList.appendChild(img);
+            }
+        }
+    </script>
+</block>
+

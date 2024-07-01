@@ -1,0 +1,79 @@
+<extend name="Public/base" />
+<block name="body">
+	<!-- Bootstrap 3.3.4 -->
+    <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<div class="tw-layout">
+	<!-- 标题框 -->
+		<div class="tw-list-hd">
+			<?php 
+				if (ACTION_NAME == 'index') echo '区域';
+				else echo '用户';
+			?>{:L('列表')}
+		</div>
+		<div class="row">
+       		<div class="col-xs-12">
+	       		<div class="box">
+	             <div class="box-header">
+	               	<nav class="navbar navbar-default">	     
+				        <div class="collapse navbar-collapse">
+				          <form class="navbar-form form-inline" action="{:U('Area/areaHandle')}" method="post">
+				            <div class="form-group">
+				            	<label class="control-label" for="input-mobile">{:L('增加地区')}</label>
+				            	<div class="input-group">
+				            		<input type="hidden" name="level" value="{$parent.level}">
+				            		<input type="hidden" name="parent_id" value="{$parent.id}">
+				              		<input type="text" name="name" class="form-control" placeholder="{:L('请输入地区')}">
+				              	</div>
+				            </div>
+				            <button type="submit" class="btn btn-primary">{:L('确定')}</button>
+				            <if condition="$parent[level] gt 0">
+				            <div class="form-group pull-right">
+					            <a href="{:U('Area/index',array('parent_id'=>$parent[parent_id]))}" class="btn btn-primary pull-right"><i class="fa fa-reply"></i> {:L('返回上一级')}</a>
+				            </div>
+				            </if>		          
+				          </form>
+				      	</div>
+	    			</nav>
+	             </div>
+	             <div class="box-body">
+	           	 <div class="row">
+	            	<div class="col-sm-12">
+		              <table id="list-table" class="table table-bordered table-striped dataTable">
+						<tbody>
+						 <tr role="row" align="center">    
+                          <foreach name="area" item="vo" key="k" >
+                            <if condition="$k%3 eq 0">  
+      							</tr><tr>
+      						</if>
+      						<td>
+      							<label class="margin">{$vo.name}</label>
+      							<if condition="$vo[level] lt 4">
+      							<a href="{:U('Area/index',array('parent_id'=>$vo[id]))}" class="btn btn-info" role="button">{:L('管理')}</a>
+      							&nbsp;&nbsp;
+      							</if>
+      							<a href="javascript:void(0);" data-url="{:U('Area/areaHandle',array('id'=>$vo[id]))}" onclick="delRegion(this)" class="btn btn-default" role="button">{:L('删除')}</a>
+      						</td>
+		                  </foreach>
+		                  </tr>
+		                 </tbody>
+		               </table>
+	               </div>
+	          	</div>
+	          </div>
+	        </div>
+       	</div>
+       </div>
+	</div>
+	<script type="text/javascript">
+		function delRegion(obj){
+			layer.confirm('确定删除此地区？', {icon: 3, title:'提示删除'}, function(index){
+				layer.close(index);
+				window.location.href = $(obj).attr('data-url');
+			});
+		}
+	</script>
+</block>
+<block name="script">
+	<script type="text/javascript">
+	</script>
+</block>
