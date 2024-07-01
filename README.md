@@ -6,6 +6,10 @@ This PHP website is using for collect Gift_card code from Sellers
 
 ## DATABASE confirguration file is database.sql
 
+## This php is using old version thinkphp 3.2.0  framework
+
+Thinkphp(https://www.thinkphp.cn/)
+
 ## Apache or ngnix should configure like 
 
 for ngnix
