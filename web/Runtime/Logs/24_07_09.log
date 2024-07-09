@@ -1,0 +1,1430 @@
+[ 2024-07-09T00:12:42+08:00 ] 113.248.232.60 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000995s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001861s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003880s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.029768s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.005020s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.019303s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000391s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.016470s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000533s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.016585s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000409s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000197s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000283s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.126464s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.126572s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000597s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000679s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000731s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000812s ]
+
+[ 2024-07-09T00:12:45+08:00 ] 113.248.232.60 /Home/Public/register/type/2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000796s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001432s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002406s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.015594s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000681s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000180s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000356s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.056024s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056162s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000594s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000669s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000729s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000811s ]
+
+[ 2024-07-09T00:12:56+08:00 ] 113.248.232.60 /Home/Public/getCode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000532s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000988s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001683s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.017742s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000574s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.019378s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ln_user` WHERE ( phone=13717701687 ) LIMIT 1   [ RunTime:0.001023s ]
+NOTIC: [2] error_log(./logs/sms_error2024_07_09.log): failed to open stream: No such file or directory C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Common\Common\function.php 第 48 行.
+NOTIC: [8] Undefined index: code C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\PublicController.class.php 第 330 行.
+SQL: SHOW COLUMNS FROM `ln_sms_message` [ RunTime:0.017080s ]
+SQL: INSERT INTO `ln_sms_message` (`mobile`,`sms_code`,`add_time`,`sms_content`) VALUES ('13717701687',8260,1720455176,'您正在绑定手机,验证码是8260，请于30分钟内输入，工作人员不会向您索取，请勿泄露。') [ RunTime:0.002543s ]
+
+[ 2024-07-09T00:14:15+08:00 ] 113.248.232.60 /Home/Public/register_ajax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000602s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001143s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001930s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.024333s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000711s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.015807s ]
+SQL: SELECT `type`,`key`,`value` FROM `ln_config`  [ RunTime:0.000384s ]
+ERR: 1054:Unknown column 'key' in 'field list'
+ [ SQL语句 ] : SELECT `type`,`key`,`value` FROM `ln_config` 
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+NOTIC: [2] Missing argument 3 for Api\Controller\PublicApiController::checkPhoneVerify(), called in C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\PublicController.class.php on line 600 and defined C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Api\Controller\PublicApiController.class.php 第 194 行.
+SQL: SHOW COLUMNS FROM `ln_sms_message` [ RunTime:0.014507s ]
+SQL: SELECT * FROM `ln_sms_message` WHERE ( `sms_code` = '2646' ) AND ( `mobile` = '13717701687' ) AND ( `add_time` >= 1720454954 ) LIMIT 1   [ RunTime:0.001081s ]
+
+[ 2024-07-09T00:14:29+08:00 ] 113.248.232.60 /Home/Public/register_ajax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000607s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001056s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001826s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.014814s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000470s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.013600s ]
+SQL: SELECT `type`,`key`,`value` FROM `ln_config`  [ RunTime:0.000340s ]
+ERR: 1054:Unknown column 'key' in 'field list'
+ [ SQL语句 ] : SELECT `type`,`key`,`value` FROM `ln_config` 
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+NOTIC: [2] Missing argument 3 for Api\Controller\PublicApiController::checkPhoneVerify(), called in C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\PublicController.class.php on line 600 and defined C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Api\Controller\PublicApiController.class.php 第 194 行.
+SQL: SHOW COLUMNS FROM `ln_sms_message` [ RunTime:0.014258s ]
+SQL: SELECT * FROM `ln_sms_message` WHERE ( `sms_code` = '2646' ) AND ( `mobile` = '13717701687' ) AND ( `add_time` >= 1720454968 ) LIMIT 1   [ RunTime:0.000413s ]
+
+[ 2024-07-09T00:14:47+08:00 ] 113.248.232.60 /Home/Public/register/type/2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000714s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001228s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002127s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.023932s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000665s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000094s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000192s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.012146s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012252s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000664s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000736s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000766s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000842s ]
+
+[ 2024-07-09T00:14:55+08:00 ] 113.248.232.60 /Home/Public/getCode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000826s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001052s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002078s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.018706s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000571s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.013366s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ln_user` WHERE ( phone=13717701687 ) LIMIT 1   [ RunTime:0.000455s ]
+NOTIC: [2] error_log(./logs/sms_error2024_07_09.log): failed to open stream: No such file or directory C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Common\Common\function.php 第 48 行.
+NOTIC: [8] Undefined index: code C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\PublicController.class.php 第 330 行.
+SQL: SHOW COLUMNS FROM `ln_sms_message` [ RunTime:0.013191s ]
+SQL: INSERT INTO `ln_sms_message` (`mobile`,`sms_code`,`add_time`,`sms_content`) VALUES ('13717701687',9219,1720455295,'您正在绑定手机,验证码是9219，请于30分钟内输入，工作人员不会向您索取，请勿泄露。') [ RunTime:0.002217s ]
+
+[ 2024-07-09T00:24:12+08:00 ] ::1 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001175s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003959s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006904s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.027682s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001096s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.016407s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.019572s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000598s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.014363s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000699s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000454s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001075s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.174562s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.175158s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000935s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001524s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001123s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001801s ]
+
+[ 2024-07-09T00:24:16+08:00 ] ::1 /Home/Public/register/type/2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000795s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005026s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.025144s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000680s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000311s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001004s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.022158s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022876s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000851s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001454s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001095s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001679s ]
+
+[ 2024-07-09T00:24:56+08:00 ] ::1 /Home/Public/getCode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001001s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002935s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004965s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.025205s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000798s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.018531s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ln_user` WHERE ( phone=13717701687 ) LIMIT 1   [ RunTime:0.000811s ]
+NOTIC: [2] error_log(./logs/sms_error2024_07_09.log): failed to open stream: No such file or directory C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Common\Common\function.php 第 48 行.
+NOTIC: [8] Undefined index: code C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\PublicController.class.php 第 330 行.
+SQL: SHOW COLUMNS FROM `ln_sms_message` [ RunTime:0.016462s ]
+SQL: INSERT INTO `ln_sms_message` (`mobile`,`sms_code`,`add_time`,`sms_content`) VALUES ('13717701687',5278,1720455896,'您正在绑定手机,验证码是5278，请于30分钟内输入，工作人员不会向您索取，请勿泄露。') [ RunTime:0.003007s ]
+
+[ 2024-07-09T00:25:22+08:00 ] ::1 /Home/Public/register/type/2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001256s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003655s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006437s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.046460s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001093s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000365s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001424s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.030697s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031892s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001318s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002246s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001413s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002660s ]
+
+[ 2024-07-09T00:25:28+08:00 ] ::1 /Home/Public/getCode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000726s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002432s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003893s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.017218s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000880s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.018420s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ln_user` WHERE ( phone=13717701687 ) LIMIT 1   [ RunTime:0.000705s ]
+NOTIC: [2] error_log(./logs/sms_error2024_07_09.log): failed to open stream: No such file or directory C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Common\Common\function.php 第 48 行.
+NOTIC: [8] Undefined index: code C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\PublicController.class.php 第 330 行.
+SQL: SHOW COLUMNS FROM `ln_sms_message` [ RunTime:0.015946s ]
+SQL: INSERT INTO `ln_sms_message` (`mobile`,`sms_code`,`add_time`,`sms_content`) VALUES ('13717701687',1354,1720455928,'您正在绑定手机,验证码是1354，请于30分钟内输入，工作人员不会向您索取，请勿泄露。') [ RunTime:0.002297s ]
+
+[ 2024-07-09T00:27:22+08:00 ] ::1 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001453s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.004682s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007725s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.023954s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000911s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.015218s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000552s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.014027s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000529s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.013201s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000673s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000657s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001645s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.177827s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.178672s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001085s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001804s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001272s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002011s ]
+
+[ 2024-07-09T00:27:25+08:00 ] ::1 /Home/Public/register/type/2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000831s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002831s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004611s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.018434s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000670s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000306s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001862s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.027526s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028515s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000945s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001755s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001400s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002440s ]
+
+[ 2024-07-09T00:27:32+08:00 ] ::1 /Home/Public/getCode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000796s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002745s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004318s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.021035s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001102s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.014430s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ln_user` WHERE ( phone=13717701687 ) LIMIT 1   [ RunTime:0.000655s ]
+NOTIC: [2] error_log(./logs/sms_error2024_07_09.log): failed to open stream: No such file or directory C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Common\Common\function.php 第 48 行.
+NOTIC: [8] Undefined index: code C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\PublicController.class.php 第 330 行.
+SQL: SHOW COLUMNS FROM `ln_sms_message` [ RunTime:0.020380s ]
+SQL: INSERT INTO `ln_sms_message` (`mobile`,`sms_code`,`add_time`,`sms_content`) VALUES ('13717701687',3983,1720456052,'您正在绑定手机,验证码是3983，请于30分钟内输入，工作人员不会向您索取，请勿泄露。') [ RunTime:0.002925s ]
+
+[ 2024-07-09T00:37:41+08:00 ] ::1 /Home/Card/sellcard
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001122s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002967s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005229s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.022571s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000866s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.078750s ]
+SQL: SELECT `id`,`name`,`photo_path` FROM `ln_card_type`  [ RunTime:0.000769s ]
+SQL: SHOW COLUMNS FROM `ln_card` [ RunTime:0.022178s ]
+SQL: SELECT `id`,`name`,`photo_path`,`sale_proportion`,`introduce`,`openpassword`,`cardexample`,`zdy_proportion`,`type_id`,`offline`,`is_entitycard` FROM `ln_card` WHERE ( `type_id` = 110 )  [ RunTime:0.016942s ]
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.028492s ]
+SQL: SELECT * FROM `ln_user` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000861s ]
+SQL: SHOW COLUMNS FROM `ln_card_price` [ RunTime:0.017113s ]
+SQL: SELECT * FROM `ln_card_price` WHERE ( `card_id` = 2 )  [ RunTime:0.000764s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000835s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001555s ]
+NOTIC: [2] Illegal string offset 'cardexample' C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Runtime\Cache\Home\a2bb08ef00da182ca9e9b9219b95c53f.php 第 292 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.415653s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.416521s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001270s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001483s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002259s ]
+
+[ 2024-07-09T00:37:45+08:00 ] ::1 /Home/Public/register/type/2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000878s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005374s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.021641s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000639s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000310s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000942s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.028869s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029673s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001140s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001941s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001317s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002100s ]
+
+[ 2024-07-09T00:37:53+08:00 ] ::1 /Home/Public/getCode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000876s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002724s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004532s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.017716s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000932s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.026079s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ln_user` WHERE ( phone=13717701687 ) LIMIT 1   [ RunTime:0.000630s ]
+NOTIC: [2] error_log(./logs/sms_error2024_07_09.log): failed to open stream: No such file or directory C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Common\Common\function.php 第 48 行.
+NOTIC: [8] Undefined index: code C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\PublicController.class.php 第 330 行.
+SQL: SHOW COLUMNS FROM `ln_sms_message` [ RunTime:0.015635s ]
+SQL: INSERT INTO `ln_sms_message` (`mobile`,`sms_code`,`add_time`,`sms_content`) VALUES ('13717701687',9531,1720456673,'您正在绑定手机,验证码是9531，请于30分钟内输入，工作人员不会向您索取，请勿泄露。') [ RunTime:0.002698s ]
+
+[ 2024-07-09T00:44:39+08:00 ] ::1 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001493s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003537s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006538s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.016249s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001249s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.017961s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000737s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.015094s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000743s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.025664s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000701s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000663s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001706s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.241034s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.242189s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001189s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002179s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002071s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003316s ]
+
+[ 2024-07-09T00:44:41+08:00 ] ::1 /Home/Public/register/type/2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001246s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003662s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006433s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.022240s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001237s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000578s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001467s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.027204s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028332s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001100s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002027s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001773s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003090s ]
+
+[ 2024-07-09T00:44:47+08:00 ] ::1 /Home/Public/getCode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001587s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.004099s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007235s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.034757s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001447s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.016872s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ln_user` WHERE ( phone=13717701687 ) LIMIT 1   [ RunTime:0.000758s ]
+NOTIC: [2] error_log(./logs/sms_error2024_07_09.log): failed to open stream: No such file or directory C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Common\Common\function.php 第 48 行.
+NOTIC: [8] Undefined index: code C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\PublicController.class.php 第 330 行.
+SQL: SHOW COLUMNS FROM `ln_sms_message` [ RunTime:0.015902s ]
+SQL: INSERT INTO `ln_sms_message` (`mobile`,`sms_code`,`add_time`,`sms_content`) VALUES ('13717701687',3849,1720457087,'您正在绑定手机,验证码是3849，请于30分钟内输入，工作人员不会向您索取，请勿泄露。') [ RunTime:0.002347s ]
+
+[ 2024-07-09T00:47:03+08:00 ] ::1 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001695s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.005124s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009088s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.031359s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001117s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.017269s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000816s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.016090s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000652s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.018944s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000743s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000679s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001600s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.185522s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.186921s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.002156s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003594s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001581s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002674s ]
+
+[ 2024-07-09T00:47:05+08:00 ] ::1 /Home/Public/register/type/2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001053s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003179s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005739s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.029526s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000861s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000505s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001391s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.038171s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039343s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001025s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001952s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001261s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002157s ]
+
+[ 2024-07-09T00:47:11+08:00 ] ::1 /Home/Public/getCode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001088s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003628s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006164s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.019254s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001118s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.018271s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ln_user` WHERE ( phone=13717701687 ) LIMIT 1   [ RunTime:0.000879s ]
+NOTIC: [2] error_log(./logs/sms_error2024_07_09.log): failed to open stream: No such file or directory C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Common\Common\function.php 第 48 行.
+NOTIC: [8] Undefined index: code C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\PublicController.class.php 第 330 行.
+SQL: SHOW COLUMNS FROM `ln_sms_message` [ RunTime:0.014850s ]
+SQL: INSERT INTO `ln_sms_message` (`mobile`,`sms_code`,`add_time`,`sms_content`) VALUES ('13717701687',9356,1720457231,'您正在绑定手机,验证码是9356，请于30分钟内输入，工作人员不会向您索取，请勿泄露。') [ RunTime:0.001910s ]
+
+[ 2024-07-09T00:48:09+08:00 ] ::1 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001313s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.007531s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011025s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.046795s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001365s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost:9003): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.017399s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000826s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.015614s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000738s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.014315s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000666s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000773s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001852s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.204625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.205561s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001401s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002276s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001557s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003145s ]
+
+[ 2024-07-09T00:48:11+08:00 ] ::1 /Home/Public/register/type/2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.002230s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003255s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007513s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.024956s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000914s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost:9003): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000560s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001566s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.032547s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033876s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001281s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002283s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001390s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002765s ]
+
+[ 2024-07-09T00:49:14+08:00 ] ::1 /Home/Public/getCode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000996s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003756s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006051s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.014144s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000827s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=localhost:9003): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.015391s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ln_user` WHERE ( phone=13717701687 ) LIMIT 1   [ RunTime:0.000680s ]
+
+[ 2024-07-09T02:05:51+08:00 ] 172.169.207.233 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001017s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002215s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004275s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.024453s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000899s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.018041s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000577s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.017714s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000599s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.014361s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000548s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000426s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001099s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.183536s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.184316s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001190s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001143s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001876s ]
+
+[ 2024-07-09T02:47:50+08:00 ] 141.98.83.197 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001165s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003234s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005587s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.024601s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001229s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.015894s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000611s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.017169s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000524s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.014553s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000736s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000412s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000908s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.162193s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.162709s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000950s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001434s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001129s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001621s ]
+
+[ 2024-07-09T02:50:09+08:00 ] 46.174.191.28 /
+NOTIC: [8] Undefined index: HTTP_HOST C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Common\Conf\oauth.php 第 14 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001147s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002740s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005020s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.018314s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001033s ]
+NOTIC: [8] Undefined index: HTTP_HOST C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 42 行.
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.014245s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000525s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.012734s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000733s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.012820s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000646s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000435s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001090s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.151412s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.152005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000930s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001503s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001106s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001679s ]
+
+[ 2024-07-09T03:19:29+08:00 ] 182.44.8.254 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001058s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002992s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005024s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.026453s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001087s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.016983s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000597s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.016484s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.014775s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000660s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000463s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001096s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.170012s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.170666s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001321s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002105s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001765s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002588s ]
+
+[ 2024-07-09T03:44:04+08:00 ] 141.98.83.197 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001003s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002324s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004083s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.024137s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001012s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.021559s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000527s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.012707s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000644s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.012097s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000508s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000472s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001186s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.166197s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.166720s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001018s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001509s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001650s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002267s ]
+
+[ 2024-07-09T04:48:31+08:00 ] 141.98.83.197 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.035293s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.004228s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.040383s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.018069s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000917s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.023186s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000826s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.015067s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000602s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.015446s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000571s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000512s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001046s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.420049s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.420586s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.035785s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.036299s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.024170s ]
+INFO: [ app_end ] --END-- [ RunTime:0.024714s ]
+
+[ 2024-07-09T05:01:40+08:00 ] 185.224.128.43 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001040s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004163s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.039375s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001049s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.014887s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000542s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.013886s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000534s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.012478s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000546s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000424s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000958s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.176893s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.177430s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001029s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001509s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001172s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001687s ]
+
+[ 2024-07-09T05:06:37+08:00 ] 198.235.24.114 /
+NOTIC: [8] Undefined index: HTTP_HOST C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Common\Conf\oauth.php 第 14 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001488s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.004475s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006908s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.018426s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000910s ]
+NOTIC: [8] Undefined index: HTTP_HOST C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 42 行.
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.015842s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.015200s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000586s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.013281s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000522s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000418s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001196s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.190547s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.191475s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001102s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001687s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001179s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001845s ]
+
+[ 2024-07-09T05:32:26+08:00 ] 141.98.83.197 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001044s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004174s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.034744s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000998s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.026841s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000624s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.029172s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000585s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.026966s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000638s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000507s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001177s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.187167s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.187743s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001042s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001615s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001056s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001653s ]
+
+[ 2024-07-09T05:33:37+08:00 ] 92.249.48.202 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001134s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006226s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.037600s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000922s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.018210s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000626s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.016653s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.015617s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000508s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000415s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000978s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.182791s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.183347s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001018s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001822s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001361s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002102s ]
+
+[ 2024-07-09T06:06:52+08:00 ] 78.153.140.179 /.env
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001357s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003263s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005967s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.033446s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000906s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.017889s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000642s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.013834s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000613s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.014735s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000560s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000412s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001039s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.180980s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.181809s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001053s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001671s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001295s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001958s ]
+
+[ 2024-07-09T06:42:12+08:00 ] 185.109.55.190 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001217s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002628s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004845s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.033394s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000901s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132:80): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.014405s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000568s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.013414s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000546s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.012715s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000522s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000452s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001091s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.166594s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.167207s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000947s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001522s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001161s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001782s ]
+
+[ 2024-07-09T07:04:41+08:00 ] 34.79.162.186 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001110s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002781s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004958s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.030256s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000965s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.024514s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000549s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.016857s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000581s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.015772s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000574s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000434s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001222s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.187738s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.188421s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001080s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001659s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001088s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001699s ]
+
+[ 2024-07-09T07:06:44+08:00 ] 164.52.25.194 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001102s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003417s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005530s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.033288s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000970s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.016277s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000602s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.014995s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000586s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.013928s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000545s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000591s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001807s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.171293s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.171916s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000976s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001610s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001122s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001740s ]
+
+[ 2024-07-09T07:06:49+08:00 ] 164.52.25.194 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001045s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004457s ]
+NOTIC: [8] Undefined index: HTTP_USER_AGENT C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\HomeCommonController.class.php 第 27 行.
+NOTIC: [8] Undefined index: HTTP_USER_AGENT C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Common\function.php 第 150 行.
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.025760s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000692s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.015206s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000592s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.016182s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000523s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.014094s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000602s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000427s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001065s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.157652s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.158308s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001010s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001633s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001059s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001889s ]
+
+[ 2024-07-09T07:17:01+08:00 ] 162.216.150.142 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001768s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002967s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006101s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.034748s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001138s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132:80): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.014497s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000514s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.014158s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.014038s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000543s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000470s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001393s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.172651s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.173407s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000991s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001597s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001355s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002056s ]
+
+[ 2024-07-09T07:30:41+08:00 ] 141.98.83.197 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001078s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002478s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004469s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.035893s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001106s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.015402s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000651s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.014793s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000565s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.014998s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000554s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000470s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001008s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.167855s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.168428s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001052s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001566s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001223s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001915s ]
+
+[ 2024-07-09T08:01:54+08:00 ] 172.169.110.110 
+NOTIC: [8] Undefined index: HTTP_HOST C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Common\Conf\oauth.php 第 14 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001080s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002442s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004509s ]
+NOTIC: [8] Undefined index: HTTP_USER_AGENT C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\HomeCommonController.class.php 第 27 行.
+NOTIC: [8] Undefined index: HTTP_USER_AGENT C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Common\function.php 第 150 行.
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.022255s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001075s ]
+NOTIC: [8] Undefined index: HTTP_HOST C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 42 行.
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.015931s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000666s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.014750s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000623s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.013350s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000525s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000414s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001079s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.194544s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.195179s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001134s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001763s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001217s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001838s ]
+
+[ 2024-07-09T08:03:07+08:00 ] 64.62.197.48 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000970s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002487s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004421s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.033401s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001090s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.017112s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000703s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.014671s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000583s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.012873s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000593s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000433s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001049s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.184437s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.185102s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001133s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001829s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001321s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002070s ]
+
+[ 2024-07-09T08:19:04+08:00 ] 141.98.83.197 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001051s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002201s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004096s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.036527s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000930s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.015462s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000543s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.012620s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000576s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.013013s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000574s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000438s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000965s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.182198s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.182802s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001080s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001634s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001072s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001621s ]
+
+[ 2024-07-09T09:41:17+08:00 ] 185.224.128.43 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001810s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005142s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.041362s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001372s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.023304s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000667s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.015253s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000733s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.015666s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000695s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000497s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001049s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.188075s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.188674s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001430s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002346s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001332s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001945s ]
+
+[ 2024-07-09T10:30:43+08:00 ] 92.249.48.202 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001237s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004521s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.058403s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001574s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.021423s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.015710s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000642s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.021253s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000960s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000721s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001668s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.229230s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.230247s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001855s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002999s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001727s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002619s ]
+
+[ 2024-07-09T10:34:50+08:00 ] 83.97.73.245 /?XDEBUG_SESSION_START=phpstorm
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001321s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005970s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.040945s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000974s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132:80): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.016087s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000759s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.014747s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000711s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.012181s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000583s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000634s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001439s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.177373s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.178201s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001089s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001824s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001265s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002024s ]
+
+[ 2024-07-09T10:43:28+08:00 ] 141.98.83.197 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001265s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002391s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004646s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.038903s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001399s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.016754s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000569s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.013614s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000821s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.012599s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000536s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000524s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001256s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.187957s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.188618s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001125s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001765s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001096s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001690s ]
+
+[ 2024-07-09T11:08:41+08:00 ] 154.40.60.18 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001146s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003155s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005414s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.021435s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000910s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.017459s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000642s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.016032s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000792s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.015099s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000607s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000456s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001197s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.187742s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.188406s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001418s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002246s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001553s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002288s ]
+
+[ 2024-07-09T11:08:50+08:00 ] 101.226.140.177 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001353s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003124s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005817s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.020647s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000629s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.015661s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000603s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.013176s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000595s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.015069s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000635s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000441s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001119s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.162054s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.162744s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000976s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001634s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001193s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002064s ]
+
+[ 2024-07-09T11:20:37+08:00 ] 154.40.60.18 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001617s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.003075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006341s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.039741s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001331s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.017297s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.014551s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000613s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.012771s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000609s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000454s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001128s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.193561s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.194267s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000985s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001696s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001158s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001878s ]
+
+[ 2024-07-09T11:20:41+08:00 ] 154.40.60.18 /Home/Public/register/type/2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001082s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004619s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.015946s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000779s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000395s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001120s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.025187s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026118s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001076s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001767s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001122s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001844s ]
+
+[ 2024-07-09T11:20:50+08:00 ] 154.40.60.18 /Home/Public/getCode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001179s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002617s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004859s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.021971s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000740s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.025620s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ln_user` WHERE ( phone=13717701687 ) LIMIT 1   [ RunTime:0.000705s ]
+NOTIC: [2] error_log(./logs/sms_error2024_07_09.log): failed to open stream: No such file or directory C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Common\Common\function.php 第 48 行.
+NOTIC: [8] Undefined index: code C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\PublicController.class.php 第 330 行.
+SQL: SHOW COLUMNS FROM `ln_sms_message` [ RunTime:0.016264s ]
+SQL: INSERT INTO `ln_sms_message` (`mobile`,`sms_code`,`add_time`,`sms_content`) VALUES ('13717701687',7623,1720495250,'您正在绑定手机,验证码是7623，请于30分钟内输入，工作人员不会向您索取，请勿泄露。') [ RunTime:0.002818s ]
+
+[ 2024-07-09T11:21:09+08:00 ] 154.40.60.18 /Home/Public/register_ajax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000998s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002722s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004631s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.031231s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.001203s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.015948s ]
+SQL: SELECT `type`,`key`,`value` FROM `ln_config`  [ RunTime:0.000591s ]
+ERR: 1054:Unknown column 'key' in 'field list'
+ [ SQL语句 ] : SELECT `type`,`key`,`value` FROM `ln_config` 
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+NOTIC: [2] Missing argument 3 for Api\Controller\PublicApiController::checkPhoneVerify(), called in C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Home\Controller\PublicController.class.php on line 600 and defined C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Application\Api\Controller\PublicApiController.class.php 第 194 行.
+SQL: SHOW COLUMNS FROM `ln_sms_message` [ RunTime:0.018311s ]
+SQL: SELECT * FROM `ln_sms_message` WHERE ( `sms_code` = '7623' ) AND ( `mobile` = '13717701687' ) AND ( `add_time` >= 1720494968 ) LIMIT 1   [ RunTime:0.000831s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ln_user` WHERE ( phone=13717701687 ) LIMIT 1   [ RunTime:0.000655s ]
+SQL: INSERT INTO `ln_user` (`username`,`phone`,`password`,`add_time`) VALUES ('13717701687','13717701687','57ba172a6be125cca2f449826f9980ca',1720495269) [ RunTime:0.003005s ]
+SQL: SELECT * FROM `ln_user` WHERE ( phone=13717701687 ) LIMIT 1   [ RunTime:0.000675s ]
+
+[ 2024-07-09T11:21:13+08:00 ] 154.40.60.18 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001013s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002642s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004592s ]
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.017730s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000684s ]
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&amp;domain=206.237.30.132): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.016719s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000566s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.014037s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000488s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.015638s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000519s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000468s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001149s ]
+NOTIC: [8] Undefined variable: is_login C:\Users\Administrator\Documents\GitHub\giftcard_sell_site\web\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 302 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.181188s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.181882s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001098s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001941s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001170s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001855s ]
+

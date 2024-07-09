@@ -327,7 +327,7 @@ class PublicController extends HomeCommonController {
             $mobile = $username;
             $content = "您正在绑定手机,验证码是".$code."，请于30分钟内输入，工作人员不会向您索取，请勿泄露。";
             $res = sendMessageRequest($mobile,$content);
-            if($res['status']==1){
+            if($res['code']==0){
                 session('phone_code',$code,'600');
                 session('phone_number',$mobile,'600');
                 $smsjudge = M('SmsMessage');

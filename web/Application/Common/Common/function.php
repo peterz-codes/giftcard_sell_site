@@ -727,14 +727,31 @@ function  return_status($status, $msg, $data=''){
     return $info;
 }
 
+//MD5签名
+function getSign($userName, $password)
+{
+    //时间戳
+    list($msec, $sec) = explode(' ', microtime());
+    $timestamp = (float) sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
+    //sign鉴权
+    $sign = md5($userName . strval($timestamp) . md5($password));
+ 
+    $jsonData = array();
+    $jsonData["userName"] = $userName;
+    $jsonData["timestamp"] = $timestamp;
+    $jsonData["sign"] = $sign;
+ 
+    return $jsonData;
+}
+ 
 function sendMessageRequest($mobile, $content) {
     /********参数配置区域start*********/
 
     $min_limit = 1; //每分钟限制条数
     $day_limit = 50; //每天短信限制条数
-    $sign = '【每天收卡】'; // 企业签名
-    $username = 'ln_mtskw'; // 用户名
-    $password = 'lnkj123'; // 密码
+    $sign = '【妙丙文化】'; // 企业签名
+    $username = 'chongqingmiaobing'; // 用户名
+    $password = 'XmUOvMyGd7ih'; // 密码
 
     /********参数配置区域end*********/
 
@@ -758,9 +775,10 @@ function sendMessageRequest($mobile, $content) {
     /**********短信条数限制处理区域end*******/
     $phone = $mobile; // 目标号码
 //    $url = "http://api.ykqxt.com/yksmservice.asmx/SendSMAsArray";
-    $url = "http://www.dxcxpt.com:8088/v2sms.aspx";
+    $url = "http://182.92.105.3:8001/sms/api/sendMessageOne";
     //$content = $content; // 短信内容
-    $content = urlencode($sign . $content); // 短信内容之后添加企业签名，同时进行UrlEncode转码
+    //$content = urlencode($sign . $content); // 短信内容之后添加企业签名，同时进行UrlEncode转码
+    $content = $sign . $content;
     // $pipeid = '';
     $istimer = 'FALSE';
 //    $timerset = date('Y-m-d H:i:s', time());
@@ -768,14 +786,32 @@ function sendMessageRequest($mobile, $content) {
     $sign_p=md5($username.$password.date("YmdHis"));
     $identifyNum = '';
 
+    $postdata = array();
+    //短信内容
+    $messageList = [
+        [
+            "phone" => $mobile,
+            "content" => $content
+        ]
+    ];
+    $postdata = getSign($username, $password);
+    $postdata["messageList"] = $messageList;
 //    $postdata = "username=$username&password=$password&phone=$phone&content=$content&pipeid=&istimer=$istimer&timerset=$timerset&identifyNum=$identifyNum";
-    $postdata = "userid=967&timestamp=$timerset&sign=$sign_p&mobile=$phone&content=$content&sendTime=&action=send&extno=";
+    $postdata = json_encode($postdata);
+
     $ch = curl_init();
+    curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt(
+        $ch,
+        CURLOPT_HTTPHEADER,
+        array(
+            'Content-Type: application/json; charset=utf-8',
+            'Content-Length: ' . strlen($postdata)
+        )
+    );
     $result = curl_exec($ch);
     curl_close($ch);
 
@@ -789,6 +825,7 @@ function sendMessageRequest($mobile, $content) {
     }
 
 }
+
 
 
 /**

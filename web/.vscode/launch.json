@@ -33,7 +33,7 @@
                 "-dxdebug.mode=debug",
                 "-dxdebug.start_with_request=yes",
                 "-S",
-                "localhost:80"
+                "localhost:9003"
             ],
             "program": "",
             "cwd": "${workspaceRoot}",

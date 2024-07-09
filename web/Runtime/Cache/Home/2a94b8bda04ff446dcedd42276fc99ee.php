@@ -40,7 +40,7 @@
             <div class="layout clear">
                 <div class="logo fl">
                     <a href="/">
-                    <img src="/Application/Home/Static/images/logo2.png" alt="">
+                    <img src="/Application/Home/Static/images/haoyigou.png" alt="">
                     </a>
                 </div>
                 <ul class="head_list fl">
