@@ -7538,3 +7538,534 @@ SQL: SELECT COUNT(*) AS tp_count FROM `ln_payment_record` WHERE ( flag=1 ) LIMIT
 SQL: SHOW COLUMNS FROM `ln_user` [ RunTime:0.000506s ]
 SQL: SELECT COUNT(*) AS tp_count FROM `ln_user` WHERE ( is_permission=2 ) LIMIT 1   [ RunTime:0.000058s ]
 
+[ 2024-07-02T22:05:20+08:00 ]  
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\Application\Common\Conf\oauth.php 第 14 行.
+NOTIC: [8] Undefined index: REQUEST_URI D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Dispatcher.class.php 第 140 行.
+NOTIC: [8] Undefined index: REQUEST_METHOD D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\App.class.php 第 30 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000185s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000491s ]
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Controller\HomeCommonController.class.php 第 27 行.
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Common\function.php 第 150 行.
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.000653s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000114s ]
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 42 行.
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&domain=): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.009994s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000191s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.000750s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000174s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.000918s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000155s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 31 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant __MODULE__ - assumed '__MODULE__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 33 行.
+NOTIC: [8] Use of undefined constant __ACTION__ - assumed '__ACTION__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 34 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 36 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 37 行.
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 38 行.
+INFO: Run Behavior\ContentReplace [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000119s ]
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.010641s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010669s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000123s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000136s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000170s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000183s ]
+
+[ 2024-07-02T22:05:30+08:00 ]  
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\Application\Common\Conf\oauth.php 第 14 行.
+NOTIC: [8] Undefined index: REQUEST_URI D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Dispatcher.class.php 第 140 行.
+NOTIC: [8] Undefined index: REQUEST_METHOD D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\App.class.php 第 30 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000164s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000459s ]
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Controller\HomeCommonController.class.php 第 27 行.
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Common\function.php 第 150 行.
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.001034s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000146s ]
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 42 行.
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&domain=): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.012424s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000553s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.002250s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000257s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.001739s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000339s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 31 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant __MODULE__ - assumed '__MODULE__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 33 行.
+NOTIC: [8] Use of undefined constant __ACTION__ - assumed '__ACTION__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 34 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 36 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 37 行.
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 38 行.
+INFO: Run Behavior\ContentReplace [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000117s ]
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.014831s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014888s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000103s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000115s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000163s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000178s ]
+
+[ 2024-07-02T22:05:40+08:00 ]  
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\Application\Common\Conf\oauth.php 第 14 行.
+NOTIC: [8] Undefined index: REQUEST_URI D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Dispatcher.class.php 第 140 行.
+NOTIC: [8] Undefined index: REQUEST_METHOD D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\App.class.php 第 30 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000167s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000461s ]
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Controller\HomeCommonController.class.php 第 27 行.
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Common\function.php 第 150 行.
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.001302s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000150s ]
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 42 行.
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&domain=): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.012757s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000636s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.002767s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000324s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.002224s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000354s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 31 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant __MODULE__ - assumed '__MODULE__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 33 行.
+NOTIC: [8] Use of undefined constant __ACTION__ - assumed '__ACTION__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 34 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 36 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 37 行.
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 38 行.
+INFO: Run Behavior\ContentReplace [ RunTime:0.000106s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000132s ]
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.014643s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014686s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000128s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000145s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000203s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000220s ]
+
+[ 2024-07-02T22:05:57+08:00 ]  
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\Application\Common\Conf\oauth.php 第 14 行.
+NOTIC: [8] Undefined index: REQUEST_URI D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Dispatcher.class.php 第 140 行.
+NOTIC: [8] Undefined index: REQUEST_METHOD D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\App.class.php 第 30 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000165s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000468s ]
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Controller\HomeCommonController.class.php 第 27 行.
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Common\function.php 第 150 行.
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.000824s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000120s ]
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 42 行.
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&domain=): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.010090s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000130s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.000758s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000079s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.000695s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000073s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 31 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant __MODULE__ - assumed '__MODULE__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 33 行.
+NOTIC: [8] Use of undefined constant __ACTION__ - assumed '__ACTION__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 34 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 36 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 37 行.
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 38 行.
+INFO: Run Behavior\ContentReplace [ RunTime:0.000095s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000116s ]
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007491s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007508s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000103s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000117s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000166s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000181s ]
+
+[ 2024-07-02T22:05:59+08:00 ]  
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\Application\Common\Conf\oauth.php 第 14 行.
+NOTIC: [8] Undefined index: REQUEST_URI D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Dispatcher.class.php 第 140 行.
+NOTIC: [8] Undefined index: REQUEST_METHOD D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\App.class.php 第 30 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000157s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000452s ]
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Controller\HomeCommonController.class.php 第 27 行.
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Common\function.php 第 150 行.
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.001365s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000141s ]
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 42 行.
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&domain=): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.003939s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000563s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.002915s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000404s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.002372s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000290s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 31 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant __MODULE__ - assumed '__MODULE__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 33 行.
+NOTIC: [8] Use of undefined constant __ACTION__ - assumed '__ACTION__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 34 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 36 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 37 行.
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 38 行.
+INFO: Run Behavior\ContentReplace [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000114s ]
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.012982s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013021s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000105s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000119s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000166s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000180s ]
+
+[ 2024-07-02T22:06:01+08:00 ]  
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\Application\Common\Conf\oauth.php 第 14 行.
+NOTIC: [8] Undefined index: REQUEST_URI D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Dispatcher.class.php 第 140 行.
+NOTIC: [8] Undefined index: REQUEST_METHOD D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\App.class.php 第 30 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000161s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000459s ]
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Controller\HomeCommonController.class.php 第 27 行.
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Common\function.php 第 150 行.
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.000662s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000122s ]
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 42 行.
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&domain=): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.010584s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000417s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.002366s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000412s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.002348s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000642s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 31 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant __MODULE__ - assumed '__MODULE__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 33 行.
+NOTIC: [8] Use of undefined constant __ACTION__ - assumed '__ACTION__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 34 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 36 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 37 行.
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 38 行.
+INFO: Run Behavior\ContentReplace [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000117s ]
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.012787s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012820s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000105s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000119s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000161s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000175s ]
+
+[ 2024-07-02T22:06:12+08:00 ]  
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\Application\Common\Conf\oauth.php 第 14 行.
+NOTIC: [8] Undefined index: REQUEST_URI D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Dispatcher.class.php 第 140 行.
+NOTIC: [8] Undefined index: REQUEST_METHOD D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\App.class.php 第 30 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000165s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000480s ]
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Controller\HomeCommonController.class.php 第 27 行.
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Common\function.php 第 150 行.
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.001282s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000142s ]
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 42 行.
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&domain=): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.002205s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000382s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.002404s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000334s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.001957s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000531s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 31 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant __MODULE__ - assumed '__MODULE__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 33 行.
+NOTIC: [8] Use of undefined constant __ACTION__ - assumed '__ACTION__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 34 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 36 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 37 行.
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 38 行.
+INFO: Run Behavior\ContentReplace [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000117s ]
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.010363s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010394s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000117s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000132s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000172s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000187s ]
+
+[ 2024-07-02T22:06:15+08:00 ]  
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\Application\Common\Conf\oauth.php 第 14 行.
+NOTIC: [8] Undefined index: REQUEST_URI D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Dispatcher.class.php 第 140 行.
+NOTIC: [8] Undefined index: REQUEST_METHOD D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\App.class.php 第 30 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000158s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000254s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000449s ]
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Controller\HomeCommonController.class.php 第 27 行.
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Common\function.php 第 150 行.
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.001249s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000133s ]
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 42 行.
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&domain=): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.012060s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000500s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.003050s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000344s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.002424s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000383s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 31 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant __MODULE__ - assumed '__MODULE__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 33 行.
+NOTIC: [8] Use of undefined constant __ACTION__ - assumed '__ACTION__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 34 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 36 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 37 行.
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 38 行.
+INFO: Run Behavior\ContentReplace [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000118s ]
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.014594s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014640s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000104s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000118s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000167s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000181s ]
+
+[ 2024-07-02T22:06:23+08:00 ]  
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\Application\Common\Conf\oauth.php 第 14 行.
+NOTIC: [8] Undefined index: REQUEST_URI D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Dispatcher.class.php 第 140 行.
+NOTIC: [8] Undefined index: REQUEST_METHOD D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\App.class.php 第 30 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000165s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000255s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000455s ]
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Controller\HomeCommonController.class.php 第 27 行.
+NOTIC: [8] Undefined index: HTTP_USER_AGENT D:\gift_card\giftcard_sell_site\web\Application\Home\Common\function.php 第 150 行.
+SQL: SHOW COLUMNS FROM `ln_config` [ RunTime:0.000964s ]
+SQL: SELECT `type`,`name`,`value` FROM `ln_config` WHERE ( `status` = 0 )  [ RunTime:0.000143s ]
+NOTIC: [8] Undefined index: HTTP_HOST D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 42 行.
+NOTIC: [2] file_get_contents(http://www.adminx.site/index.php/user/api/index?name=shouorka&domain=): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\Controller.class.php 第 44 行.
+SQL: SHOW COLUMNS FROM `ln_card_type` [ RunTime:0.012536s ]
+SQL: SELECT * FROM `ln_card_type`  [ RunTime:0.000411s ]
+SQL: SHOW COLUMNS FROM `ln_announcement` [ RunTime:0.002688s ]
+SQL: SELECT * FROM `ln_announcement` ORDER BY id desc LIMIT 1   [ RunTime:0.000657s ]
+SQL: SHOW COLUMNS FROM `ln_can_do` [ RunTime:0.003173s ]
+SQL: SELECT * FROM `ln_can_do` ORDER BY id asc  [ RunTime:0.000486s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 31 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant __MODULE__ - assumed '__MODULE__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 33 行.
+NOTIC: [8] Use of undefined constant __ACTION__ - assumed '__ACTION__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 34 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 36 行.
+NOTIC: [8] Use of undefined constant __CONTROLLER__ - assumed '__CONTROLLER__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 37 行.
+NOTIC: [8] Use of undefined constant __ROOT__ - assumed '__ROOT__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 38 行.
+INFO: Run Behavior\ContentReplace [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000115s ]
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+NOTIC: [8] Use of undefined constant __APP__ - assumed '__APP__' D:\gift_card\giftcard_sell_site\web\ThinkPHP\Common\functions.php 第 835 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.012962s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013011s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000108s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000122s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\gift_card\giftcard_sell_site\web\index.php:24) D:\gift_card\giftcard_sell_site\web\ThinkPHP\Library\Think\View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000166s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000180s ]
+
